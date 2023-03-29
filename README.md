@@ -1,4 +1,4 @@
-﻿# Stable Diffusion All-in-One Guides
+# Stable Diffusion All-in-One Guides
 ***by. Haoming 2023/03/29***
 
 ## What is Stable Diffusion?
@@ -108,25 +108,25 @@ Now you get a high resolution and detailed image!
 
 ## Advanced Functions
 
-### XYZ Plots
-*Coming Soon^TM^*
+### X/Y/Z Plot
+*Coming Soon*
 
 ### Control Net
-*Coming Soon^TM^*
+*Coming Soon*
 
 ### Extensions
-*Coming Soon^TM^*
+*Coming Soon*
 
 ## Training
 
 ### Embedding Training
-~~Use LoRA instead~~
+~~*Use LoRA instead*~~
 
 ### LoRA Training
-*Coming Soon^TM^*
+*Coming Soon*
 
 ### LyCORIS
-*Coming Soon^TM^*
+*Coming Soon*
 
 ## Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
