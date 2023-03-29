@@ -11,8 +11,13 @@ for FILE in os.listdir(FOLDER):
     with open(FOLDER + '/' + FILE, 'r') as f:
         lines = f.readlines()
 
-	tags = [word.strip() for word in lines[0].split(',')]
+    tags = [word.strip() for word in lines[0].split(',')]
     line = ', '.join(tags)
 
     with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(INSERT + ', ' + line)
+        if INSERT[-2:] == ', ':
+            f.writelines(INSERT + line)
+        elif INSERT[-1:] == ',':
+            f.writelines(INSERT + ' ' + line)
+        else:
+            f.writelines(INSERT + ', ' + line)

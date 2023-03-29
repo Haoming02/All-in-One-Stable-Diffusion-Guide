@@ -114,6 +114,9 @@ Now you get a high resolution and detailed image!
 ### Control Net
 *Coming Soon^TM^*
 
+### Extensions
+*Coming Soon^TM^*
+
 ## Training
 
 ### Embedding Training
@@ -121,3 +124,11 @@ Now you get a high resolution and detailed image!
 
 ### LoRA Training
 *Coming Soon^TM^*
+
+### LyCORIS
+*Coming Soon^TM^*
+
+## Resources
+- Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
+- YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
+- Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
