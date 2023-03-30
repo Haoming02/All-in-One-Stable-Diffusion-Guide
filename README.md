@@ -110,10 +110,15 @@ Now you get a high resolution and detailed image!
 There are tens of papers published for Stable Diffusion almost every single week. [Refer](#resources) to YouTube or Reddit for the latest news and technologies.
 
 ### X/Y/Z Plot
-[--- link ---](XYZ/XYZPlot.md)
+[<--- link --->](XYZ/README.md)
 
 ### Extensions
-*Coming Soon*
+Extensions are basically 3rd party tools which were not native to the webui, that aim to provide additional functions. 
+You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will generate a list of popular extensions. You can then click **Install** to integrate them.
+Alternatively, use `Install from URL` and paste in the link to a GitHub repo to install extensions not on the list. Some of the topics below require extensions.
+
+**Note:** Every time you install a new extension, you need to restart the webui to load them properly. 
+I recommand to close the browser and the cmd window and start again, cause only restarting the UI sometimes may not work. 
 
 ### Multiple Characters
 *Coming Soon*
@@ -121,7 +126,7 @@ There are tens of papers published for Stable Diffusion almost every single week
 ### Control Net
 *Coming Soon*
 
-## Training
+# Training
 
 ### Embedding Training
 ~~*Use LoRA instead*~~
@@ -129,7 +134,7 @@ There are tens of papers published for Stable Diffusion almost every single week
 - [Video by OlivioSarikas](https://youtu.be/MLz0iM0M7Fk)
 
 ### LoRA Training
-[--- link ---](LoRATraining.md)
+[<--- link --->](LoRATraining.md)
 
 ### LyCORIS
 [Github](https://github.com/KohakuBlueleaf/LyCORIS)

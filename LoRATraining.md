@@ -92,4 +92,4 @@ If you want technical explanations of what these parameters do, check out this [
 ## Press the **Train Model** button
 ~~And hope nothing explodes...~~
 
-After the training is finished, you can use [**`X/Y/Z Plot`**](XYZ/XYZPlot.md) to evaluate the results.
+After the training is finished, you can use [**`X/Y/Z Plot`**](XYZ/README.md) to evaluate the results.
