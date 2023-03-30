@@ -1,5 +1,5 @@
 # X/Y/Z Plot
-***by. Haoming 2023/03/29***
+***by. Haoming 2023/03/30***
 
 ## What is It
 This tool is extremely useful for doing **comparisons** as well as **evaluations** for models, prompts, settings, etc. 
@@ -13,6 +13,8 @@ There are 3 different axis, X/Y/Z. X axis will generate variations horizontally;
 For each Axis, you can choose a type as the variable in the left field, then enter the values to cycle through in the right field, seperated by comma.
 Some of the types (eg. `Checkpoint name`) show a yellow button that when clicked will populate the field with all values available, so you don't have to type them manually.
 Among the types, the most useful one for evaluations is `Prompt S/R`.
+
+**Note:** This does not require higher VRAM than normal, as it generates each image individually then combine them afterwards.
 
 ### Prompt S/R
 How it works is that: It searches through the prompts (both Positive and Negative), to look for the first value in the field. Then in each cycle, it replaces the value with other values in the field.
