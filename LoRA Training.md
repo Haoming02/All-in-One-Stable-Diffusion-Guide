@@ -46,7 +46,7 @@ Project
     |- 150_foo
         |- 01.png
         |- 01.txt
-    |- 150_bar_
+    |- 150_bar
         |- 04.png
         |- 04.txt
 - mdl
