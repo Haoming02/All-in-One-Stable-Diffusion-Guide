@@ -23,11 +23,11 @@ But those come with other problems, and will not be covered in this guide as Iâ€
 When you follow the steps and install the client, if you didnâ€™t download any model yourself beforehand, 
 then the script would download a model automatically for you. The model is `Stable-Diffusion-v1-5`, an official model made by **StabilityAI**. 
 And it is for general purposes, as in you can generate both realistic arts and anime arts. Though, if you mainly want to generate anime arts, 
-I suggest you to download more dedicated models, such as [`anything-v3.0`](https://huggingface.co/Linaqruf/anything-v3.0/tree/main), or ~~shameless self promotion~~ [`UHD-23`](https://civitai.com/models/22371/uhd-23).
+I suggest you to download more dedicated models, such as [anything-v3.0](https://huggingface.co/Linaqruf/anything-v3.0/tree/main), or ~~shameless self promotion~~ [UHD-23](https://civitai.com/models/22371/uhd-23).
 After downloading the model (`.ckpt` or `.safetensors`), put them in the folder: `~\stable-diffusion-webui\models\Stable-diffusion`.
 Then, you can select the model on the webui.
 
->`.safetensors` does not contain malicious codes, so always choose it if available
+>`.safetensors` cannot contain malicious codes, so always choose it if available
 
 ## Where can I find more Models?
 Nowadays, the most popular model hosting site is called [CivitAI](https://civitai.com/). 
@@ -57,7 +57,7 @@ check the page where you downloaded it to see more info. You can also adjust the
 - **`Extras`:** Upscale image
   - Use `R-ESRGAN 4x+ Anime6B` for anime generations
   - Use `R-ESRGAN_4x+` for realistic generations
-  - Alternatively, download [`4x-UltraSharp`](https://upscale.wiki/wiki/Model_Database) and put it into `~\stable-diffusion-webui\models\ESRGAN`
+  - Alternatively, download [4x-UltraSharp](https://upscale.wiki/wiki/Model_Database) and put it into `~\stable-diffusion-webui\models\ESRGAN`
   - Use `LDSR` for the best result. But it takes *extremely* long to process
   - You can upscale the image using both upscalers, then blend them together with `Upscaler 2 visibility`
 - **`PNG Info`:** You can upload an image to see what prompts were used to generate it *(provided that the metadata was not removed)*
@@ -106,7 +106,7 @@ Press the recycle icon to fix the `Seed`, then turn on `Hires. Fix` to upscale t
 so play around with the steps and strength until the result is desired. Lastly, go to `Extra` tab to upscale the image again. 
 Now you get a high resolution and detailed image!
 
-## Advanced Functions
+## Advanced Topics
 
 ### X/Y/Z Plot
 *Coming Soon*
@@ -115,6 +115,9 @@ Now you get a high resolution and detailed image!
 *Coming Soon*
 
 ### Extensions
+*Coming Soon*
+
+### Multiple Characters
 *Coming Soon*
 
 ## Training
@@ -132,3 +135,4 @@ Now you get a high resolution and detailed image!
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
 - Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
+- Webui [Features](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)
