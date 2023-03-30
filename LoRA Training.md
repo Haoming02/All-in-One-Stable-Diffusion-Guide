@@ -1,5 +1,5 @@
 # LoRA Training Tutorial
-***by. Haoming 2023/03/30***
+***by. [Haoming](https://civitai.com/user/HaomingGaming) 2023/03/30***
 
 ## Install Kohya SS
 Just like `Stable Diffusion`, there is already a popular webui available: [Kohya SS](https://github.com/bmaltais/kohya_ss), 
