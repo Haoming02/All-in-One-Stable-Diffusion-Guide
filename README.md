@@ -2,7 +2,7 @@
 ***by. Haoming 2023/03/29***
 
 ## What is Stable Diffusion?
-`Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but __**open source**__ and **free** to use. 
+`Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
 User can input prompts (keywords), and the AI will generate artworks based on those prompts. 
 Additionally, there are *a lot of* models and extensions available online for Stable Diffusion, 
 that can achieve different styles, concepts or functions.
@@ -126,7 +126,7 @@ Now you get a high resolution and detailed image!
 ~~*Use LoRA instead*~~
 
 ### LoRA Training
-*Coming Soon*
+[--- link ---](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/blob/main/LoRA%20Training.md)
 
 ### LyCORIS
 *Coming Soon*
