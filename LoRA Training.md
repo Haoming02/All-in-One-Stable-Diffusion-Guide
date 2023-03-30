@@ -31,7 +31,7 @@ The easiest way to mass caption all the images is to again use the **`Automatic1
 **Note:** If you didn't want to crop the images to square, just copy the original images to the destination folder and overwrite the cropped images. The caption will still work as long as the filenames are the same. 
 
 You’re not done yet! Now you need to go through every single `.txt` file and manually check the captions. You need to **remove** every tag that describes your subject, keeping only the tags that should be “variables.” Think of it this way: You want the tag of your subject to be associated with their features. 
-So do not caption something like hair color or eyes color, unless you want them to be able to change *(eg. when training a Style)*. Only caption the background, the expression of the subject, what pose the subject is in, for example. Last but not least, add the **trigger tags** in front of the captions. (You can use the [Insert.py](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/tree/main/Scripts) script to automate this.) The number of triggers has to be consistent across your dataset. For example, when I am training a character with multiple outfits, I put the character name first, then the outfit name, then the rest of tags.
+So do not caption something like hair color or eyes color, unless you want them to be able to change *(eg. when training a Style)*. Only caption the background, the expression of the subject, what pose the subject is in, for example. Last but not least, add the **trigger tags** in front of the captions. (You can use the [Insert.py](Scripts/) script to automate this.) The number of triggers has to be consistent across your dataset. For example, when I am training a character with multiple outfits, I put the character name first, then the outfit name, then the rest of tags.
 
 ### Folder Structures
 Create a folder named after your project. Inside it create 3 more folders, `img`, `mdl`, `log`. Inside the `img` folder create folders named in the format of `XXX_YYY`.
@@ -81,8 +81,8 @@ Enter the folders you created in the steps above. Remeber to link to the `img` f
 - **Network Rank:** How “complex” the subject is. I use `64` for most of my models. Increase this value if you need the model to learn more concepts.
 - **Network Alpha:** I set it to `16`. Refer to the document below for what it does.
 - **Max Resolution:** `512,512` or `768,768`, depending on your dataset.
-- **Enable Buckets:** Refer to [Resolution](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/blob/main/LoRA%20Training.md#resolution).
-- **Keep n tokens:** Refer to [Captioning](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/blob/main/LoRA%20Training.md#captioning). If you have 1 trigger word, set it to 1, etc.
+- **Enable Buckets:** Refer to [Resolution](#resolution).
+- **Keep n tokens:** Refer to [Captioning](#captioning). If you have 1 trigger word, set it to 1, etc.
 - **Clip Skip:** `1` for realistic; `2` for anime.
 - **Shuffle caption:** Enable
 - **Use xformers:** Enable
@@ -92,4 +92,4 @@ If you want technical explanations of what these parameters do, check out this d
 ## Press the **Train Model** button
 ~~And hope nothing explodes...~~
 
-After the training is finished, you can use [**`X/Y/Z Plot`**](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide#xyz-plot) to evaluate the results.
+After the training is finished, you can use [**`X/Y/Z Plot`**](README.md#xyz-plot) to evaluate the results.
