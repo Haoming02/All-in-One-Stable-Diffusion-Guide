@@ -81,8 +81,8 @@ Enter the folders you created in the steps above. Remeber to link to the `img` f
 - **Network Rank:** How “complex” the subject is. I use `64` for most of my models. Increase this value if you need the model to learn more concepts.
 - **Network Alpha:** I set it to `16`. Refer to the document below for what it does.
 - **Max Resolution:** `512,512` or `768,768`, depending on your dataset.
-- **Enable Buckets:** Refer to Resolution.
-- **Keep n tokens:** Refer to Captioning. If you have 1 trigger word, set it to 1, etc.
+- **Enable Buckets:** Refer to [Resolution](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/main/LoRA%20Training.md#resolution).
+- **Keep n tokens:** Refer to [Captioning](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/main/LoRA%20Training.md#captioning). If you have 1 trigger word, set it to 1, etc.
 - **Clip Skip:** `1` for realistic; `2` for anime.
 - **Shuffle caption:** Enable
 - **Use xformers:** Enable
@@ -92,4 +92,4 @@ If you want technical explanations of what these parameters do, check out this d
 ## Press the **Train Model** button
 ~~And hope nothing explodes...~~
 
-After the training is finished, you can use **`X/Y/Z Plot`** to evaluate the results.
+After the training is finished, you can use [**`X/Y/Z Plot`**](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide#xyz-plot) to evaluate the results.
