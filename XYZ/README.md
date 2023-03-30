@@ -28,8 +28,8 @@ Afterwards, you can quickly check what strength can produce the best results, an
 In the examples below, they all use the same prompts: `1girl, school_uniform, classroom, smile`
 - The first image uses `Sampler` for X axis; `Steps` for Y axis. 
 
-![Example 01](01.png)
+![Example 01](01.jpg)
 
 - The second image uses `Checkpoint name` for X axis; `CFG Scale` for Y axis. 
 
-![Example 02](02.png)
+![Example 02](02.jpg)

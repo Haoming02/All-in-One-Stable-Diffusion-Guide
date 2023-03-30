@@ -54,7 +54,7 @@ Project
 ```
 
 ## Configs
->Parmeters that were not mentioned can just be left on default.
+>Parameters that were not mentioned can just be left on default.
 
 >Remember to switch to the LoRA tab first.
 
