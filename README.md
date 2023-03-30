@@ -126,7 +126,7 @@ Now you get a high resolution and detailed image!
 ~~*Use LoRA instead*~~
 
 ### LoRA Training
-[--- link ---](https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/blob/main/LoRA%20Training.md)
+[--- link ---](LoRA%20Training.md)
 
 ### LyCORIS
 *Coming Soon*
