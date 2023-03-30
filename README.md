@@ -8,8 +8,8 @@ Additionally, there are *a lot of* models and extensions available online for St
 that can achieve different styles, concepts or functions.
 
 ## Where do I start?
-The easiest, best, and most straightforward way to use Stable Diffusion is through a client called [webui by Automatic1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
-It is also available for macOS w/ [Apple Silicon](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon) too apparently.
+The easiest, best, and most straightforward way to use Stable Diffusion is through a client called [webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) by **Automatic1111**. 
+It is also available for [macOS w/ Apple Silicon](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon) too apparently.
 You will need to download **[Python3.10](https://www.python.org/downloads/)** as well as **[git](https://git-scm.com/downloads)** first. 
 Then clone (download) the repository to a folder of choice. You will also need a decent graphic card (GPU) with high amount of VRAM. 
 Alternatively, there are also GoogleColab versions of the client that you can run online. 
@@ -57,7 +57,7 @@ check the page where you downloaded it to see more info. You can also adjust the
 - **`Extras`:** Upscale image
   - Use `R-ESRGAN 4x+ Anime6B` for anime generations
   - Use `R-ESRGAN_4x+` for realistic generations
-  - Alternatively, download [4x-UltraSharp](https://upscale.wiki/wiki/Model_Database) and put it into `~\stable-diffusion-webui\models\ESRGAN`
+  - Alternatively, you can download other models from [here](https://upscale.wiki/wiki/Model_Database) and put it into `~\stable-diffusion-webui\models\ESRGAN`
   - Use `LDSR` for the best result. But it takes *extremely* long to process
   - You can upscale the image using both upscalers, then blend them together with `Upscaler 2 visibility`
 - **`PNG Info`:** You can upload an image to see what prompts were used to generate it *(provided that the metadata was not removed)*
@@ -87,7 +87,7 @@ seed, you should be able to get the same output when using the same prompts and 
 1. If you’re using anime models (eg. `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip Skip`** to **`2`**.
 2. In positive prompt, start with `best quality, masterpiece,` for the best results.
 3. Download and install this embedding, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
-4. Add it to the negative prompt. *(You can experiment the results with and without this)*
+4. Add it to the **negative** prompt. *(You can experiment the results with and without this)*
 5. Optionally, you can then save the default prompts from step 2 and step 4 by clicking the save icon under **Generate** and give it a name. 
 In the future, every time you launch Stable Diffusion, you just need to load the Style.
 
@@ -107,12 +107,10 @@ so play around with the steps and strength until the result is desired. Lastly, 
 Now you get a high resolution and detailed image!
 
 ## Advanced Topics
+There are tens of papers published for Stable Diffusion almost every single week. [Refer](#resources) to YouTube or Reddit for the latest news and technologies.
 
 ### X/Y/Z Plot
-*Coming Soon*
-
-### Control Net
-*Coming Soon*
+[--- link ---](XYZ/XYZPlot.md)
 
 ### Extensions
 *Coming Soon*
@@ -120,18 +118,25 @@ Now you get a high resolution and detailed image!
 ### Multiple Characters
 *Coming Soon*
 
+### Control Net
+*Coming Soon*
+
 ## Training
 
 ### Embedding Training
 ~~*Use LoRA instead*~~
+- [Video by Aitrepreneur](https://youtu.be/2ityl_dNRNw)
+- [Video by OlivioSarikas](https://youtu.be/MLz0iM0M7Fk)
 
 ### LoRA Training
-[--- link ---](LoRA%20Training.md)
+[--- link ---](LoRATraining.md)
 
 ### LyCORIS
+[Github](https://github.com/KohakuBlueleaf/LyCORIS)
+
 *Coming Soon*
 
-## Resources
+# Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
 - Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
