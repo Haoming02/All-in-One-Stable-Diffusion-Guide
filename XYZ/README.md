@@ -10,7 +10,7 @@ In the **txt2img** and **img2img** tabs of the webui, you should see a **Script*
 
 ## How to Use
 There are 3 different axis, X/Y/Z. X axis will generate variations horizontally; Y axis will generate variations vertically; Z axis will generate another XY Grid separately.
-For each Axis, you can choose a type as the variable in the left field, then enter the values to cycle through in the right field, seperated by comma.
+For each Axis, you can choose a type as the variable in the left field, then enter the values to cycle through in the right field, separated by comma.
 Some of the types (eg. `Checkpoint name`) show a yellow button that when clicked will populate the field with all values available, so you don't have to type them manually.
 Among the types, the most useful one for evaluations is `Prompt S/R`.
 

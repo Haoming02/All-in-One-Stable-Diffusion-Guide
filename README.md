@@ -1,5 +1,5 @@
-# Stable Diffusion All-in-One Guides
-***by. Haoming 2023/03/29***
+<p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
+<p align="center"><i>by. Haoming 2023/04/05</i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -27,14 +27,14 @@ I suggest you to download more dedicated models, such as [anything-v3.0](https:/
 After downloading the model (`.ckpt` or `.safetensors`), put them in the folder: `~\stable-diffusion-webui\models\Stable-diffusion`.
 Then, you can select the model on the webui.
 
->`.safetensors` cannot contain malicious codes, so always choose it if available
+>`.safetensors` is a new simple format for storing tensors safely (as opposed to `pickle`) while still being really fast. So always choose `safetensors` if available.
 
 ## Where can I find more Models?
 Nowadays, the most popular model hosting site is called [CivitAI](https://civitai.com/). 
-It hosts a lot of checkpoints, as well as `Embedding` and `LoRA` (will be explained below). 
+It hosts a lot of `Checkpoints`, as well as `Embedding` and `LoRA`.
 Each model also has user comments, user ratings, and example generations. So, you can check the samples first before downloading the model.
 
-## What is Embedding & LoRA
+## Embedding & LoRA
 `Embedding` (`Textual Inversion`) and `LoRA` are essentially ways to constrain certain aspects (*Characters* or *Style*, etc.) of the generated images. 
 Here’s a really detailed [explanation](https://youtu.be/dVjMiJsuR5o) on how they work if you’re interested in technical stuffs. 
 Since LoRA takes significantly less time to train *(~4 times faster than Textual Inversion)*, most people nowadays just train LoRA instead. 
@@ -59,11 +59,11 @@ check the page where you downloaded it to see more info. You can also adjust the
   - Use `R-ESRGAN_4x+` for realistic generations
   - Alternatively, you can download other models from [here](https://upscale.wiki/wiki/Model_Database) and put it into `~\stable-diffusion-webui\models\ESRGAN`
   - Use `LDSR` for the best result. But it takes *extremely* long to process
-  - You can upscale the image using both upscalers, then blend them together with `Upscaler 2 visibility`
+  - You can upscale the image using 2 upscalers, then blend them together with `Upscaler 2 visibility`
 - **`PNG Info`:** You can upload an image to see what prompts were used to generate it *(provided that the metadata was not removed)*
-- **`Checkpoint Merger`:** ~~The easiest way to *create* something to upload to CivitAI~~
+- **`Checkpoint Merger`:** ~~The easiest way to *create* something for uploading to CivitAI~~
 - **`Train`:** Preprocess Images & Train Embeddings
-- **`Settings`:** Settings `:skull:`
+- **`Settings`:** Settings 💀
 - **`Extensions`:** Install & manage Extensions
 
 ## Term Explanations:
@@ -87,8 +87,8 @@ seed, you should be able to get the same output when using the same prompts and 
 1. If you’re using anime models (eg. `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip Skip`** to **`2`**.
 2. In positive prompt, start with `best quality, masterpiece,` for the best results.
 3. Download and install this embedding, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
-4. Add it to the **negative** prompt. *(You can experiment the results with and without this)*
-5. Optionally, you can then save the default prompts from step 2 and step 4 by clicking the save icon under **Generate** and give it a name. 
+4. Add it along with `(bad quality, worst quality:1.2)` to the **negative** prompt.
+5. Optionally, you can then save the default prompts from step 2 ~ 4 by clicking the save icon under **Generate** and give it a name. 
 In the future, every time you launch Stable Diffusion, you just need to load the Style.
 
 ## Brackets
@@ -106,11 +106,14 @@ Press the recycle icon to fix the `Seed`, then turn on `Hires. Fix` to upscale t
 so play around with the steps and strength until the result is desired. Lastly, go to `Extra` tab to upscale the image again. 
 Now you get a high resolution and detailed image!
 
-## Advanced Topics
-There are tens of papers published for Stable Diffusion almost every single week. [Refer](#resources) to YouTube or Reddit for the latest news and technologies.
+## Updates
+Unless the webui has significant issues, or some new features were added, normally you do not need to update the webui as it can sometimes break more things instead.
+However, I recommend you to update Extensions regularly. (`Extensions` -> `Check for updates` -> Restart UI)
 
-### X/Y/Z Plot
-[<--- link --->](XYZ/README.md)
+*This once speed up the load time for me by almost 5 times (~40sec -> ~10sec) because the built-in LoRA extension got optimized.*
+
+# Advanced Topics
+There are tens of papers published for Stable Diffusion almost every single week. [Refer](#resources) to YouTube or Reddit for the latest news and technologies.
 
 ### Extensions
 Extensions are basically 3rd party tools which were not native to the webui, that aim to provide additional functions. 
@@ -118,10 +121,13 @@ You can go to the **Extensions** tab, click `Available`, then click `Load from`.
 Alternatively, use `Install from URL` and paste in the link to a GitHub repo to install extensions not on the list. Some of the topics below require extensions.
 
 **Note:** Every time you install a new extension, you need to restart the webui to load them properly. 
-I recommand to close the browser and the cmd window and start again, cause only restarting the UI sometimes may not work. 
+I recommend to close the browser and the cmd window and start again, cause only restarting the UI sometimes may not work. 
+
+### X/Y/Z Plot
+[<--- link --->](XYZ/README.md)
 
 ### Multiple Characters
-*Coming Soon*
+[<--- link --->](MultiChara/README.md)
 
 ### Control Net
 *Coming Soon*
@@ -129,7 +135,7 @@ I recommand to close the browser and the cmd window and start again, cause only 
 # Training
 
 ### Embedding Training
-~~*Use LoRA instead*~~
+~~*Train LoRA instead*~~
 - [Video by Aitrepreneur](https://youtu.be/2ityl_dNRNw)
 - [Video by OlivioSarikas](https://youtu.be/MLz0iM0M7Fk)
 
@@ -137,12 +143,14 @@ I recommand to close the browser and the cmd window and start again, cause only 
 [<--- link --->](LoRATraining.md)
 
 ### LyCORIS
-[Github](https://github.com/KohakuBlueleaf/LyCORIS)
-
-*Coming Soon*
+- [Github](https://github.com/KohakuBlueleaf/LyCORIS)
+- *Coming Soon*
 
 # Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
 - Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
 - Webui [Features](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)
+
+# Support Me!
+If you like my works and wish to support me, you can do so on [ko-fi](https://ko-fi.com/haoming). Any donations will be greatly appreciated.
