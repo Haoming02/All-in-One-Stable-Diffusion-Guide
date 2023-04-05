@@ -26,7 +26,7 @@ Otherwise, leave it off.
   - **Positions:** `X` and `Y` coordinates of the regions.
   - **Weights:** Weights of the regions.
   - **end at this step:** Just set it the same as the `Sampling steps` above.
-- Alternatively, use the [Latent Couple Helper](https://github.com/Zuntan03/LatentCoupleHelper). Check the [tutorial](#multiplecharacters) above for how it works.
+- Alternatively, use the [Latent Couple Helper](https://github.com/Zuntan03/LatentCoupleHelper). Check the [tutorial](#multiple-characters) above for how it works.
 - You can then click **Visualize** see how the specified regions look.
 
 ### Prompts
