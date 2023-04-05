@@ -87,7 +87,7 @@ Enter the folders you created in the steps above. Remember to link to the `img` 
 - **Shuffle caption:** Enable
 - **Use xformers:** Enable
 
-If you want technical explanations of what these parameters do, check out this [document](TechnicalTerms.pdf) answered by ChatGPT.
+If you want technical explanations of what these parameters do, check out this [document](misc/TechnicalTerms.pdf) answered by ChatGPT.
 
 ## Press the **Train Model** button
 ~~And hope nothing explodes...~~

@@ -107,8 +107,9 @@ so play around with the steps and strength until the result is desired. Lastly, 
 Now you get a high resolution and detailed image!
 
 ## Updates
-Unless the webui has significant issues, or some new features were added, normally you do not need to update the webui as it can sometimes break more things instead.
-However, I recommend you to update Extensions regularly. (`Extensions` -> `Check for updates` -> Restart UI)
+Unless the webui has significant issues or some new features were added, normally you do not need to update the webui as it can sometimes break more things instead.
+
+However, I recommend you to update Extensions regularly. (`Extensions` -> `Check for updates` -> `Apply and restart UI`)
 
 *This once speed up the load time for me by almost 5 times (~40sec -> ~10sec) because the built-in LoRA extension got optimized.*
 
@@ -120,8 +121,8 @@ Extensions are basically 3rd party tools which were not native to the webui, tha
 You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will generate a list of popular extensions. You can then click **Install** to integrate them.
 Alternatively, use `Install from URL` and paste in the link to a GitHub repo to install extensions not on the list. Some of the topics below require extensions.
 
-**Note:** Every time you install a new extension, you need to restart the webui to load them properly. 
-I recommend to close the browser and the cmd window and start again, cause only restarting the UI sometimes may not work. 
+**Note:** Every time you install new extensions, you need to restart the webui to load them properly. 
+I recommend to close the browser and the cmd window entirely and start again, since only restarting the UI may not work properly sometimes. 
 
 ### X/Y/Z Plot
 [<--- link --->](XYZ/README.md)
