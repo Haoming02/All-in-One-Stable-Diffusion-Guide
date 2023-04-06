@@ -131,7 +131,7 @@ I recommend to close the browser and the cmd window entirely and start again, si
 [<--- link --->](MultiChara/README.md)
 
 ### Control Net
-*Coming Soon*
+[<--- link --->](ControlNet/README.md)
 
 # Training
 
@@ -145,7 +145,7 @@ I recommend to close the browser and the cmd window entirely and start again, si
 
 ### LyCORIS
 - [Github](https://github.com/KohakuBlueleaf/LyCORIS)
-- *Coming Soon*
+- *Coming Soon?*
 
 # Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
