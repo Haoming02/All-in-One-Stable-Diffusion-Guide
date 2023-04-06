@@ -12,12 +12,14 @@ for FILE in os.listdir(FOLDER):
         lines = f.readlines()
 
     tags = [word.strip() for word in lines[0].split(',')]
+    while '' in tags:
+        tags.remove('')
     line = ', '.join(tags)
 
+    tag = [word.strip() for word in INSERT.split(',')]
+    while '' in tag:
+        tag.remove('')
+    IN = ', '.join(tag)
+
     with open(FOLDER + '/' + FILE, 'w') as f:
-        if INSERT[-2:] == ', ':
-            f.writelines(INSERT + line)
-        elif INSERT[-1:] == ',':
-            f.writelines(INSERT + ' ' + line)
-        else:
-            f.writelines(INSERT + ', ' + line)
+        f.writelines(IN + ', ' + line)

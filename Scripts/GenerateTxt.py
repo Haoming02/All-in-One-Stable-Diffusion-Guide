@@ -13,5 +13,10 @@ for FILE in SNAPSHOT:
 
     FileName = Path(FILE).stem
 
+    tags = [word.strip() for word in INSERT.split(',')]
+    while '' in tags:
+        tags.remove('')
+    line = ', '.join(tags)
+
     with open(FOLDER + '/' + FileName + '.txt', 'w') as f:
-        f.write(INSERT)
+        f.write(line)

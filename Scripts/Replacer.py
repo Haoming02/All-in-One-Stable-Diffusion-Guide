@@ -9,13 +9,15 @@ for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:
         continue
 
-    with open(FOLDER + '/' + FILE, 'r', encoding="utf-8") as f:
+    with open(FOLDER + '/' + FILE, 'r') as f:
         original_line = f.readlines()
 
-    tags = [word.strip() for word in original_line[0].split(',')]
+    lines = original_line[0].replace(BEFORE, AFTER)
+
+    tags = [word.strip() for word in lines.split(',')]
+    while '' in tags:
+        tags.remove('')
     line = ', '.join(tags)
 
-    new_line = line.replace(BEFORE, AFTER)
-
     with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(new_line)
+        f.writelines(line)

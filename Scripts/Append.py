@@ -1,4 +1,3 @@
-import random
 import sys
 import os
 
@@ -13,7 +12,14 @@ for FILE in os.listdir(FOLDER):
         lines = f.readlines()
 
     tags = [word.strip() for word in lines[0].split(',')]
+    while '' in tags:
+        tags.remove('')
     line = ', '.join(tags)
 
+    tag = [word.strip() for word in INSERT.split(',')]
+    while '' in tag:
+        tag.remove('')
+    IN = ', '.join(tag)
+
     with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(line + ', ' + INSERT)
+        f.writelines(line + ', ' + IN)
