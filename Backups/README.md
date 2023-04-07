@@ -68,6 +68,15 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 <img src="img/Mei01.jpg" width=256> <img src="img/Mei02.jpg" width=256>
 </p>
 
+#### Suzumura Yu
+- **Link:** [DL](https://mega.nz/file/arQxGJQB#iyMkVjHnz2v7J0UetKGgC-KMwwa8N1NhErh6SDdM6Ic)
+- **Trigger Words:**
+` suzumura yu`, `idol`, `uniform`, `bikini`
+- **Sample Images:**
+<p align="center">
+<img src="img/Yu01.jpg" width=256> <img src="img/Yu02.jpg" width=256>
+</p>
+
 #### Suzu Narumiya
 - **Link:** [DL](https://mega.nz/file/rmBy3YjY#sAIOexg7_rwO0K23SMHVuIHCflTZHutXeYLbWlSvDbs)
 - **Trigger Words:**

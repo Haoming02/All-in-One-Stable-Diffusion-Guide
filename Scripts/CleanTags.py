@@ -20,7 +20,7 @@ for FILE in os.listdir(FOLDER):
 
 	tags = [word.strip() for word in lines[0].split(',')]
 	while '' in tags:
-        tags.remove('')
+		tags.remove('')
 
 	new_tags = []
 	for tag in tags:
