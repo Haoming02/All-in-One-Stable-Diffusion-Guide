@@ -34,7 +34,7 @@ allowing you to have a specific pose, fix the hands, or create insanely creative
     - Original paper reading
 
 ## How to Use
-There's simply too much to write in text easily. Just watch the videos above... 🫠
+There's simply too much to write in text easily. Just watch the videos above... 💀
 
 Essentially,
 1. Open ControlNet

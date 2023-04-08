@@ -1,6 +1,6 @@
 <h1 align="center"> Models Back Up </h1>
 <p align="center">
-<i><b>Last Update: 2023/04/06</i></b> <br>
+<i><b>Last Update: 2023/04/08</i></b> <br>
 <b>CivitAI</b> has been getting more and more annoying to use lately... <br>
 So I'm hosting a few of my better models here as well just in case.
 </p>
