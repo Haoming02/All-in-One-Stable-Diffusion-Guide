@@ -21,7 +21,7 @@ But those come with other problems, and will not be covered in this guide as Iâ€
 
 ## How do I start?
 When you follow the steps and install the client, if you didnâ€™t download any model yourself beforehand, 
-then the script would download a model automatically for you. The model is `Stable-Diffusion-v1-5`, an official model made by **StabilityAI**. 
+then the script would download a model automatically for you. The model is `Stable-Diffusion-v1-5`, an official model made by **CompVis**. 
 And it is for general purposes, as in you can generate both realistic arts and anime arts. Though, if you mainly want to generate anime arts, 
 I suggest you to download more dedicated models, such as [anything-v3.0](https://huggingface.co/Linaqruf/anything-v3.0/tree/main), or ~~shameless self promotion~~ [UHD-23](https://civitai.com/models/22371/uhd-23).
 After downloading the model (`.ckpt` or `.safetensors`), put them in the folder: `~\stable-diffusion-webui\models\Stable-diffusion`.

@@ -33,12 +33,30 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Idoly Pride
 
 #### Nagase Mana
-- **Link:** [DL](https://mega.nz/file/nrARQKoL#laDrHWqxCp2oMXx1eFtMcoILDxUFWVPnnQwtUyCi-HU)
+- **Link:** [DL](https://mega.nz/file/OrgmgJrK#ppLw9FhsOraxXbaojVjQ8yqCvTa9ei3XvwV1ulfdvEw)
 - **Trigger Words:**
 `nagase mana`, `idol`, `uniform`
 - **Sample Images:**
 <p align="center">
 <img src="img/Mana01.jpg" width=256> <img src="img/Mana02.jpg" width=256>
+</p>
+
+#### Nagase Kotono
+- **Link:** [DL](https://mega.nz/file/WmZFkRjY#lRdFMPmYE9-G7ZFF0cZjJlN-Bf_h61N5ieKNd_zWnHg)
+- **Trigger Words:**
+`nagase kotono`, `idol`, `uniform`, `swimsuit`
+- **Sample Images:**
+<p align="center">
+<img src="img/Kotono01.jpg" width=256> <img src="img/Kotono02.jpg" width=256>
+</p>
+
+#### Kawasaki Sakura
+- **Link:** [DL](https://mega.nz/file/H2hxkICL#JH9FB_74wqyNtd43xd1NALrdSFOaMWF9Ev6lH_5q364)
+- **Trigger Words:**
+`kawasaki sakura`, `idol`, `uniform`
+- **Sample Images:**
+<p align="center">
+<img src="img/Sakura01.jpg" width=256> <img src="img/Sakura02.jpg" width=256>
 </p>
 
 #### Kokoro Akazaki

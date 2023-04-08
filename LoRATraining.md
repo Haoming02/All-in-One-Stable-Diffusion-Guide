@@ -3,12 +3,10 @@
 
 ## Install Kohya SS
 Just like `Stable Diffusion`, there is already a popular webui available: [Kohya SS](https://github.com/bmaltais/kohya_ss), 
-as well as GoogleColab versions that again I won’t cover. Simply go to the repository and follow the installation steps using `PowerShell`. 
- *([Video Tutorial](https://youtu.be/9MT1n97ITaE))*
+as well as GoogleColab versions that again I won’t cover. Simply go to the repository and follow the installation steps. 
+ *(Slightly outdated [Video Tutorial](https://youtu.be/9MT1n97ITaE))*
 
-**Note1:** If you have a RTX 30 or RTX 40 series GPU, choose **`bf16`** during the accelerate config; otherwise choose **`fp16`**. 
-
-**Note2:** After you finish installation and updating, remember to run `Set-ExecutionPolicy Restricted` and answer `A` again to secure your computer.
+**Note:** If you have a RTX 30 or RTX 40 series GPU, choose **`bf16`** during the accelerate config; otherwise choose **`fp16`**. 
 
 ## Prepare Dataset
 Now comes the most difficult part: preparing the dataset. As the good ol’ saying goes: 
@@ -37,7 +35,7 @@ So do not caption something like hair color or eyes color, unless you want them 
 ### Folder Structures
 Create a folder named after your project. Inside it create 3 more folders, `img`, `mdl`, `log`. Inside the `img` folder create folders named in the format of `XXX_YYY`.
 
-- The `XXX` is the number of steps per image. Generally, it takes around 500 - 750 steps to learn a “concept,” such as  character likeness or outfit. Then, divide that number by the number of images you have to get `XXX`. *(No need to be exact.)* I was able to train [1 character w/ 1 outfit](https://civitai.com/models/24488/) in just 6 images x 150 steps = 900 steps in total. And most of my characters with 2 outfits were trained in ~1500 steps for reference.
+- The `XXX` is the number of steps per image. Generally, it takes a few hundreds steps to learn a “concept,” such as  character likeness or outfit. Then, divide that number by the number of images you have to get `XXX`. *(No need to be exact.)* I was able to train [1 character w/ 1 outfit](https://civitai.com/models/24488/) with 6 images x 150 steps = 900 steps in total. And most of my characters with 2 outfits were trained in ~1500 steps for reference.
 - The `YYY` is the class of the images. It's basically a way to group the images. Currently, I’m still unsure how class affects the results. But if I’m training a game character for example, I separate them into a 2D folder for card arts and a 3D folder for model screenshots.
 
 So in the end, it will be something like:
@@ -53,6 +51,8 @@ Project
 - mdl
 - log
 ```
+
+***Note:** You don't actually have to follow this structure strictly. For example, you can just set the output model folder directly to the webui LoRA folder.*
 
 ## Configs
 >Remember to switch to the LoRA tab first.
