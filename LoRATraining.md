@@ -19,12 +19,13 @@ The “standard” is to train on 512x512 images. You can also train on 768x768 
 If you don’t want to crop all the images to square, you can turn on the **`Enable Buckets`** toggle, which will automatically crop and resize all images to the equivalent resolution. Though the impact on results is yet to be confirmed, either. 
 
 ### Preparing Images:
-As mentioned above, it is better to have more varieties in the images, such as different background, lighting, clothing, etc. Aspect ratio generally doesn’t matter too much thanks to `Buckets` as mentioned above. Though I still recommend you to crop to a square (1:1) first if you have the time. It’s recommended to use “official” arts, be it card arts / in-game screenshots, promo images, etc., instead of fanarts. Once you finish preparing a dozen or so images with varying environments, proceed to next step. 
+As mentioned above, it is better to have more varieties in the images, such as different background, lighting, clothing, etc. Aspect ratio generally doesn’t matter too much thanks to `Buckets` as mentioned above. It’s recommended to use “official” arts, such as card arts, in-game screenshots or promo images, instead of fanarts. 
+Once you finish preparing a dozen or so images with varying environments, proceed to next step. 
 
 **Important:** If you have multiple formats of images, make sure that there are no duplicated filenames.
 
 ### Captioning:
-The easiest way to mass caption all the images is to again use the **`Automatic1111 webui`**. In the **Train** tab, you should see a section called **Preprocess Images**. Enter your folder that contains the image and a destination folder. Depending on your image, if it’s anime style, choose **`Deepbooru`**; if it’s realistic, choose **`Blip`**, then press **Run**. 
+The easiest way to mass caption all the images is to again use the **Automatic1111 webui**. In the **Train** tab, you should see a section called **Preprocess Images**. Enter your folder that contains the image and a destination folder. Depending on your image, if it’s anime style, choose **`Deepbooru`**; if it’s realistic, choose **`Blip`**, then press **Run**. 
 
 **Note:** If you didn't want to crop the images to square, just copy the caption text files back to the original folder, and use [TrimDigits.py](Scripts/) to rename them. The captions will work as long as the filenames are the same as the images.
 Alternatively, if you want to manually caption the images, use [GenerateTxt.py](Scripts/) instead.

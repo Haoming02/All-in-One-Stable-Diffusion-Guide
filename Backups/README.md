@@ -1,6 +1,6 @@
 <h1 align="center"> Models Back Up </h1>
 <p align="center">
-<i><b>Last Update: 2023/04/08</i></b> <br>
+<i><b>Last Update: 2023/04/09</i></b> <br>
 <b>CivitAI</b> has been getting more and more annoying to use lately... <br>
 So I'm hosting a few of my better models here as well just in case.
 </p>
@@ -42,7 +42,7 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Nagase Kotono
-- **Link:** [DL](https://mega.nz/file/WmZFkRjY#lRdFMPmYE9-G7ZFF0cZjJlN-Bf_h61N5ieKNd_zWnHg)
+- **Link:** [DL](https://mega.nz/file/TvIl2AYQ#LsJFF_dTjIW3DwPVw_jc-lCVZgk_c1FsZQRYQWChr9M)
 - **Trigger Words:**
 `nagase kotono`, `idol`, `uniform`, `swimsuit`
 - **Sample Images:**
@@ -192,7 +192,7 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 `yuzu`, `lime`, `uniform`, `reflector`
 - **Sample Image:**
 <p align="center">
-<img src="img/YuzuLime.jpg" width=256>
+<img src="img/YuzuLime.jpg" width=384>
 </p>
 
 #### Shirai Hinako
@@ -201,7 +201,7 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 `shirai hinako`, `uniform`, `reflector`
 - **Sample Image:**
 <p align="center">
-<img src="img/Hinako.jpg" width=256>
+<img src="img/Hinako.jpg" width=384>
 </p>
 
 #### Kasuga Shiho
@@ -210,5 +210,5 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 `kasuga shiho`, `uniform`
 - **Sample Image:**
 <p align="center">
-<img src="img/Shiho.jpg" width=256>
+<img src="img/Shiho.jpg" width=384>
 </p>
