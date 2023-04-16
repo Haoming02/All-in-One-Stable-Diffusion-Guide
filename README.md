@@ -134,7 +134,11 @@ I recommend to close the browser and the cmd window entirely and start again, si
 ### Extra Details
 [<--- link --->](TipsTricks/ExtraDetail.md)
 
-### More Coming Soon
+### Themes
+You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
+and then save as `user.css` in the same directory to change how the webui looks.
+
+#### *More Coming Soon*
 
 # Training
 
