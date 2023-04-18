@@ -1,25 +1,24 @@
 <h1 align="center"> Models Back Up </h1>
 <p align="center">
-<i><b>Last Update: 2023/04/09</i></b> <br>
+<i><b>Last Update: 2023/04/18</i></b> <br>
 <b>CivitAI</b> has been getting more and more annoying to use lately... <br>
 So I'm hosting a few of my better models here as well just in case.
 </p>
-<hr>
 <p align="center">
-<b>Entire Folder:</b> <a href=https://mega.nz/folder/rmJHibyA#By3gxnppBAwzV3lzdBQlsA>Mega</a>
+<b>Download:</b> <a href=https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/releases/tag/backup>Release Page</a>
 </p>
-
-<h1 align="center"> Checkpoint </h1>
+<hr>
+<h1 align="center"> My Personal Checkpoint </h1>
 
 ## UHD-23
-- **Link:** [DL](https://mega.nz/file/62YXFSgC#yzDN4-Xiyq1j9n3JYNHVcSRGeyfuRen2oxNQYBx-iaM)
+- **Link:** [DL](https://mega.nz/file/62YXFSgC#yzDN4-Xiyq1j9n3JYNHVcSRGeyfuRen2oxNQYBx-iaM) (Mega)
 
-#### My Personal Mix
 **50%** `anything-v3.0` + **50%** `HD-22` + Baked-In LoRA **0.5** `Detailed Eyes`
 Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while producing beautiful eyes!
 
 *All images below were generated using this.*
 
+<hr>
 <h1 align="center"> LoRA </h1>
 
 ## Index
@@ -33,7 +32,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Idoly Pride
 
 #### Nagase Mana
-- **Link:** [DL](https://mega.nz/file/OrgmgJrK#ppLw9FhsOraxXbaojVjQ8yqCvTa9ei3XvwV1ulfdvEw)
 - **Trigger Words:**
 `nagase mana`, `idol`, `uniform`
 - **Sample Images:**
@@ -42,7 +40,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Nagase Kotono
-- **Link:** [DL](https://mega.nz/file/TvIl2AYQ#LsJFF_dTjIW3DwPVw_jc-lCVZgk_c1FsZQRYQWChr9M)
 - **Trigger Words:**
 `nagase kotono`, `idol`, `uniform`, `swimsuit`
 - **Sample Images:**
@@ -51,7 +48,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Kawasaki Sakura
-- **Link:** [DL](https://mega.nz/file/H2hxkICL#JH9FB_74wqyNtd43xd1NALrdSFOaMWF9Ev6lH_5q364)
 - **Trigger Words:**
 `kawasaki sakura`, `idol`, `uniform`
 - **Sample Images:**
@@ -60,7 +56,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Kokoro Akazaki
-- **Link:** [DL](https://mega.nz/file/PrAFmBKb#rAnqEOVdETuqeJKnnfAv-y9XQeD4PdJcklcdGtin5zc)
 - **Trigger Words:**
 `kokoro akazaki`, `idol`, `uniform`
 - **Sample Images:**
@@ -69,7 +64,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Ichinose Rei
-- **Link:** [DL](https://mega.nz/file/jm4G0KRK#j_VJ-cEtBGlQw7mWwBeEgVD9E8tT1aTYjKecgrdMxXg)
 - **Trigger Words:**
 `ichinose rei`, `idol`, `uniform`
 - **Sample Images:**
@@ -78,7 +72,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Hayasaka Mei
-- **Link:** [DL](https://mega.nz/file/m2ohiSqZ#gfy8GNsW8QVhfG27Vo4BMUCa5ClgkjzbgEP1YRJsDdg)
 - **Trigger Words:**
 `hayasaka mei`, `idol`, `uniform`
 - **Sample Images:**
@@ -87,7 +80,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Suzumura Yu
-- **Link:** [DL](https://mega.nz/file/arQxGJQB#iyMkVjHnz2v7J0UetKGgC-KMwwa8N1NhErh6SDdM6Ic)
 - **Trigger Words:**
 ` suzumura yu`, `idol`, `uniform`, `bikini`
 - **Sample Images:**
@@ -96,7 +88,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Suzu Narumiya
-- **Link:** [DL](https://mega.nz/file/rmBy3YjY#sAIOexg7_rwO0K23SMHVuIHCflTZHutXeYLbWlSvDbs)
 - **Trigger Words:**
 `suzu narumiya`, `idol`, `uniform`
 - **Sample Images:**
@@ -107,7 +98,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Selection Project
 
 #### Miyama Suzune
-- **Link:** [DL](https://mega.nz/file/GjxRnD5J#rQAE2hK25jI00K5RTjr9TyS3o5koZAsM7R_1khYUYXU)
 - **Trigger Words:**
 `miyama suzune`, `idol`, `sports`
 - **Sample Images:**
@@ -116,7 +106,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Rena Hananoi
-- **Link:** [DL](https://mega.nz/file/b7J1xACS#MopN83EukXeyTfSt3a5H9i3XKxplzQiCb1Ni3VMnc4s)
 - **Trigger Words:**
 `rena hananoi`, `idol`, `sports`
 - **Sample Images:**
@@ -127,7 +116,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Love Live
 
 #### Ayumu Uehara
-- **Link:** [DL](https://mega.nz/file/67ZnGJRY#zD5cNE849nhEtPBxuJyUAfqlVHNn1MEviJRm-MQ3Rrk)
 - **Trigger Words:**
 `ayumu uehara`, `idol`, `uniform`
 - **Sample Images:**
@@ -136,7 +124,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Setsuna Yuki
-- **Link:** [DL](https://mega.nz/file/er5TmKoI#1JxOTJKbJBmYGgVq5pOk2eErgZZjhts8V6U_pZuaUmo)
 - **Trigger Words:**
 `setsuna yuki`, `idol`, `uniform`
 - **Sample Images:**
@@ -145,7 +132,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Shizuku Osaka
-- **Link:** [DL](https://mega.nz/file/q2wRnb6K#X4jxVoAvDe0RKKBXq25fZ1aVozmuuad5uv84DdLnts8)
 - **Trigger Words:**
 `shizuku osaka`, `idol`, `uniform`
 - **Sample Images:**
@@ -156,7 +142,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Lycoris Recoil
 
 ### Chisato Nishikigi
-- **Link:** [DL](https://mega.nz/file/e6AQ1B7K#_GRZznbpFHlB9Kq7kcpromRtdS7vYeSs-s_NBoyZ7ZY)
 - **Trigger Words:**
 `chisato nishikigi`, `uniform`, `cafe`
 - **Sample Images:**
@@ -165,7 +150,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 ### Takina Inoue
-- **Link:** [DL](https://mega.nz/file/zvhT0TLK#005bts-hOA2t8CS5OJ8Qv1mtgQiRzG_xPbFDhoIpr1E)
 - **Trigger Words:**
 `takina inoue`, `uniform`, `cafe`
 - **Sample Images:**
@@ -176,7 +160,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Hibike Euphonium
 
 #### Kumiko Oumae & Reina Kousaka
-- **Link:** [DL](https://mega.nz/file/CyhD1Zba#jjBJNuDDH3oxyZlwOWIyAhe8vx6M4qgMXnsQ3RLzFyM)
 - **Trigger Words:**
 `kumiko oumae`, `reina kousaka`, `summer uniform`, `winter uniform`
 - **Sample Images:**
@@ -187,7 +170,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 ## Blue Reflection
 
 #### Shijou Yuzuki & Shijou Raimu
-- **Link:** [DL](https://mega.nz/file/evgwmbQD#lPTLz1953qeAYOEZZie4sptRYr4hpQEVDHnMjLzvuUA)
 - **Trigger Words:**
 `yuzu`, `lime`, `uniform`, `reflector`
 - **Sample Image:**
@@ -196,7 +178,6 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Shirai Hinako
-- **Link:** [DL](https://mega.nz/file/v6BV3C7K#ikEB9yJxEEKSjcjBrS3EGULerRQL0AfxStfZDmBEQxY)
 - **Trigger Words:**
 `shirai hinako`, `uniform`, `reflector`
 - **Sample Image:**
@@ -205,10 +186,17 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 </p>
 
 #### Kasuga Shiho
-- **Link:** [DL](https://mega.nz/file/27QiQDiB#fQJSsgOsRhMdZEfJq7LSC4OZBGGwb1z7csYa9A_Do2c)
 - **Trigger Words:**
 `kasuga shiho`, `uniform`
 - **Sample Image:**
 <p align="center">
 <img src="img/Shiho.jpg" width=384>
+</p>
+
+#### Morisaki Alesia Yu
+- **Trigger Words:**
+`morisaki alesia yu`, `uniform`, `reflector`, `wings`
+- **Sample Image:**
+<p align="center">
+<img src="img/Alesia.jpg" width=384>
 </p>
