@@ -18,6 +18,8 @@ However, the above have their own pros and cons, and will not be covered in this
 
 >Add `--xformers` after `COMMANDLINE_ARGS=` in `webui-user.bat` to speed up the generation
 
+>Add `--no-half-vae` after `COMMANDLINE_ARGS=` in `webui-user.bat` to stop NaN images from generating
+
 >Add `--medvram` after `COMMANDLINE_ARGS=` in `webui-user.bat` if you have less than **8GB** VRAM
 
 ## How do I start?
@@ -46,6 +48,11 @@ Though as a result, they are considered inferior in quality by most of the commu
 On top of that, some Extensions only work with one version. So make sure to look out for them when you're installing one.
 All in all, unless you have specific needs, just stick to `v1.5` models.
 
+## VAE
+**VAE** (Variational AutoEncoder) is responsible for converting the image from latent space. Every model has a VAE baked in. However, you can also use other VAE of choice, such as [sd-vae-ft-mse-original](https://huggingface.co/stabilityai/sd-vae-ft-mse-original/tree/main).
+
+Different VAE may fix faces and hands, or produce more vibrant colors for example. You can force a specific VAE by going to `Settings` -> `Stable Diffusion` -> **`SD VAE`**.
+
 ## Embedding & LoRA
 `Embedding` (`Textual Inversion`) and `LoRA` are essentially ways to constrain certain aspects (*Characters* or *Style*, etc.) of the generated images. 
 Here’s a really detailed [explanation](https://youtu.be/dVjMiJsuR5o) on how they work if you’re interested in technical stuffs *(Just ignore the outdated conclusion.)*
@@ -58,12 +65,12 @@ To install them:
 
 To activate them, click the red button (`Show extra networks`) under **Generate**, then press **Refresh**. 
 Now you should be able to see the downloaded files in their respective tabs. Simply clicking the icon will add them into the prompt field.
-Additionally, most LoRA also requires you to add a certain **trigger words** for it to function, 
+Additionally, most LoRA also require you to add a certain **trigger words** for it to function, 
 check the page where you downloaded it to see more info. You can also adjust the strength of a LoRA by editing the number. 
 
 **Note:** Don’t use too many LoRA at once, it will start distorting the image.
 
-**Tip:** You can group the LoRAs by putting them in different sub-folders. They will then show up as tabs on the webui.
+**Tip:** You can group the LoRAs by putting them in different sub-folders. They will then show up as buttons that you can press to filter on the webui.
 
 ## Tab Explanations:
 - **`txt2img`:** Generate image based on input prompts
@@ -75,7 +82,7 @@ check the page where you downloaded it to see more info. You can also adjust the
     - A popular model is `4x-UltraSharp.pth`
   - Use `LDSR` for the best result. But it takes *extremely* long to process
   - You can upscale the image using 2 upscalers, then blend them together with `Upscaler 2 visibility`
-- **`PNG Info`:** You can upload an image to see what prompts were used to generate it *(provided that the metadata was not removed)*
+- **`PNG Info`:** You can upload an image to see what prompts and settings were used to generate it *(provided that the metadata was not removed)*
 - **`Checkpoint Merger`:** ~~The easiest way to *create* something for uploading to CivitAI~~
 - **`Train`:** Preprocess Images & Train Embeddings
 - **`Settings`:** Settings 💀
@@ -86,24 +93,25 @@ check the page where you downloaded it to see more info. You can also adjust the
 - **`Negative Prompt`:** The tags for stuffs you don’t want in the output.
 - **`Sampling Method`:** The wizardry behind the scene. `Euler a` is fine. `DPM++ 2M series` are popular too. Basically, this slightly affects how the output look.
   - **Note:** Methods that that use `Ancestral` *(denote by `a` in the name)* may generate vastly different results at different steps.
-- **`Sampling Steps`:** How many iterations it does its wizardry. Low value causes the output to be blurry. High value suffers from diminishing return and takes longer. `20 - 50` is mostly fine.
+- **`Sampling Steps`:** How many iterations it does its wizardry. Low value causes the output to be blurry. High value suffers from diminishing return and takes longer.
 - **`Restore Faces`:** Mainly used with realistic models to fix the faces.
 - **`Tiling`:** Makes the output able to seamlessly tile. Useful for generating textures.
 - **`Hires. Fix`:** The key that makes output significantly better.
 - **`Width/Height`:** The resolution of the generated image. Keep it at `512x512` for `v1.5` models, `768x768` for `v2.x` models. *(Refer to [versions](#sd-versions) if you don't know what they are.)*
 - **`Batch Count`:** How many batches to generate (in sequence).
 - **`Batch Size`:** How many images per batch (in parallel). Will need high VRAM.
-- **`CFG Scale`:** How strong the prompts should influence the output. Low value generates random images; High value generates really distorted images. `7 – 14` is fine.
+- **`CFG Scale`:** How strong the prompts should influence the output. Low value generates random images; High value generates really distorted images.
 - **`Seed`:** The random seed that affects how images are generated. If you use the same
 seed, you should be able to get the same output when using the same prompts and settings.
 
-## Prompts Tips & Setting Guides
+## Setting Guides
 1. If you’re using anime models (eg. `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip Skip`** to **`2`**.
-2. In positive prompt, start with `best quality, masterpiece,` for the best results.
-3. Download and install this embedding, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
-4. Add it along with `(bad quality, worst quality:1.2)` to the **negative** prompt.
-5. Optionally, you can then save the default prompts from step 2 ~ 4 by clicking the save icon under **Generate** and give it a name. 
-In the future, every time you launch Stable Diffusion, you just need to load the Style.
+2. In **positive** prompt, start with `best quality, masterpiece,` for the best results.
+3. Additionally, you can add tags like `hdr`, `dslr`, `4k` to further improve the quality.
+4. Download and install this **embedding**, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
+5. Add it along with `(bad quality, worst quality:1.2)` to the **negative** prompt.
+6. Optionally, you can then save the default prompts from step 2 ~ 5 by clicking the save icon under **Generate** and give it a name. 
+In the future, every time you launch webui you just need to load the Style.
 
 ## Brackets
 - You can use `( )` to increase the influence of a prompt.
@@ -129,7 +137,7 @@ You can go to the **Extensions** tab, click `Available`, then click `Load from`.
 Alternatively, use `Install from URL` and paste in the link to a GitHub repo to install extensions not on the list. Some of the topics below require extensions.
 
 **Note:** Every time you install new extensions, you need to restart the webui to load them properly. 
-I recommend to close the browser and the cmd window entirely and start again, since only restarting the UI may not work properly sometimes. 
+I recommend to close the browser and the CLI entirely and start again, since only restarting the UI may not work properly sometimes. 
 
 ### X/Y/Z Plot
 [<--- link --->](XYZ/README.md)
