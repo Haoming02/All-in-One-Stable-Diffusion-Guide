@@ -1,5 +1,7 @@
 ﻿# Control Net
-***by. Haoming 2023/04/06***
+***by. Haoming 2023/04/20***
+
+**Note:** ControlNet 1.1 has been released, bringing additional features and models!
 
 ## What is It
 This is a suite of models that transfer features from one picture to another,
@@ -10,10 +12,13 @@ allowing you to have a specific pose, fix the hands, or create insanely creative
 
 1. Install the following Extension first and restart the webui:
     - `sd-webui-controlnet` *([GitHub](https://github.com/Mikubill/sd-webui-controlnet))*
-2. Download the models of choice from *this link*:
-    - [Hugging Face](https://huggingface.co/webui/ControlNet-modules-safetensors/tree/main)
-    - **Note:** Most tutorials download the original models that are around 5 GB each; the link above hosts the pruned models that are around 700 MB each instead. *There is no visual difference between the two*.
+2. Download the models of choice from this link:
+    - [Hugging Face](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
+    - **Note:** Most tutorials were made for 1.0 and thus download the old models; refer to the official link above for the latest models.
+    - **Note:** You need to download both the `.pth` and the `.yaml` files of a model, and put them into `~\stable-diffusion-webui\extensions\sd-webui-controlnet\models`.
     - See what each model does in the first video tutorial below.
+
+- **Important:** This extension requires different configs and models for `v1.5` and `v2.x` versions of Stable Diffusion. Refer to the official GitHub for the difference and settings. *(Refer to [versions](../README.md#sd-versions) if you don't know what they are.)*
 
 ## Video Tutorials
 - [ControlNet Overview](https://youtu.be/ci7NfTsifd0) by. **Olivio Sarikas**
@@ -25,7 +30,7 @@ allowing you to have a specific pose, fix the hands, or create insanely creative
     - Multiple technique showcases
 - [Hands Depth Maps Library](https://youtu.be/EwWkLMhR23I) by. **Aitrepreneur**
     - Extension that provides OpenPose Editor inside webui
-    - Extension that provides multiple depth maps for hands
+    - Extension that provides multiple DepthMaps for hands
 - [Open Pose w/ Blender](https://youtu.be/ptEZQrKgHAg) by. **Aitrepreneur**
     - Generate OpenPose and DepthMap using `Blender`
 - [Open Pose w/ Magic Poser](https://youtu.be/5z71oxf8kh4) by. **Aitrepreneur**
@@ -39,7 +44,7 @@ There's simply too much to write in text easily. Just watch the videos above... 
 Essentially,
 1. Open ControlNet
 2. Upload an image to extract features from
-3. Pick a model depending on your usecase
+3. Pick a model depending on your need
 4. Modify the values
 5. ...
 6. Profit

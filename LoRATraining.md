@@ -1,5 +1,5 @@
 # LoRA Training Tutorial
-***by. [Haoming](https://civitai.com/user/HaomingGaming) 2023/04/05***
+***by. [Haoming](https://civitai.com/user/HaomingGaming) 2023/04/20***
 
 ## Install Kohya SS
 Just like `Stable Diffusion`, there is already a popular webui available: [Kohya SS](https://github.com/bmaltais/kohya_ss), 
@@ -31,7 +31,8 @@ The easiest way to mass caption all the images is to again use the **Automatic11
 Alternatively, if you want to manually caption the images, use [GenerateTxt.py](Scripts/) instead.
 
 You’re not done yet! Now you need to go through every single `.txt` file and manually check the captions. You need to **remove** every tag that describes your subject, keeping only the tags that should be “variables.” Think of it this way: You want the tag of your subject to be associated with their features. 
-So do not caption something like hair color or eyes color, unless you want them to be able to change *(eg. when training a Style)*. Only caption the background, the expression of the subject, what pose the subject is in, for example. Last but not least, add the **trigger tags** in front of the captions. (You can use the [Insert.py](Scripts/) script to automate this.) The number of triggers has to be consistent across your dataset. For example, when I am training a character with multiple outfits, I put the character name first, then the outfit name, then the rest of tags.
+So do not caption something like hair color or eyes color, unless you want them to be able to change *(eg. when training a Style)*. Only caption the background, the expression of the subject, what pose the subject is in, for example. Last but not least, add the **trigger tags** in front of the captions. (You can use the [Insert.py](Scripts/) script to automate this.) 
+The number of triggers has to be consistent across your dataset. For example, when I am training a character with multiple outfits, I put the character name first, then the outfit name, then the rest of tags. Thus I have 2 trigger words for every single caption.
 
 ### Folder Structures
 Create a folder named after your project. Inside it create 3 more folders, `img`, `mdl`, `log`. Inside the `img` folder create folders named in the format of `XXX_YYY`.
@@ -56,14 +57,14 @@ Project
 ***Note:** You don't actually have to follow this structure strictly. For example, you can just set the output model folder directly to the webui LoRA folder.*
 
 ## Configs
->Remember to switch to the LoRA tab first.
+>Remember to switch to the LoRA tab at the top first.
 
 >Parameters that were not mentioned can just be left on default.
 
 ### Source Model
-- **Pretrained Model:** It’s better to pick a general model (eg. `anything-v3.0` or `SD 1.5`) instead of a finetuned one, so it is more likely to work on all models.
+- **Pretrained Model:** It’s better to pick a general model (eg. `anything-v3.0` or `SD v1.5`) instead of a finetuned one, so it is more likely to work on all models.
 - **Save Model as:** `.safetensors`
-- **Important:** If the source model is for SD 2.0, check `v2`; Then, if it’s for SD 2.1, check `v_parameterization` too.
+- **Important:** If the pretrained model is for SD 2.0, check `v2`; Then, if it’s for SD 2.1, check `v_parameterization` too. *(Refer to [versions](README.md#sd-versions) if you don't know what they are.)*
 
 ### Folders
 Enter the folders you created in the steps above. Remember to link to the `img` folder instead of the folders inside. Then, enter a model output name of choice.
@@ -71,16 +72,15 @@ Enter the folders you created in the steps above. Remember to link to the `img` 
 ### Training Parameters
 - **Train Batch Size:** Basically means how many images at once does it train per step. Setting it to 2 cut the training time almost in half. Requires high VRAM to handle. 
 
-    **Note:** Some say that this can worsen the results due to something about blending images together, and you should increase the `Epoch` count to compensate.
+    **Note:** It is said that this may worsen the results, and you should increase the **Epoch** count to compensate for it, so that the total steps stay the same.
 
 - **Epoch:** How many times should the training go through all the steps. Normally, 1 epoch is fine. You can do more to finetune. *Beware of overfitting!*
 - **Caption Extension:** Set it to the correct extension. (`.txt` if you use the webui tools)
 - **Mixed/Save Precision:** Again, choose **`bf16`** if you have RTX 30 or 40; otherwise choose **`fp16`**.
 - **Learning Rate / Scheduler / Warmup / Optimizer:**
     - Personally I use `0.00025` / `cosine` / `10%` / `AdamW8bit`
-    - Some people use `constant` / `0%`
     - Refer to the document below for what these do.
-- **Network Rank:** How “complex” the subject is. I use `64` for most of my models. Increase this value if you need the model to learn more concepts.
+- **Network Rank:** How “complex” the subject is. I use `64` for most of my models. Increase this value if you need the model to learn more concepts. *(Affects the final file size.)*
 - **Network Alpha:** I set it to `16`. Refer to the document below for what it does.
 - **Max Resolution:** `512,512` or `768,768`, depending on your dataset.
 - **Enable Buckets:** Refer to [Resolution](#resolution).
@@ -92,6 +92,6 @@ Enter the folders you created in the steps above. Remember to link to the `img` 
 If you want technical explanations of what these parameters do, check out this [document](misc/TechnicalTerms.pdf) answered by ChatGPT.
 
 ## Press the **Train Model** button
-~~And hope nothing explodes...~~
+~~And hope nothing explodes~~
 
 After the training is finished, you can use [**`X/Y/Z Plot`**](XYZ/README.md) to evaluate the results.

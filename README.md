@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><i>by. Haoming 2023/04/17</i></p>
+<p align="center"><i>by. Haoming 2023/04/20</i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -37,9 +37,18 @@ Each model also has user comments, user ratings, and example generations. So, yo
 
 **Note:** Many models and sample images are automatically-flagged by the system and thus hidden. So you may need to login to see more models.
 
+## SD Versions
+The majority of the Checkpoint models on CivitAI were trained on `Stable Diffusion v1.5`. 
+This version of models is also the most widely used.
+There had been newer versions of Stable Diffusion, namely `v2.1` and `XL`, released by `Stability AI` since.
+Those were trained on a different dataset and techniques. 
+Though as a result, they are considered inferior in quality by most of the community.
+On top of that, some Extensions only work with one version. So make sure to look out for them when you're installing one.
+All in all, unless you have specific needs, just stick to `v1.5` models.
+
 ## Embedding & LoRA
 `Embedding` (`Textual Inversion`) and `LoRA` are essentially ways to constrain certain aspects (*Characters* or *Style*, etc.) of the generated images. 
-Here’s a really detailed [explanation](https://youtu.be/dVjMiJsuR5o) on how they work if you’re interested in technical stuffs. 
+Here’s a really detailed [explanation](https://youtu.be/dVjMiJsuR5o) on how they work if you’re interested in technical stuffs *(Just ignore the outdated conclusion.)*
 Since LoRA takes significantly less time to train *(~4 times faster than Textual Inversion)*, most people nowadays just train LoRA instead. 
 To install them:
 
@@ -53,6 +62,8 @@ Additionally, most LoRA also requires you to add a certain **trigger words** for
 check the page where you downloaded it to see more info. You can also adjust the strength of a LoRA by editing the number. 
 
 **Note:** Don’t use too many LoRA at once, it will start distorting the image.
+
+**Tip:** You can group the LoRAs by putting them in different sub-folders. They will then show up as tabs on the webui.
 
 ## Tab Explanations:
 - **`txt2img`:** Generate image based on input prompts
@@ -68,18 +79,18 @@ check the page where you downloaded it to see more info. You can also adjust the
 - **`Checkpoint Merger`:** ~~The easiest way to *create* something for uploading to CivitAI~~
 - **`Train`:** Preprocess Images & Train Embeddings
 - **`Settings`:** Settings 💀
-- **`Extensions`:** Install & manage Extensions
+- **`Extensions`:** Install & Manage Extensions
 
 ## Term Explanations:
 - **`Prompt`:** The tags for stuffs you want in the output.
 - **`Negative Prompt`:** The tags for stuffs you don’t want in the output.
 - **`Sampling Method`:** The wizardry behind the scene. `Euler a` is fine. `DPM++ 2M series` are popular too. Basically, this slightly affects how the output look.
-  - **Note:** Method that that uses `a` will generate different results at different steps.
+  - **Note:** Methods that that use `Ancestral` *(denote by `a` in the name)* may generate vastly different results at different steps.
 - **`Sampling Steps`:** How many iterations it does its wizardry. Low value causes the output to be blurry. High value suffers from diminishing return and takes longer. `20 - 50` is mostly fine.
 - **`Restore Faces`:** Mainly used with realistic models to fix the faces.
 - **`Tiling`:** Makes the output able to seamlessly tile. Useful for generating textures.
 - **`Hires. Fix`:** The key that makes output significantly better.
-- **`Width/Height`:** The resolution of the generated image. Keep it at `512x512` for `v1.5` models, `768x768` for `v2.0` models. 
+- **`Width/Height`:** The resolution of the generated image. Keep it at `512x512` for `v1.5` models, `768x768` for `v2.x` models. *(Refer to [versions](#sd-versions) if you don't know what they are.)*
 - **`Batch Count`:** How many batches to generate (in sequence).
 - **`Batch Size`:** How many images per batch (in parallel). Will need high VRAM.
 - **`CFG Scale`:** How strong the prompts should influence the output. Low value generates random images; High value generates really distorted images. `7 – 14` is fine.
@@ -138,7 +149,7 @@ I recommend to close the browser and the cmd window entirely and start again, si
 You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
 and then save as `user.css` in the same directory to change how the webui looks.
 
-#### *More Coming Soon*
+### *More Coming Soon*
 
 # Training
 
@@ -158,6 +169,7 @@ and then save as `user.css` in the same directory to change how the webui looks.
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
 - Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
+- Youtube [Sebastian Kamph](https://www.youtube.com/@sebastiankamph/)
 - Webui [Features](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)
 
 # Support Me!
