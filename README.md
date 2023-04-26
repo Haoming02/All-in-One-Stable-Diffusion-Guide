@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><i>by. Haoming 2023/04/20</i></p>
+<p align="center"><i>by. Haoming 2023/04/26</i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -49,12 +49,10 @@ On top of that, some Extensions only work with one version. So make sure to look
 All in all, unless you have specific needs, just stick to `v1.5` models.
 
 ## VAE
-**VAE** (Variational AutoEncoder) is responsible for converting the image from latent space. Every model has a VAE baked in. However, you can also use other VAE of choice, such as [sd-vae-ft-mse-original](https://huggingface.co/stabilityai/sd-vae-ft-mse-original/tree/main).
-
-Different VAE may fix faces and hands, or produce more vibrant colors for example. You can force a specific VAE by going to `Settings` -> `Stable Diffusion` -> **`SD VAE`**.
+**`VAE`** *(**V**ariational **A**uto**E**ncoder)* is responsible for converting the image from latent space. Every model has a VAE baked in. However, you can also use other VAE of choice, such as [sd-vae-ft-mse-original](https://huggingface.co/stabilityai/sd-vae-ft-mse-original/tree/main). Different VAE may fix faces and hands, or produce more vibrant colors for example. You can force a specific VAE by going to `Settings` -> `Stable Diffusion` -> **`SD VAE`**.
 
 ## Embedding & LoRA
-`Embedding` (`Textual Inversion`) and `LoRA` are essentially ways to constrain certain aspects (*Characters* or *Style*, etc.) of the generated images. 
+**`Embedding`** *(Textual Inversion)* and **`LoRA`** *(**Lo**w-**R**ank **A**daptation)* are essentially ways to constrain certain aspects (*Characters* or *Style*, etc.) of the generated images. 
 Here’s a really detailed [explanation](https://youtu.be/dVjMiJsuR5o) on how they work if you’re interested in technical stuffs *(Just ignore the outdated conclusion.)*
 Since LoRA takes significantly less time to train *(~4 times faster than Textual Inversion)*, most people nowadays just train LoRA instead. 
 To install them:
@@ -72,6 +70,17 @@ check the page where you downloaded it to see more info. You can also adjust the
 
 **Tip:** You can group the LoRAs by putting them in different sub-folders. They will then show up as buttons that you can press to filter on the webui.
 
+## LyCORIS
+**`LyCORIS`** *(**L**ora be**Y**ond **C**onventional methods, **O**ther **R**ank adaptation **I**mplementations for **S**table diffusion)* is a more advanced and more efficient implementation of LoRA. *([Github](https://github.com/KohakuBlueleaf/LyCORIS))*
+
+The main advantage is that, the file size can be really small *(~10MB compared to ~100MB)*, and seems to produce better effects while also not affect the artstyle too much.
+
+On CivitAI, you can see if a model is LyCORIS or LoRA easily. To use LyCORIS, you need to first install this [extension](https://github.com/KohakuBlueleaf/a1111-sd-webui-lycoris). Then follow the same steps above to use it.
+
+> Learn how to install [Extensions](#extensions)
+
+> Put **LyCORIS** in `~\stable-diffusion-webui\models\LyCORIS`
+
 ## Tab Explanations:
 - **`txt2img`:** Generate image based on input prompts
 - **`img2img`:** Generate image based on an image along with prompts
@@ -83,7 +92,7 @@ check the page where you downloaded it to see more info. You can also adjust the
   - Use `LDSR` for the best result. But it takes *extremely* long to process
   - You can upscale the image using 2 upscalers, then blend them together with `Upscaler 2 visibility`
 - **`PNG Info`:** You can upload an image to see what prompts and settings were used to generate it *(provided that the metadata was not removed)*
-- **`Checkpoint Merger`:** ~~The easiest way to *create* something for uploading to CivitAI~~
+- **`Checkpoint Merger`:** ~~The easiest way to spam *something* onto CivitAI~~
 - **`Train`:** Preprocess Images & Train Embeddings
 - **`Settings`:** Settings 💀
 - **`Extensions`:** Install & Manage Extensions
@@ -106,9 +115,9 @@ seed, you should be able to get the same output when using the same prompts and 
 
 ## Setting Guides
 1. If you’re using anime models (eg. `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip Skip`** to **`2`**.
-2. In **positive** prompt, start with `best quality, masterpiece,` for the best results.
+2. In **positive** prompt, start with `high quality, best quality,` for the best results.
 3. Additionally, you can add tags like `hdr`, `dslr`, `4k` to further improve the quality.
-4. Download and install this **embedding**, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
+4. Download and install this **Embedding**, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
 5. Add it along with `(bad quality, worst quality:1.2)` to the **negative** prompt.
 6. Optionally, you can then save the default prompts from step 2 ~ 5 by clicking the save icon under **Generate** and give it a name. 
 In the future, every time you launch webui you just need to load the Style.
@@ -117,7 +126,7 @@ In the future, every time you launch webui you just need to load the Style.
 - You can use `( )` to increase the influence of a prompt.
 - You can use `[ ]` to decrease the influence of a prompt.
 - You can also stack brackets to further influence, **e.g.** `[[foo]]`
-- Alternatively, use `tag:ratio`, **e.g.** `(bar:1.5)`
+- Alternatively, use `(tag:ratio)`, **e.g.** `(bar:1.5)`
 - **Example:**
 `(long hair:1.5), [[straight hair]]` will try to always generate long
 hair, but the hair being straight or not is not a priority.
@@ -148,16 +157,20 @@ I recommend to close the browser and the CLI entirely and start again, since onl
 ### Control Net
 [<--- link --->](ControlNet/README.md)
 
-# Tips & Tricks
-
-### Extra Details
-[<--- link --->](TipsTricks/ExtraDetail.md)
+# Random Tips & Tricks
 
 ### Themes
 You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
 and then save as `user.css` in the same directory to change how the webui looks.
 
-### *More Coming Soon*
+### Insane Upscale
+[<--- link --->](TipsTricks/README.md#insane-upscale)
+
+### Extra Details
+[<--- link --->](TipsTricks/README.md#extra-details)
+
+### Logo Creations
+[<--- link --->](TipsTricks/README.md#logo-creations)
 
 # Training
 
@@ -169,9 +182,11 @@ and then save as `user.css` in the same directory to change how the webui looks.
 ### LoRA Training
 [<--- link --->](LoRATraining.md)
 
-### LyCORIS
-- [Github](https://github.com/KohakuBlueleaf/LyCORIS)
-- *Coming Soon?*
+### LyCORIS Training
+Follow the same steps as [LoRA Training](LoRATraining.md) above. Except:
+- Choose `LyCORIS/LoHa` for the `LoRA type` parameter
+- Choose **low** `Dimonsion` and `Alpha`. *(I use `4` for all 4 of the parameters)*
+- *Play around with the Learning Rate / Scheduler / Warmup / Optimizer*
 
 # Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
