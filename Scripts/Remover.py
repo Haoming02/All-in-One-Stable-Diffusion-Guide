@@ -2,7 +2,7 @@ import sys
 import os
 
 FOLDER = sys.argv[1]
-INSERT = sys.argv[2]
+REMOVE = sys.argv[2]
 
 for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:
@@ -15,7 +15,7 @@ for FILE in os.listdir(FOLDER):
     while '' in tags:
         tags.remove('')
 
-    tags2 = [word.strip() for word in INSERT.split(',')]
+    tags2 = [word.strip() for word in REMOVE.split(',')]
     while '' in tags2:
         tags2.remove('')
 
@@ -24,7 +24,6 @@ for FILE in os.listdir(FOLDER):
             tags.remove(tag)
 
     line = ', '.join(tags)
-    IN = ', '.join(tags2)
 
     with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(IN + ', ' + line)
+        f.writelines(line)
