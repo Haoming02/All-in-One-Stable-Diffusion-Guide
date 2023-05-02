@@ -16,11 +16,15 @@ allowing you to have a specific pose, fix the hands, or create insanely creative
     - [Hugging Face](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
     - **Note:** Most tutorials were made for 1.0 and thus download the old models; refer to the official link above for the latest models.
     - **Note:** You need to download both the `.pth` and the `.yaml` files of a model, and put them into `~\stable-diffusion-webui\extensions\sd-webui-controlnet\models`.
-    - See what each model does in the first video tutorial below.
 
 - **Important:** This extension requires different configs and models for `v1.5` and `v2.x` versions of Stable Diffusion. Refer to the official GitHub for the difference and settings. *(Refer to [versions](../README.md#sd-versions) if you don't know what they are.)*
 
-## Video Tutorials
+## 1.1 Video Tutorial
+- [ControlNet 1.1](https://youtu.be/zrGLEgGFJY4) by. **Olivio Sarikas**
+    - How to install/update
+    - How to use
+
+## 1.0 Video Tutorials
 - [ControlNet Overview](https://youtu.be/ci7NfTsifd0) by. **Olivio Sarikas**
     - How to install *(Download the models from the link above instead)*
     - How to use
