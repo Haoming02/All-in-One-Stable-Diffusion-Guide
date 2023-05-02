@@ -7,6 +7,17 @@ User can input prompts (keywords), and the AI will generate artworks based on th
 Additionally, there are *a lot of* models and extensions available online for Stable Diffusion, 
 that can achieve different styles, concepts or functions.
 
+## Index
+1. [Installation & Models](#where-do-i-start)
+2. [Embedding & LoRA](#embedding--lora)
+3. [Terminologies](#tab-explanations)
+3. [Extensions](#extensions)
+4. [Tips & Tricks](#tips--tricks)
+5. [Model Training](#training)
+6. [Learning Resources](#resources)
+
+<hr>
+
 ## Where do I start?
 The easiest, best, and most straightforward way to use Stable Diffusion is through a client called [webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) by **Automatic1111**. 
 It is also available for [macOS w/ Apple Silicon](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon) too.
@@ -40,7 +51,7 @@ Nowadays, the most popular model hosting site is called [CivitAI](https://civita
 It hosts a lot of `Checkpoints`, as well as `Embedding` and `LoRA`.
 Each model also has user comments, user ratings, and example generations. So, you can check the samples first before downloading the model.
 
-**Note:** Many models and sample images are automatically-flagged by the system and thus hidden. So you may need to login to see more models.
+**Note:** Some models and sample images are automatically flagged by the system and thus hidden. So you may need to login to see more models.
 
 ## SD Versions
 The majority of the Checkpoint models on CivitAI were trained on `Stable Diffusion v1.5`. 
@@ -84,7 +95,7 @@ On CivitAI, you can see if a model is LyCORIS or LoRA easily. To use LyCORIS, yo
 
 > Put **LyCORIS** in `~\stable-diffusion-webui\models\LyCORIS`
 
-## Tab Explanations:
+## Tab Explanations
 - **`txt2img`:** Generate image based on input prompts
 - **`img2img`:** Generate image based on an image along with prompts
 - **`Extras`:** Upscale image
@@ -100,7 +111,7 @@ On CivitAI, you can see if a model is LyCORIS or LoRA easily. To use LyCORIS, yo
 - **`Settings`:** Settings 💀
 - **`Extensions`:** Install & Manage Extensions *(See [#](#extensions))*
 
-## Term Explanations:
+## Term Explanations
 - **`Prompt`:** The tags for stuffs you want in the output.
 - **`Negative Prompt`:** The tags for stuffs you don’t want in the output.
 - **`Sampling Method`:** The wizardry behind the scene. `Euler a` is fine. `DPM++ 2M series` are popular too. Basically, this slightly affects how the output look.
@@ -125,6 +136,16 @@ seed, you should be able to get the same output when using the same prompts and 
 6. Optionally, you can then save the default prompts from step 2 ~ 5 by clicking the save icon under **Generate** and give it a name. 
 In the future, every time you launch webui you just need to load the Style.
 
+## Prompt Order
+The order in which you enter the prompts **does** affect the generation results. For example:
+
+- If you enter `<subject>, <background>` then it will first generate the subject, then try to modify the background according to the prompts.
+- If you enter `<background>, <subject>` then it will first generate the background, then try to fit in the subject.
+
+<p align="center">
+<img src="misc/Order.jpg" width=768>
+</p>
+
 ## Brackets
 - You can use `( )` to increase the influence of a prompt.
 - You can use `[ ]` to decrease the influence of a prompt.
@@ -148,11 +169,11 @@ Alternatively, use `Install from URL` and paste in the link to a GitHub repo to 
 **Note:** Every time you install new extensions, you need to restart the webui to load them properly. 
 I recommend to close the browser and the CLI entirely and start again, as only restarting the UI sometimes may not work properly. 
 
-### Multiple Characters
-[<--- link --->](MultiChara/README.md)
-
 ### Control Net
 [<--- link --->](ControlNet/README.md)
+
+### Multiple Characters
+[<--- link --->](MultiChara/README.md)
 
 ### Super Resolution Upscale
 [<--- link --->](MultiDiffusion/README.md)
