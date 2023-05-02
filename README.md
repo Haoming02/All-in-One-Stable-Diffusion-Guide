@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><i>by. Haoming 2023/04/26</i></p>
+<p align="center"><i>by. Haoming 2023/05/02</i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -9,12 +9,15 @@ that can achieve different styles, concepts or functions.
 
 ## Where do I start?
 The easiest, best, and most straightforward way to use Stable Diffusion is through a client called [webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) by **Automatic1111**. 
-It is also available for [macOS w/ Apple Silicon](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon) too apparently.
-You will need to download **[Python3.10](https://www.python.org/downloads/)** as well as **[git](https://git-scm.com/downloads)** first. 
-Then clone *(download)* the repository to a folder of choice. You will need a decent graphic card (GPU) with high amount of VRAM. 
+It is also available for [macOS w/ Apple Silicon](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Installation-on-Apple-Silicon) too.
+You will need to install **[Python 3.10](https://www.python.org/downloads/)** as well as **[git](https://git-scm.com/downloads)** first. 
+Then clone the repository to a folder of choice. You will need a decent graphic card (GPU) with high amount of VRAM. 
 There are also other popular webui, such as [ComfyUI](https://github.com/comfyanonymous/ComfyUI) or [InvokeAI](https://github.com/invoke-ai/InvokeAI).
-Alternatively, there is a GoogleColab version of the client that you can run online without the need of high-end graphic card.
-However, the above have their own pros and cons, and will not be covered in this guide as I’ve never used any of them.
+However, those have their own pros and cons, and will not be covered in this guide as I’ve never used any of them.
+
+**Note:** GoogleColab now blocks Stable Diffusion from running unless you use a paid subscription!
+
+> Detailed [Installation Guide](misc/Installation.md)
 
 >Add `--xformers` after `COMMANDLINE_ARGS=` in `webui-user.bat` to speed up the generation
 
@@ -25,7 +28,7 @@ However, the above have their own pros and cons, and will not be covered in this
 ## How do I start?
 When you follow the steps and install the client, if you didn’t download any model yourself beforehand, 
 then the script would download a model automatically for you. The model is `Stable-Diffusion-v1-5`, an official model made by **runwayml**. 
-And it is for general purposes, as in you can generate both realistic arts and anime arts. Though, if you mainly want to generate anime arts, 
+And it is for general purposes, as in you can generate both realistic arts and cartoonish arts. Though, if you mainly want to generate anime arts, 
 I suggest you to download more dedicated models, such as [anything-v3.0](https://huggingface.co/Linaqruf/anything-v3.0/tree/main), or ~~shameless self promotion~~ [UHD-23](https://civitai.com/models/22371/uhd-23).
 After downloading the model (`.ckpt` or `.safetensors`), put them in the folder: `~\stable-diffusion-webui\models\Stable-diffusion`.
 Then, you can select the model on the webui.
@@ -185,7 +188,7 @@ and then save as `user.css` in the same directory to change how the webui looks.
 ### LyCORIS Training
 Follow the same steps as [LoRA Training](LoRATraining.md) above. Except:
 - Choose `LyCORIS/LoHa` for the `LoRA type` parameter
-- Choose **low** `Dimonsion` and `Alpha`. *(I use `4` for all 4 of the parameters)*
+- Use **low** `Dimonsion` and `Alpha`.
 - *Play around with the Learning Rate / Scheduler / Warmup / Optimizer*
 
 # Resources
