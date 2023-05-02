@@ -96,9 +96,9 @@ On CivitAI, you can see if a model is LyCORIS or LoRA easily. To use LyCORIS, yo
   - You can upscale the image using 2 upscalers, then blend them together with `Upscaler 2 visibility`
 - **`PNG Info`:** You can upload an image to see what prompts and settings were used to generate it *(provided that the metadata was not removed)*
 - **`Checkpoint Merger`:** ~~The easiest way to spam *something* onto CivitAI~~
-- **`Train`:** Preprocess Images & Train Embeddings
+- **`Train`:** Preprocess Images & Train Embeddings *(See [#](#embedding-training))*
 - **`Settings`:** Settings 💀
-- **`Extensions`:** Install & Manage Extensions
+- **`Extensions`:** Install & Manage Extensions *(See [#](#extensions))*
 
 ## Term Explanations:
 - **`Prompt`:** The tags for stuffs you want in the output.
@@ -135,24 +135,18 @@ In the future, every time you launch webui you just need to load the Style.
 hair, but the hair being straight or not is not a priority.
 
 ## Recommended Workflow
-Use `512x512 ~ 768x768` for rapid prototyping, until the composition (pose & background, etc.) is acceptable. 
+Use `512x512` / `768x768` for rapid prototyping, until the composition (pose & background, etc.) is acceptable. 
 Press the recycle icon to fix the `Seed`, then turn on `Hires. Fix` to upscale to higher resolution. Sometimes the upscaling process may mess up the composition again, 
-so play around with the steps and strength until the result is desired. Lastly, go to `Extra` tab to upscale the image again. 
+so play around with the upscaler, steps and strength until the result is desired. Lastly, go to `Extra` tab to upscale the image again. 
 Now you get a high resolution and detailed image!
 
-# Advanced Topics
-There are tens of papers published for Stable Diffusion almost every single week. [Refer](#resources) to YouTube or Reddit for the latest news and technologies.
-
-### Extensions
-Extensions are basically 3rd party tools which were not native to the webui, that aim to provide additional functions. 
-You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will generate a list of popular extensions. You can then click **Install** to integrate them.
-Alternatively, use `Install from URL` and paste in the link to a GitHub repo to install extensions not on the list. Some of the topics below require extensions.
+# Extensions
+Extensions are basically 3rd party tools not native to the webui, that aim to provide additional functions. 
+You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will load a list of popular extensions. You can then click **Install** to integrate them.
+Alternatively, use `Install from URL` and paste in the link to a GitHub repo to install extensions not on the list.
 
 **Note:** Every time you install new extensions, you need to restart the webui to load them properly. 
-I recommend to close the browser and the CLI entirely and start again, since only restarting the UI may not work properly sometimes. 
-
-### X/Y/Z Plot
-[<--- link --->](XYZ/README.md)
+I recommend to close the browser and the CLI entirely and start again, as only restarting the UI sometimes may not work properly. 
 
 ### Multiple Characters
 [<--- link --->](MultiChara/README.md)
@@ -160,14 +154,16 @@ I recommend to close the browser and the CLI entirely and start again, since onl
 ### Control Net
 [<--- link --->](ControlNet/README.md)
 
-# Random Tips & Tricks
+### Super Resolution Upscale
+[<--- link --->](MultiDiffusion/README.md)
+
+# Tips & Tricks
 
 ### Themes
-You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
-and then save as `user.css` in the same directory to change how the webui looks.
+[<--- link --->](TipsTricks/README.md#themes)
 
-### Insane Upscale
-[<--- link --->](TipsTricks/README.md#insane-upscale)
+### X/Y/Z Plot
+[<--- link --->](XYZ/README.md)
 
 ### Extra Details
 [<--- link --->](TipsTricks/README.md#extra-details)

@@ -21,7 +21,7 @@
         - Supposedly, the former works for **Torch 1.x** while the latter works for **Torch 2.x**. But apparently they still work for the opposite version too. Experiment with either and see which yields better speed
     - Add `--no-half-vae` after `COMMANDLINE_ARGS=` to stop NaN images from generating
     - Add `--medvram` after `COMMANDLINE_ARGS=` if you have less than **8GB** VRAM
-        - Add `--lowvram` instead if you're still getting **OUT OF MEMORY** errors
+        - Add `--lowvram` instead if you're still getting **CUDA Out of Memory Error** errors
 4. **(Optional)** Download a Checkpoint model and put it into `~\stable-diffusion-webui\models\Stable-diffusion` first.
 5. **Launch:** Launch the **webui** via `webui-user.bat`. When you launch it for the first time, it will download and install all the requirements. This will take a while so be patient. ~~Read the rest of the guide in the meantime~~. Additionally, it will also download the default `Stable-Diffusion-v1-5` model if you didn't do step 4.
 6. **Run:** You will know it's finished loading when you see **`Running on local URL:  http://127.0.0.1:XXXX`**. You can then `Ctrl + Left Click` that link to open it in your browser.

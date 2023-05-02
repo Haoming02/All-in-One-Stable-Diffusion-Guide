@@ -1,16 +1,9 @@
 <h1 align="center">Random Tips & Tricks</h1>
 <p align="center"><i>by. Haoming 2023/04/26</i></p>
 
-## Insane Upscale
-> Learn how to install [Extensions](../README.md#extensions)
-
-When you use `Hires. fix` or `img2img` to upscale an image, you may encounter **CUDA Out of Memory Error** if the resolution is too high.
-You can solve this by installing this extension:
-- `MultiDiffusion with Tiled VAE (multidiffusion-upscaler-for-automatic1111)` *([Github](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111))*
-
-Then, turn on **Tiled VAE** and adjust the settings if needed. 
-
-*I was able to upscale a `1024x1024` image to `2048x2048` with only **8GB** of VRAM.*
+## Themes
+You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
+and then save as `user.css` in the project directory to change how the webui looks.
 
 <hr>
 
