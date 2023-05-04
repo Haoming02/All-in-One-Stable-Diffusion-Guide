@@ -41,17 +41,17 @@ Enable the Extension and play with the `Ratio`.
         </tr>
         <tr align="center">
             <td><b>Base</b></td>
-            <td>7.85 it/s</td>
-            <td>7.92 it/s</td>
-            <td>8.08 it/s</td>
-            <td>9.31 it/s</td>
+            <td>8.00 it/s</td>
+            <td>8.33 it/s</td>
+            <td>8.69 it/s</td>
+            <td>8.91 it/s</td>
         </tr>
         <tr align="center">
             <td><b>Hires. Fix</b></td>
-            <td>1.46 it/s</td>
-            <td>1.81 it/s</td>
+            <td>1.48 it/s</td>
+            <td>1.86 it/s</td>
             <td>2.15 it/s</td>
-            <td>2.71 it/s</td>
+            <td>2.38 it/s</td>
         </tr>
         <tr align="center">
             <td><b>Total</b></td>
@@ -62,10 +62,10 @@ Enable the Extension and play with the `Ratio`.
         </tr>
         <tr align="center">
             <td><b>Result</b></td>
-            <td><img src="Off.jpg" width=128></td>
-            <td><img src="0.3.jpg" width=128></td>
-            <td><img src="0.5.jpg" width=128></td>
-            <td><img src="0.7.jpg" width=128></td>
+            <td><img src="Off.jpg" width=100></td>
+            <td><img src="0.3.jpg" width=100></td>
+            <td><img src="0.5.jpg" width=100></td>
+            <td><img src="0.7.jpg" width=100></td>
         </tr>
     </tbody>
 </table>
