@@ -10,27 +10,25 @@ However, the process is **lossy**, so you will see **visual degradation** when y
 > See [Examples](#examples) below
 
 ## Requirements
-- Install the required Python Package:
-  1. Go to the webui install folder
-  2. Click the address bar, then enter `cmd` to open the console
-  3. Enter `venv\Scripts\activate` to open the virtual environment
-  4. Enter `pip install tomesd` to install the package
-- Install the following Extension:
-  - `sd-webui-tome` ([link](https://git.mmaker.moe/mmaker/sd-webui-tome))
-    - Click `Download Repository`, then extract the folder inside to `~\stable-diffusion-webui\extensions`
+> Learn how to install [Extensions](../README.md#extensions)
+
+Install the following Extension first and restart the webui:
+- `sd-webui-tomesd` *([GitHub](https://github.com/Haoming02/sd-webui-tomesd))*
 
 ## How to Use
-After you install the above extension, you should see a new section called **`Token Merging`** in the **Settings** tabs.
-Toggle `Enable` and play with the `Ratio` and other settings.
+After you install the above extension, you should see a new section called **Token Merging** in the **Settings** tab.
+Enable the Extension and play with the `Ratio`.
 
-**Note:** You need to **Reload UI** when you adjust the `Ratio` to re-apply the patch
+**Note:** You need to **Reload UI** when you adjust the `Ratio` to re-apply the patch.
 
 ## Examples
-> Tested on **RTX 3060**;  `--xformers`
+> Tested on **RTX 3060** w/ `--xformers`
  
-> Generating at 512x512; Hires. Fix to 1024x1024; Euler a; 32 Steps; Same Prompt & Seed
+> Generating at 512x512; 32 Steps; Euler a
 
-> Max Downsample: 2; Stride X: 4; Stride Y: 4; All 4 Toggles Enabled
+> Hires. Fix to 1024x1024; 16 Steps; Latent (nearest)
+
+> Same Prompt; Same Seed
 
 <table>
     <tbody>

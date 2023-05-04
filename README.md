@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><i>by. Haoming 2023/05/02</i></p>
+<p align="center"><i>by. Haoming 2023/05/04</i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
