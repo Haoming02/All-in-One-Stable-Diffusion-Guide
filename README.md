@@ -175,8 +175,14 @@ I recommend to close the browser and the CLI entirely and start again, as only r
 ### Multiple Characters
 [<--- link --->](MultiChara/README.md)
 
+### Speed Up Generations
+[<--- link --->](ToMe/README.md)
+
 ### Super Resolution Upscale
 [<--- link --->](MultiDiffusion/README.md)
+
+### Easy Prompt Selector
+[<--- link --->](https://github.com/Haoming02/sd-webui-easy-prompt-selector-en) *~~Shameless Self-Promotion~~*
 
 # Tips & Tricks
 
@@ -211,8 +217,8 @@ Follow the same steps as [LoRA Training](LoRATraining.md) above. Except:
 # Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
-- Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
 - Youtube [Sebastian Kamph](https://www.youtube.com/@sebastiankamph/)
+- Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
 - Webui [Features](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)
 
 # Support Me!

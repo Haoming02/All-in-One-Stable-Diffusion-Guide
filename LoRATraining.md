@@ -1,12 +1,11 @@
 # LoRA Training Tutorial
-***by. [Haoming](https://civitai.com/user/HaomingGaming) 2023/04/20***
+***by. [Haoming](https://civitai.com/user/HaomingGaming) 2023/05/04***
 
 ## Install Kohya SS
-Just like `Stable Diffusion`, there is already a popular webui available: [Kohya SS](https://github.com/bmaltais/kohya_ss), 
-as well as GoogleColab versions that again I won’t cover. Simply go to the repository and follow the installation steps. 
+Just like `Stable Diffusion`, there is already a popular webui available: [Kohya SS](https://github.com/bmaltais/kohya_ss). Simply go to the repository and follow the installation steps. 
  *(Slightly outdated [Video Tutorial](https://youtu.be/9MT1n97ITaE))*
 
-**Note:** If you have a RTX 30 or RTX 40 series GPU, choose **`bf16`** during the accelerate config; otherwise choose **`fp16`**. 
+**Note:** If you have a RTX 30 or RTX 40 series GPU, choose **`bf16`** during the **accelerate config**; otherwise choose **`fp16`**. 
 
 ## Prepare Dataset
 Now comes the most difficult part: preparing the dataset. As the good ol’ saying goes: 
@@ -27,8 +26,8 @@ Once you finish preparing a dozen or so images with varying environments, procee
 ### Captioning:
 The easiest way to mass caption all the images is to again use the **Automatic1111 webui**. In the **Train** tab, you should see a section called **Preprocess Images**. Enter your folder that contains the image and a destination folder. Depending on your image, if it’s anime style, choose **`Deepbooru`**; if it’s realistic, choose **`Blip`**, then press **Run**. 
 
-**Note:** If you didn't want to crop the images to square, just copy the caption text files back to the original folder, and use [TrimDigits.py](Scripts/) to rename them. The captions will work as long as the filenames are the same as the images.
-Alternatively, if you want to manually caption the images, use [GenerateTxt.py](Scripts/) instead.
+**Note:** If you don't want to crop the images to square, ~~just copy the caption text files back to the original folder, and use [TrimDigits.py](Scripts/) to rename them.~~ turn on `Auto-sized crop` and adjust the settings *(**eg.** Set the `Area upper bound` to 768 x 768 = **589824**)*. 
+Alternatively, if you want to manually caption the images, use [GenerateTxt.py](Scripts/) instead. The captions will work as long as the filenames are the same as the images.
 
 You’re not done yet! Now you need to go through every single `.txt` file and manually check the captions. You need to **remove** every tag that describes your subject, keeping only the tags that should be “variables.” Think of it this way: You want the tag of your subject to be associated with their features. 
 So do not caption something like hair color or eyes color, unless you want them to be able to change *(eg. when training a Style)*. Only caption the background, the expression of the subject, what pose the subject is in, for example. Last but not least, add the **trigger tags** in front of the captions. (You can use the [Insert.py](Scripts/) script to automate this.) 
@@ -57,7 +56,7 @@ Project
 ***Note:** You don't actually have to follow this structure strictly. For example, you can just set the output model folder directly to the webui LoRA folder.*
 
 ## Configs
->Remember to switch to the LoRA tab at the top first.
+>Remember to switch to the **LoRA** tab at the top first.
 
 >Parameters that were not mentioned can just be left on default.
 
@@ -92,6 +91,6 @@ Enter the folders you created in the steps above. Remember to link to the `img` 
 If you want technical explanations of what these parameters do, check out this [document](misc/TechnicalTerms.pdf) answered by ChatGPT.
 
 ## Press the **Train Model** button
-~~And hope nothing explodes~~
+~~*And hope nothing explodes*~~
 
 After the training is finished, you can use [**`X/Y/Z Plot`**](XYZ/README.md) to evaluate the results.

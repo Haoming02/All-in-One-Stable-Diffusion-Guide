@@ -1,5 +1,5 @@
 ﻿# Control Net
-***by. Haoming 2023/04/20***
+***by. Haoming 2023/05/04***
 
 **Note:** ControlNet 1.1 has been released, bringing additional features and models!
 
@@ -15,14 +15,14 @@ allowing you to have a specific pose, fix the hands, or create insanely creative
 2. Download the models of choice from this link:
     - [Hugging Face](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
     - **Note:** Most tutorials were made for 1.0 and thus download the old models; refer to the official link above for the latest models.
-    - **Note:** You need to download both the `.pth` and the `.yaml` files of a model, and put them into `~\stable-diffusion-webui\extensions\sd-webui-controlnet\models`.
+    - ~~**Note:** You need to download both the `.pth` and the `.yaml` files of a model, and put them into `~\stable-diffusion-webui\extensions\sd-webui-controlnet\models`~~
+      - The Extension now comes with the `.yaml` files. So just download the `.pth` files.
 
 - **Important:** This extension requires different configs and models for `v1.5` and `v2.x` versions of Stable Diffusion. Refer to the official GitHub for the difference and settings. *(Refer to [versions](../README.md#sd-versions) if you don't know what they are.)*
 
 ## 1.1 Video Tutorial
+- [ControlNet 1.1](https://youtu.be/WZg3e6B2yPQ) by. **Sebastian Kamph**
 - [ControlNet 1.1](https://youtu.be/zrGLEgGFJY4) by. **Olivio Sarikas**
-    - How to install/update
-    - How to use
 
 ## 1.0 Video Tutorials
 - [ControlNet Overview](https://youtu.be/ci7NfTsifd0) by. **Olivio Sarikas**
@@ -51,4 +51,4 @@ Essentially,
 3. Pick a model depending on your need
 4. Modify the values
 5. ...
-6. Profit
+6. ~~Profit~~
