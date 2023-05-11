@@ -1,14 +1,14 @@
-﻿<h1 align="center">Overclocking</h1>
+<h1 align="center">Overclocking</h1>
 <p align="center"><i>by. Haoming 2023/05/11</i></p>
 
 <hr>
 
-<h3 align="center" style="color:red">--- Warning ---</h2>
+<h3 align="center"><b>--- Warning ---</b></h3>
 <h4 align="center" style="color:red">This can <b>damage</b> your GPU if done incorrectly!</h4>
 
 <hr>
 
-<p aligh="center"><img src="Afterburner.jpg"></p>
+<p align="center"><img src="Afterburner.jpg"></p>
 
 > MSI Ampere Afterburner skin by Drerex Design
 
@@ -25,7 +25,7 @@ You can download [MSI Afterburner](https://www.msi.com/Landing/afterburner/graph
   - Always do testings and benchmarks first before turning this on!
 - The actual improvements you can get depend on the silicon lottery
 
-<hr>
-
-<h4 align="center" style="color:red">Again, this can and will <b>damage</b> your GPU if not done correctly!</h4>
-<h5 align="center" style="color:red">I'm not responsible for whatever happens to your GPU</h5>
+```diff
+- Again, this can and will damage your GPU if not done correctly!
+- I'm not responsible for whatever happens to your GPU
+```
