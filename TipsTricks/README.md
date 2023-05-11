@@ -24,6 +24,8 @@ Some people found out that, the noise functions during training was flawed, caus
 
 The solution is to use [Noise Offset](https://civitai.com/models/13941/epinoiseoffset), which allows you to generate some truly dark or bright images.
 
+<hr>
+
 ## Extra Details
 **New:** Or just use [Detail Tweaker](https://civitai.com/models/58390/detail-tweaker-lora-lora) 💀
 
@@ -50,9 +52,6 @@ You can generate stylistic logos *(like those of eSports teams)* by following th
 4. Prompt the subject of choice
 5. ...
 6. ~~Profit~~
-
-### Example Image:
-![Sample](Logo.jpg)
 
 <hr>
 
