@@ -29,3 +29,7 @@ Some `python` scripts that ease the process of preparing dataset.
 ### TrimDigits.py
 - Remove the 8 leading numbers from the filename of the caption text files in a folder.
 - **Usage:** `>python TrimDigits.py "<folder path>"`
+
+### Format.py
+- Remove duplicated tags, commas and extra spaces for all text files in a folder.
+- **Usage:** `>python Format.py "<folder path>"`

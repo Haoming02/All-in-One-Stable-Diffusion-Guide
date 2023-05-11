@@ -1,6 +1,6 @@
 <h1 align="center"> Models Back Up </h1>
 <p align="center">
-<i><b>Last Update: 2023/04/18</i></b> <br>
+<i><b>Last Update: 2023/05/11</i></b> <br>
 <b>CivitAI</b> has been getting more and more annoying to use lately... <br>
 So I'm hosting a few of my better models here as well just in case.
 </p>
@@ -33,7 +33,7 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 
 #### Nagase Mana
 - **Trigger Words:**
-`nagase mana`, `idol`, `uniform`
+`nagase mana`, `idol-outfit`, `hoshini-uniform`
 - **Sample Images:**
 <p align="center">
 <img src="img/Mana01.jpg" width=256> <img src="img/Mana02.jpg" width=256>

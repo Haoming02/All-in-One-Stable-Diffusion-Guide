@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><i>by. Haoming 2023/05/04</i></p>
+<p align="center"><i>by. Haoming 2023/05/11</i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -130,11 +130,12 @@ seed, you should be able to get the same output when using the same prompts and 
 ## Setting Guides
 1. If you’re using anime models (eg. `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip Skip`** to **`2`**.
 2. In **positive** prompt, start with `high quality, best quality,` for the best results.
-3. Additionally, you can add tags like `hdr`, `dslr`, `4k` to further improve the quality.
+3. Additionally, you can add tags like `4k`, `hdr`, `dslr` to further improve the quality.
 4. Download and install this **Embedding**, [EasyNegative.safetensors](https://huggingface.co/datasets/gsdf/EasyNegative/tree/main)
 5. Add it along with `(bad quality, worst quality:1.2)` to the **negative** prompt.
 6. Optionally, you can then save the default prompts from step 2 ~ 5 by clicking the save icon under **Generate** and give it a name. 
 In the future, every time you launch webui you just need to load the Style.
+    - Alternatively, refer to [`ui-config.json`](TipsTricks/README.md#default-values) to set the default prompts automatically.
 
 ## Prompt Order
 The order in which you enter the prompts **does** affect the generation results. For example:
@@ -143,7 +144,7 @@ The order in which you enter the prompts **does** affect the generation results.
 - If you enter `<background>, <subject>` then it will first generate the background, then try to fit in the subject.
 
 <p align="center">
-<img src="misc/Order.jpg" width=768>
+<img src="misc/Order.jpg" width=512>
 </p>
 
 ## Brackets
@@ -175,28 +176,41 @@ I recommend to close the browser and the CLI entirely and start again, as only r
 ### Multiple Characters
 [<--- link --->](MultiChara/README.md)
 
-### Speed Up Generations
-[<--- link --->](ToMe/README.md)
-
 ### Super Resolution Upscale
 [<--- link --->](MultiDiffusion/README.md)
 
+### Speed Up Generations
+[<--- link --->](ToMe/README.md)
+
+## *Shameless Self-Promotion*
+### Prompt Format
+[<--- link --->](https://github.com/Haoming02/sd-webui-prompt-format)
+
 ### Easy Prompt Selector
-[<--- link --->](https://github.com/Haoming02/sd-webui-easy-prompt-selector-en) *~~Shameless Self-Promotion~~*
+[<--- link --->](https://github.com/Haoming02/sd-webui-easy-prompt-selector-en)
 
 # Tips & Tricks
+
+### X/Y/Z Plot
+[<--- link --->](XYZ/README.md)
 
 ### Themes
 [<--- link --->](TipsTricks/README.md#themes)
 
-### X/Y/Z Plot
-[<--- link --->](XYZ/README.md)
+### Default Values
+[<--- link --->](TipsTricks/README.md#default-values)
+
+### HDR
+[<--- link --->](TipsTricks/README.md#hdr)
 
 ### Extra Details
 [<--- link --->](TipsTricks/README.md#extra-details)
 
 ### Logo Creations
 [<--- link --->](TipsTricks/README.md#logo-creations)
+
+### *Overclocking*
+[<--- link --->](TipsTricks/Overclock.md)
 
 # Training
 
