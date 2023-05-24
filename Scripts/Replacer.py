@@ -1,9 +1,14 @@
+from Formatter import Format
 import sys
 import os
 
 FOLDER = sys.argv[1]
 BEFORE = sys.argv[2]
-AFTER = sys.argv[3]
+AFTERR = sys.argv[3]
+
+if len(sys.argv) > 4:
+    print('Too many inputs detected. Use " " to encapsulate your tags!')
+    exit()
 
 for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:
@@ -12,11 +17,10 @@ for FILE in os.listdir(FOLDER):
     with open(FOLDER + '/' + FILE, 'r') as f:
         original_line = f.readlines()
 
-    lines = original_line[0].replace(BEFORE, AFTER)
+    line = original_line[0].replace(BEFORE.strip(), AFTERR.strip())
 
-    tags = [word.strip() for word in lines.split(',')]
-    while '' in tags:
-        tags.remove('')
+    tags = Format(line)
+
     line = ', '.join(tags)
 
     with open(FOLDER + '/' + FILE, 'w') as f:

@@ -1,5 +1,5 @@
-﻿<h1 align="center">Random Tips & Tricks</h1>
-<p align="center"><i>by. Haoming 2023/05/11</i></p>
+﻿<h1 align="center">Tips & Tricks</h1>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/05/24</i></p>
 
 ## Themes
 You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
@@ -10,14 +10,13 @@ and then save as `user.css` in the project directory to change how the webui loo
 ## Default Values
 Inside your webui installation folder, there is a file called `ui-config.json`
 
-You can open it and edit the entries to change the default ui values, 
-such as adding your starting prompts, setting your desired `Sampling method`, or increasing the max resolution limits.
+You can open it and edit the entries to change the default ui values, such as setting your desired `Sampling method` or increasing the max resolution limits.
 Save you a few clicks everytime you use the webui.
 
 <hr>
 
 ## HDR
-Some people found out that, the noise functions during training was flawed, causing Stable Diffusion to always generate image with average brightness of `0.5`.
+Some people found out that, the noise functions used during training was flawed, causing Stable Diffusion to always generate image with average brightness of `0.5`.
 *(**ie.** Even if you prompt for dark/night or bright/snow, the overall image still looks "grey" on average)*
 
 > [Technical Explanations](https://youtu.be/cVxQmbf3q7Q)

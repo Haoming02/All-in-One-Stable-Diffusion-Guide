@@ -1,5 +1,5 @@
 # Speed Up Generations
-***by. Haoming 2023/05/04***
+***by. Haoming***
 
 > [GitHub & Paper](https://github.com/dbolya/tomesd)
 

@@ -1,25 +1,35 @@
+from Formatter import Format
 import sys
 import os
 
 FOLDER = sys.argv[1]
-INSERT = sys.argv[2]
+APPEND = sys.argv[2]
+FILTER = None if len(sys.argv) < 4 else sys.argv[3]
+
+if len(sys.argv) > 4:
+    print('Too many inputs detected. Use " " to encapsulate your tags!')
+    exit()
 
 for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:
         continue
 
+    if FILTER:
+        if FILTER not in FILE:
+            continue
+
     with open(FOLDER + '/' + FILE, 'r') as f:
         lines = f.readlines()
 
-    tags = [word.strip() for word in lines[0].split(',')]
-    while '' in tags:
-        tags.remove('')
-    line = ', '.join(tags)
+    og_tags = Format(lines[0])
+    ap_tags = Format(APPEND)
 
-    tag = [word.strip() for word in INSERT.split(',')]
-    while '' in tag:
-        tag.remove('')
-    IN = ', '.join(tag)
+    for tag in ap_tags:
+        if tag in og_tags:
+            og_tags.remove(tag)
+
+    line = ', '.join(og_tags)
+    AP = ', '.join(ap_tags)
 
     with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(line + ', ' + IN)
+        f.writelines(line + ', ' + AP)

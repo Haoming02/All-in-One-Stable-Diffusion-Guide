@@ -1,8 +1,13 @@
+from Formatter import Format
 import sys
 import os
 
 FOLDER = sys.argv[1]
 REMOVE = sys.argv[2]
+
+if len(sys.argv) > 3:
+    print('Too many inputs detected. Use " " to encapsulate your tags!')
+    exit()
 
 for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:
@@ -11,19 +16,14 @@ for FILE in os.listdir(FOLDER):
     with open(FOLDER + '/' + FILE, 'r') as f:
         lines = f.readlines()
 
-    tags = [word.strip() for word in lines[0].split(',')]
-    while '' in tags:
-        tags.remove('')
+    og_tags = Format(lines[0])
+    rm_tags = Format(REMOVE)
 
-    tags2 = [word.strip() for word in REMOVE.split(',')]
-    while '' in tags2:
-        tags2.remove('')
+    for tag in rm_tags:
+        if tag in og_tags:
+            og_tags.remove(tag)
 
-    for tag in tags2:
-        if tag in tags:
-            tags.remove(tag)
-
-    line = ', '.join(tags)
+    line = ', '.join(og_tags)
 
     with open(FOLDER + '/' + FILE, 'w') as f:
         f.writelines(line)

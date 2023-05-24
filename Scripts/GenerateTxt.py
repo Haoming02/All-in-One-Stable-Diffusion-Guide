@@ -1,9 +1,14 @@
+from Formatter import Format
 from pathlib import Path
 import sys
 import os
 
 FOLDER = sys.argv[1]
 INSERT = sys.argv[2]
+
+if len(sys.argv) > 3:
+    print('Too many inputs detected. Use " " to encapsulate your tags!')
+    exit()
 
 SNAPSHOT = os.listdir(FOLDER)
 
@@ -13,9 +18,7 @@ for FILE in SNAPSHOT:
 
     FileName = Path(FILE).stem
 
-    tags = [word.strip() for word in INSERT.split(',')]
-    while '' in tags:
-        tags.remove('')
+    tags = Format(INSERT)
     line = ', '.join(tags)
 
     with open(FOLDER + '/' + FileName + '.txt', 'w') as f:
