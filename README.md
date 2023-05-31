@@ -1,5 +1,6 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/05/24</i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/05/31</i></p>
+<p align="right"><i>corresponding version: <code>v1.3.0</code></i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -168,7 +169,7 @@ The order in which you enter the prompts **does** affect the generation results.
 - If you enter `<background>, <subject>` then it will first generate the background, then try to fit in the subject.
 
 <p align="center">
-<img src="misc/Order.jpg" width=512>
+<img src="misc/Order.jpg" width=384>
 </p>
 
 # Extensions
@@ -179,7 +180,7 @@ Alternatively, use `Install from URL` and paste in the link to a GitHub repo to 
 **Note:** Every time you install new extensions, you need to restart the webui to load them properly. 
 I recommend to close the browser and the CLI entirely and start again, as only restarting the UI sometimes may not work properly. 
 
-### **Control Net**
+### Control Net
 [<--- link --->](ControlNet/README.md)
 
 ### Super Resolution Upscale
@@ -191,13 +192,16 @@ I recommend to close the browser and the CLI entirely and start again, as only r
 ### Multiple Characters
 [<--- link --->](MultiChara/README.md)
 
-#### --- *Shameless Self Promotion* ---
+<h2><s> Shameless Self Promotion </s></h2>
 
 ### Prompt Format
 [<--- link --->](https://github.com/Haoming02/sd-webui-prompt-format)
 
-### Easy Prompt Selector
-[<--- link --->](https://github.com/Haoming02/sd-webui-easy-prompt-selector-en)
+### Easy Tag Insert
+[<--- link --->](https://github.com/Haoming02/sd-webui-easy-tag-insert)
+
+### Dynamic HDR
+[<--- link --->](https://github.com/Haoming02/sd-webui-dynamic-hdr)
 
 # Tips & Tricks
 
@@ -210,11 +214,8 @@ I recommend to close the browser and the CLI entirely and start again, as only r
 ### Default Values
 [<--- link --->](TipsTricks/README.md#default-values)
 
-### Noise Offset - HDR
-[<--- link --->](TipsTricks/README.md#hdr)
-
-### Extra Details
-[<--- link --->](TipsTricks/README.md#extra-details)
+### Noise Offset
+[<--- link --->](TipsTricks/README.md#noise-offset)
 
 ### Logo Creations
 [<--- link --->](TipsTricks/README.md#logo-creations)
@@ -240,10 +241,10 @@ Follow the same steps as [LoRA Training](LoRATraining.md) above. Except:
 
 # Resources
 - Reddit [r/StableDiffusion](https://www.reddit.com/r/StableDiffusion/)
-- YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
-- Youtube [Sebastian Kamph](https://www.youtube.com/@sebastiankamph/)
-- Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
 - Webui [Features](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)
+- Youtube [Sebastian Kamph](https://www.youtube.com/@sebastiankamph/)
+- YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
+- Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
 
 # Support Me!
 If you like my works and wish to support me, you can buy me a [coffee](https://ko-fi.com/haoming).

@@ -18,11 +18,8 @@ Then, proceed to upscale as normal. *I was able to upscale a `1024x1024` image t
 
 **Note:** You may need to lower the `CFG` and `Denoising strength` when upscaling in img2img.
 
-## Example
-[Nagase Mana](https://civitai.com/models/18659/nagase-mana-idoly-pride) generated at `512x512`, **Hires. fix** to `1024x1024`, then **img2img** to `2048x2048`. Maxinum VRAM used: `7GB`.
-
-![Example](Upscale.jpg)
-
 ## Additional Info
 - Alternatively, there is also [Ultimate SD Upscale](https://github.com/Coyote-A/ultimate-upscale-for-automatic1111). However in my experience, the script produces more visible seams in the generation compared to this extension.
 - Both methods work with the **Tile Resample** model from [ControlNet](../ControlNet/README.md).
+- For this specific use case, the `Tiled Diffusion` part is not used. 
+  - You can disable this section by going into the script `tilediffusion.py` and add `return None` below `def show(~)` and `def ui(~)`
