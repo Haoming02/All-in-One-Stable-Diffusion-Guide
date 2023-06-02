@@ -1,6 +1,6 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
 <p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/05/31</i></p>
-<p align="right"><i>corresponding version: <code>v1.3.0</code></i></p>
+<p align="right"><i>corresponding webui version: <code>v1.3.0</code></i></p>
 
 ## What is Stable Diffusion?
 `Stable Diffusion` is an AI artwork generator like `NovelAI` and `Midjourney`, but **open source** and **free** to use. 
@@ -249,3 +249,5 @@ Follow the same steps as [LoRA Training](LoRATraining.md) above. Except:
 # Support Me!
 If you like my works and wish to support me, you can buy me a [coffee](https://ko-fi.com/haoming).
 Any donations will be greatly appreciated!
+
+![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)

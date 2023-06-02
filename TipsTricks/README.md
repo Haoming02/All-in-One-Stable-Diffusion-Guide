@@ -1,5 +1,5 @@
 ﻿<h1 align="center">Tips & Tricks</h1>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/05/24</i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/05/31</i></p>
 
 ## Themes
 You can write **CSS** scripts, or download ones made by others such as [Catppuccin](https://github.com/catppuccin/stable-diffusion-webui), 
