@@ -250,4 +250,4 @@ Follow the same steps as [LoRA Training](LoRATraining.md) above. Except:
 If you like my works and wish to support me, you can buy me a [coffee](https://ko-fi.com/haoming).
 Any donations will be greatly appreciated!
 
-![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)
+[![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)

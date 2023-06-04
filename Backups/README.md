@@ -1,11 +1,11 @@
 <h1 align="center"> Models Back Up </h1>
 <p align="center">
-<i><b>Last Update: 2023/05/11</i></b> <br>
+<i><b>Last Update: 2023/06/04</i></b> <br>
 <b>CivitAI</b> has been getting more and more annoying to use lately... <br>
 So I'm hosting a few of my better models here as well just in case.
 </p>
 <p align="center">
-<b>Download:</b> <a href=https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/releases/tag/backup>Release Page</a>
+<b>Download:</b> <a href=https://github.com/Haoming02/All-in-One-StableDiffusion-Guide/releases>Release Page</a>
 </p>
 <hr>
 <h1 align="center"> My Personal Checkpoint </h1>
@@ -27,13 +27,13 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 3. [LoveLive!](#love-live)
 4. [Lycoris Recoil](#lycoris-recoil)
 5. [Sound! Euphonium](#hibike-euphonium)
-6. [Blue Reflection](#blue-reflection)
+6. [Link! Like! Love Live!](#link-like-love-live)
 
 ## Idoly Pride
 
 #### Nagase Mana
 - **Trigger Words:**
-`nagase mana`, `idol-outfit`, `hoshini-uniform`
+`nagase mana`, `idol-outfit`, `hoshimi-uniform`
 - **Sample Images:**
 <p align="center">
 <img src="img/Mana01.jpg" width=256> <img src="img/Mana02.jpg" width=256>
@@ -41,7 +41,7 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 
 #### Nagase Kotono
 - **Trigger Words:**
-`nagase kotono`, `idol`, `uniform`, `swimsuit`
+`nagase kotono`, `idol outfit`, `hoshimi uniform`
 - **Sample Images:**
 <p align="center">
 <img src="img/Kotono01.jpg" width=256> <img src="img/Kotono02.jpg" width=256>
@@ -49,7 +49,7 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 
 #### Kawasaki Sakura
 - **Trigger Words:**
-`kawasaki sakura`, `idol`, `uniform`
+`kawasaki sakura`, `idol-outfit`, `hikarigasaki-uniform`
 - **Sample Images:**
 <p align="center">
 <img src="img/Sakura01.jpg" width=256> <img src="img/Sakura02.jpg" width=256>
@@ -95,6 +95,8 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 <img src="img/Suzu01.jpg" width=256> <img src="img/Suzu02.jpg" width=256>
 </p>
 
+<hr>
+
 ## Selection Project
 
 #### Miyama Suzune
@@ -112,6 +114,8 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 <p align="center">
 <img src="img/Rena01.jpg" width=256> <img src="img/Rena02.jpg" width=256>
 </p>
+
+<hr>
 
 ## Love Live
 
@@ -139,6 +143,8 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 <img src="img/Shizuku01.jpg" width=256> <img src="img/Shizuku02.jpg" width=256>
 </p>
 
+<hr>
+
 ## Lycoris Recoil
 
 ### Chisato Nishikigi
@@ -157,6 +163,8 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 <img src="img/Takina01.jpg" width=256> <img src="img/Takina02.jpg" width=256>
 </p>
 
+<hr>
+
 ## Hibike Euphonium
 
 #### Kumiko Oumae & Reina Kousaka
@@ -167,36 +175,14 @@ Combining the knowledge of Anything & the artstyle of Hentai Diffusion, while pr
 <img src="img/Hibike01.jpg" width=256> <img src="img/Hibike02.jpg" width=256>
 </p>
 
-## Blue Reflection
+<hr>
 
-#### Shijou Yuzuki & Shijou Raimu
+## Link Like Love Live
+
+#### Hasunosora Girls' High School Idol Club
 - **Trigger Words:**
-`yuzu`, `lime`, `uniform`, `reflector`
+`hinoshita kaho`, `otomune kozue`, `murano sayaka`, `yugiri tsuzuri`, `osawa rurino`, `fujishima megumi`, `hasunosora_uniform`
 - **Sample Image:**
 <p align="center">
-<img src="img/YuzuLime.jpg" width=384>
-</p>
-
-#### Shirai Hinako
-- **Trigger Words:**
-`shirai hinako`, `uniform`, `reflector`
-- **Sample Image:**
-<p align="center">
-<img src="img/Hinako.jpg" width=384>
-</p>
-
-#### Kasuga Shiho
-- **Trigger Words:**
-`kasuga shiho`, `uniform`
-- **Sample Image:**
-<p align="center">
-<img src="img/Shiho.jpg" width=384>
-</p>
-
-#### Morisaki Alesia Yu
-- **Trigger Words:**
-`morisaki alesia yu`, `uniform`, `reflector`, `wings`
-- **Sample Image:**
-<p align="center">
-<img src="img/Alesia.jpg" width=384>
+<img src="img/LLLL.jpg" width=512>
 </p>
