@@ -7,7 +7,7 @@ REMOVE = sys.argv[2]
 
 if len(sys.argv) > 3:
     print('Too many inputs detected. Use " " to encapsulate your tags!')
-    exit()
+    raise SystemExit
 
 for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:

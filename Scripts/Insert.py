@@ -8,7 +8,7 @@ FILTER = None if len(sys.argv) < 4 else sys.argv[3]
 
 if len(sys.argv) > 4:
     print('Too many inputs detected. Use " " to encapsulate your tags!')
-    exit()
+    raise SystemExit
 
 for FILE in os.listdir(FOLDER):
     if '.txt' not in FILE:

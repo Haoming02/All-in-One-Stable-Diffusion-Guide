@@ -1,15 +1,16 @@
-# Speed Up Generations
+# Token Merging
 ***by. Haoming***
 
 > [GitHub & Paper](https://github.com/dbolya/tomesd)
 
 ## How it Works
 It basically merges certain tokens together, thus reducing the memory requirement and increasing the generation speed. The higher the `Ratio`, the more the impact.
-However, the process is **lossy**, so you will see **visual degradation** when you set the `Ratio` too high. 
+However, the process is **lossy**, meaning you will see lower quality generation if you set the `Ratio` too high. 
 
-# Note
-- Since webui version `v1.3`, this function has been implemented natively. Just go to **Settings** -> `Optimizations`
-  - Bump `Negative Guidance minimum sigma` to `1 ~ 2` too while you're there for even more speed increase
+## Note
+- Since webui version `v1.3`, this feature has been implemented natively. Just go to **Settings** -> `Optimizations` to tweak the `Ratio`.
+- Bump `Negative Guidance minimum sigma` to `1 ~ 3` too while you're there for even more speed increase.
+- Remember to press `Apply settings`
 
 ## Examples
 > Tested on **RTX 3070 Ti** w/ `--xformers`

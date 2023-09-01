@@ -8,7 +8,7 @@ INSERT = sys.argv[2]
 
 if len(sys.argv) > 3:
     print('Too many inputs detected. Use " " to encapsulate your tags!')
-    exit()
+    raise SystemExit
 
 SNAPSHOT = os.listdir(FOLDER)
 

@@ -1,7 +1,7 @@
 # Helper Scripts
 Some `python` scripts that ease the process of preparing dataset.
 
-**Note:** Remember to use `" "` if you have multiple tags
+**Important:** Remember to use `" "` if you have multiple tags
 
 ### Insert.py
 - Insert tags at the start of the caption for all text files in a folder. Useful for adding **trigger words**. 
@@ -32,10 +32,6 @@ Some `python` scripts that ease the process of preparing dataset.
 - Remove some common tags that describe the subjects (eg. \*hair). 
 - **(Optional)** Remove color\* tags *(Default to `False`)*.
 - **Usage:** `>python CleanTags.py "<folder path>" <remove color (optional)>`
-
-### TrimDigits.py
-- Remove the 8 leading numbers from the filename for all text files in a folder. 
-- **Usage:** `>python TrimDigits.py "<folder path>"`
 
 ### Formatter.py
 - Remove duplicated tags, commas and extra spaces for all text files in a folder.
