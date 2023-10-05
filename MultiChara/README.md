@@ -44,4 +44,4 @@ AND 2girls, pink_hair, long_hair, sitting, angry, stare, barefoot, beach_chair
 AND 2girls, beach, sunny, water, day, blue_sky, clouds
 ```
 
-<p align="center"><img src="Sample01.jpg"></p>
+<p align="center"><img src="Sample01.jpg" width=768></p>

@@ -12,7 +12,7 @@
 1. Go to this [link](https://github.com/AUTOMATIC1111/stable-diffusion-webui/releases/tag/v1.0.0-pre)
 2. Click on **`sd.webui.zip`** to download
 3. Extract its contents to a folder of choice
-4. Run **`update.bat`**
+4. Run **`update.bat`** first
 5. Run **`run.bat`** 
     - When you launch it for the first time, it will download and install all the requirements. This will take a while so be patient. ~~Read the rest of the guide in the meantime~~.
 6. You will know it's finished loading when you see **`Running on local URL:  http://127.0.0.1:XXXX`**
@@ -40,5 +40,7 @@ Then you can add the following *(optional)* arguments after **`COMMANDLINE_ARGS=
     - (v1.6) **`--medvram-sdxl`** to only activate it when using SDXL checkpoints
 
 #### Advanced
-- **`--api`** allows other programs to talk to it. See the official [Documents](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API) for more info.
+- **`--api`** allows other programs to talk to it. See the official [Documentation](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API) for more info.
 - **`--port XXXX`** specifies which local port to use.
+
+> See all Commandline Args [Here](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Command-Line-Arguments-and-Settings)

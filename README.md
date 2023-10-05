@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/08/31</i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/10/05</i></p>
 <p align="right"><i>corresponding webui version: <code>v1.6.0</code></i></p>
 
 ## What is Stable Diffusion?
@@ -28,12 +28,14 @@ giving the user the full custom control of the generation.
 One simple and straightforward way to use Stable Diffusion is through a client called [**Automatic1111 Webui**](https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
 - [Installation Guide](misc/Installation.md) for **Automatic1111**
 
-> GoogleColab now blocks Stable Diffusion from running unless you use a paid subscription!
+> GoogleColab now blocks Stable Diffusion from running unless you use a paid subscription
 
 There are also other popular user interfaces, such as [ComfyUI](https://github.com/comfyanonymous/ComfyUI) and [Fooocus](https://github.com/lllyasviel/Fooocus).
 However, those come with their own pros and cons, and will not be covered in this guide.
 
 > **ComfyUI** is significantly more complicated, but also allows you to delve into more technically settings
+
+> **Fooocus** is rather simplified, suitable for those who just want to get beautiful artworks by writing a prompt
 
 ## Models
 Nowadays, the most widely used model hosting site is called [CivitAI](https://civitai.com/). 
@@ -106,7 +108,7 @@ Click the red button *(`Show extra networks`)* under **Generate** to open the su
 - **`Settings`:** Settings 💀
 - **`Extensions`:** Install & Manage [Extensions](#extensions)
 
-## Fields
+### Fields
 - **`Prompt`:** The text for what you want in the output.
 - **`Negative Prompt`:** The text for what you don’t want in the output.
 - **`Sampling Method`:** Basically, this affects the denoising process and thus how the final output look. You can read this [article](https://stable-diffusion-art.com/samplers/) for explanations.
@@ -129,6 +131,10 @@ Click the red button *(`Show extra networks`)* under **Generate** to open the su
 
 ### Styles
 - You can save the prompts using the Styles function to reuse them in the future.
+  - For `webui v1.5` and prior: Click the `💾` button to save; Click the `📋` button to load after selecting a style in the dropdown
+  - For `webui v1.6`: Click the `🖌️` button to open the Style Dialogue
+    - Alternatively, install this [Extension](https://github.com/Haoming02/sd-webui-boomer) to restore the old functionalities
+      > Learn how to install [Extensions](#extensions)
 
 ### Brackets
 - You can use `( )` to increase the influence of a prompt.
@@ -136,7 +142,7 @@ Click the red button *(`Show extra networks`)* under **Generate** to open the su
 - You can also stack brackets
   - **e.g.** `[[foo]]`
 - Alternatively, use `(tag:ratio)`
-  - **e.g.** `(bar:1.5)`
+  - **e.g.** `(foo:0.5)`, `(bar:1.5)`
 
 ##### Example
 `(long hair:1.5), [[black hair]]` will try to generate long hair, but the color of the hair is not a priority.
@@ -187,10 +193,12 @@ The order of the prompts does have effects on the generation results. For exampl
 ### Easy Tag Insert
 [<--- link --->](https://github.com/Haoming02/sd-webui-easy-tag-insert)
 
+### Restore Webui v1.5 Look
+[<--- link --->](https://github.com/Haoming02/sd-webui-boomer)
+
 ## Training
 
 ### Embedding Training
-~~*Train LoRA instead*~~
 - [Video by Aitrepreneur](https://youtu.be/2ityl_dNRNw)
 - [Video by OlivioSarikas](https://youtu.be/MLz0iM0M7Fk)
 
