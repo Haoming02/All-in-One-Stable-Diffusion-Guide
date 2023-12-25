@@ -37,3 +37,10 @@ Some `python` scripts that ease the process of preparing dataset.
 - Remove duplicated tags, commas and extra spaces for all text files in a folder.
 - ***Note:** This is automatically triggered when using other scripts above.*
 - **Usage:** `>python Formatter.py "<folder path>"`
+
+# Misc
+Some other `python` scripts not related to captioning
+
+### CopyMetadata.py
+- Copy the metadata from 1 image to another. Useful for baking a ComfyUI workflow into a screenshot, for example.
+- **Usage:** `>python CopyMetadata.py "<source image path>" "<target image path>"`

@@ -10,20 +10,16 @@ allowing you to have a specific pose, fix the hands, or create insanely creative
 
 1. Install the following Extension:
     - `sd-webui-controlnet` *([GitHub](https://github.com/Mikubill/sd-webui-controlnet))*
-2. Download the models of choice from this [link](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
+2. Download the models of choice from [HuggingFace](https://huggingface.co/lllyasviel/ControlNet-v1-1/tree/main)
     - You only need to download the `.pth` files
     - Click the `arrow` next to the red `LFS` label
-
-- **Important:** This extension requires different configs and models for `v1.5` and `v2.x` versions of Stable Diffusion. 
-Refer to the official GitHub for the differences and settings. **ControlNet** for `SDXL` is currently not available yet as of now.
-> *(Refer to [versions](../README.md#sd-versions) if you don't know what these mean.)*
 
 ## Video Tutorials
 - [ControlNet 1.1](https://youtu.be/WZg3e6B2yPQ) by. **Sebastian Kamph**
 - [ControlNet 1.1](https://youtu.be/zrGLEgGFJY4) by. **Olivio Sarikas**
 
 <details>
-<summary>Old Version</summary>
+<summary>Older Tutorials</summary>
 
 - [ControlNet Overview](https://youtu.be/ci7NfTsifd0) by. **Olivio Sarikas**
     - How to install *(Download the models from the link above instead)*
@@ -49,6 +45,6 @@ There's simply too much to write in text easily. Just watch the videos above... 
 Essentially,
 1. Open ControlNet
 2. Upload a source image to extract features from
-3. Pick a moddule
+3. Pick a module
 4. ...
 5. ~~Profit~~

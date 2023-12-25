@@ -1,13 +1,13 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/10/05</i></p>
-<p align="right"><i>corresponding webui version: <code>v1.6.0</code></i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/12/25</i></p>
+<p align="right"><i>corresponding <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">webui</a> version: <code>v1.7.0</code></i></p>
 
 ## What is Stable Diffusion?
-`Stable Diffusion` is an AI art generating tool just like `Midjourney` and `NovelAI`, 
-but **open source**, runs **locally**, and is **free** to use.
+`Stable Diffusion` is a model for AI image generation, similar to `DALL·E`, `Midjourney` and `NovelAI`. 
+The main advantage is that, `Stable Diffusion` is **open source**, runs **locally**, and is completely **free** to use.
 User can input prompts, and the AI will generate artworks based on those prompts. 
-Additionally, there are *a lot of* community-made models and extensions that can achieve different styles, concepts or functions, 
-giving the user the full custom control of the generation. 
+Additionally, there are *a lot of* community-made tools and extensions that can achieve different styles, concepts or functions, 
+giving the user the full control of the generation and customization. 
 
 ## Index
 1. [Getting Started](#getting-started)
@@ -25,57 +25,56 @@ giving the user the full custom control of the generation.
 <hr>
 
 ## Getting Started
-One simple and straightforward way to use Stable Diffusion is through a client called [**Automatic1111 Webui**](https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
-- [Installation Guide](misc/Installation.md) for **Automatic1111**
+One simple and straightforward way to access Stable Diffusion is through a client called [**Automatic1111 Webui**](https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
+> [Installation Guide](misc/Installation.md)
 
-> GoogleColab now blocks Stable Diffusion from running unless you use a paid subscription
-
-There are also other popular user interfaces, such as [ComfyUI](https://github.com/comfyanonymous/ComfyUI) and [Fooocus](https://github.com/lllyasviel/Fooocus).
-However, those come with their own pros and cons, and will not be covered in this guide.
-
-> **ComfyUI** is significantly more complicated, but also allows you to delve into more technically settings
+There are also other popular user interfaces, such as [**Fooocus**](https://github.com/lllyasviel/Fooocus) and [**ComfyUI**](https://github.com/comfyanonymous/ComfyUI), each with their own pros and cons. 
+The UI-related information in this Guide will mainly focus on Automatic1111 Webui, 
+but the general knowledge about Stable Diffusion is the same for all of them!
 
 > **Fooocus** is rather simplified, suitable for those who just want to get beautiful artworks by writing a prompt
 
+> **ComfyUI** is significantly more complicated, but also allows you to delve into more technical settings
+
+> **GoogleColab** now blocks Stable Diffusion from running unless you use a paid subscription
+
 ## Models
-Nowadays, the most widely used model hosting site is called [CivitAI](https://civitai.com/). 
+Nowadays, the most widely used model hosting site is called [**CivitAI**](https://civitai.com/). 
 It hosts all sorts of models, as well as user-generated guides and resources.
-Furthermore, each model page also contains user comments, ratings, and samples. 
+Furthermore, each page also contains user comments, ratings, and samples. 
 
-**Note:** Certain models and sample images are flagged by the system and thus hidden. You may need to login to see more models.
-
->`.safetensors` is a new format for storing tensors safely *(as opposed to `pickle`)* while also being really fast. Always choose `safetensors` if available.
+>`.safetensors` is a new format for storing weights safely *(as opposed to `pickle`)* while also being really fast. Always choose `.safetensors` if available.
 
 ### Checkpoint
-**Checkpoint** is basically the main "model" you run Stable Diffusion on.
-It is the largest in storage size *(2+ GB)*, and has the greatest impact on the generation results. 
+**Checkpoint** refers to the main "model" Stable Diffusion runs on.
+It takes the most storage size, and has the greatest impact on the generation results. 
 
-##### To Install
+**To Install:**
 > Put **Checkpoint** in `~webui\models\Stable-diffusion`
 
 #### SD Versions
-Most of the Checkpoints on CivitAI were trained on **`Stable Diffusion v1.5`**. 
-This version is currently the most widely used, with the best Extension supports.
+There has been several generations of models released by **Stability AI**:
+- **`Stable Diffusion 1.5`**: This version is currently the most widely used, with the best Extension supports.
+- **`Stable Diffusion XL`**: Able to achieve better quality *(~~debatable~~)*, but also has higher resources requirements.
+- **`SVD`**: Used for video generation. Will not be covered in this Guide.
+- **`SDXL Turbo`**: Able to generate a decent image with just **1** step, making realtime render a reality.
 
-Last month, `Stability AI` also released **`Stable Diffusion XL`**, 
-which is able to achieve better quality, but also has higher resources requirements.
-Right now, it's still in its infant stage, and the community is still adapting.
-
-**TL;DR:** `v1.5` is mature; `XL` is the bleeding edge
+Models of different generations are **not** compatible with each other. *(**incl.** Checkpoints, LoRAs, Extension supports, etc.)*
 
 > *Ignore `Stable Diffusion v2.1`, we don't talk about it*
 
 ### VAE
-**VAE** *(**V**ariational **A**uto**E**ncoder)* is responsible for converting a RGB image to/from latent space.
-Different VAE can produce more vibrant colors for example. Every Checkpoint has a VAE baked-in. But you can also force a specific VAE by going to `Settings` -> `VAE` -> **`SD VAE`**.
+**VAE** *(**V**ariational **A**uto**E**ncoder)* is responsible for converting RGB images to/from latent space.
+Different VAE can produce different colors for example. Every Checkpoint has a VAE baked-in. 
+But you can also force a specific VAE by going to `Settings` -> `VAE` -> **`SD VAE`**.
 
-##### To Install
+**To Install:**
 > Put **VAE** in `~webui\models\VAE`
 
 ### Embedding
-**Embedding** *(or **Textual Inversion**)* is a way to train the text encoder to create certain concepts *(**eg.** Characters, Style, etc.)* 
+**Embedding** *(or **Textual Inversion**)* is a way to train the Text Encoder to create certain concepts *(**eg.** Characters, Style, etc.)* 
 
-##### To Install
+**To Install:**
 > Put **Embedding** in `~webui\embeddings`
 
 ### LoRA
@@ -83,69 +82,70 @@ Different VAE can produce more vibrant colors for example. Every Checkpoint has 
 
 - **Note:** Most **LoRA**s require **trigger words** to activate. Be sure to check the info on the CivitAI page first.
 
-##### To Install
+**To Install:**
 > Put **LoRA** in `~webui\models\Lora`
 
-#### To Activate: 
-- For `webui v1.6`:
-You should see the tabs of different models right next to the **Generation** tab. Click on them to add them to the prompt.
-
-- For `webui v1.5` and prior:
-Click the red button *(`Show extra networks`)* under **Generate** to open the sub-menu. Click on them to add them to the prompt.
-
-> Here’s a detailed [technical explanation](https://youtu.be/dVjMiJsuR5o) on how the different models work if you’re interested. *(Just ignore the outdated conclusion.)*
+## To Activate: 
+Under the prompt fields, there is a row of tabs next to the **Generation** tab. 
+Click on them to see the models currently installed. *(If you don't see your models, click on the **Refresh** button.)*
+Simply click on the individual model card to add them to the prompt.
 
 ## Terminologies
 
 ### Tabs
 - **`txt2img`:** Generate image based on input prompts
-- **`img2img`:** Modify an input image based on input prompts
-- **`Extras`:** Upscale image
-  - Aside from the default options, you can also download other models from the [database](https://upscale.wiki/wiki/Model_Database) into `~webui\models\ESRGAN` to use them. *(Restart the webui to refresh the list.)* One popular model is **`4x-UltraSharp`**
+- **`img2img`:** Generate image based on an input image and prompts
+- **`Extras`:** Upscale or Preprocess image
+  - Aside from the default options, you can also download other upscale models from the [database](https://openmodeldb.info/), and put them into `~webui\models\ESRGAN` to use them.
+  - One popular model is **`4x-UltraSharp`**
 - **`PNG Info`:** You can upload an image to see what prompts and settings were used to generate it *(provided that the metadata was not removed)*
 - **`Checkpoint Merger`:** ~~The easiest way to spam *something* onto CivitAI~~
-- **`Train`:** Preprocess Images & Train Embeddings
+- **`Train`:**  Train Embeddings
 - **`Settings`:** Settings 💀
 - **`Extensions`:** Install & Manage [Extensions](#extensions)
 
 ### Fields
+> Value in `[ ]` are the typical values used
+
 - **`Prompt`:** The text for what you want in the output.
 - **`Negative Prompt`:** The text for what you don’t want in the output.
-- **`Sampling Method`:** Basically, this affects the denoising process and thus how the final output look. You can read this [article](https://stable-diffusion-art.com/samplers/) for explanations.
-- **`Sampling Steps`:** The number of denoising iterations. Low value causes the output to be blurry; High value takes longer and suffers from diminishing return.
+- **`Sampling Method`:** Read this [article](https://stable-diffusion-art.com/samplers/) for explanations and examples.
+- **`Sampling Steps`:** The number of denoising iterations. `[16 ~ 32]`
+  - Low value causes the output to be blurry; High value takes longer.
+  - **`LCM`** models can generate decent images with as few as 4 steps
+  - **`SDXL Turbo`** models can generate decent images with just 1 step
 - **`Hires. Fix`:** Run through the pipeline a second time to upscale and make the output significantly better.
-- (v1.6) **`Refiner`:** A new way to improve the output, introduced with **SDXL**.
+- **`Refiner`:** *You can simply ignore this tbh*
 - **`Width/Height`:** The resolution of the generated image. 
-  - **Important:** Keep it at `512x512` for `v1.5` models; around `1024x1024` for `SDXL` models. *(Refer to [versions](#sd-versions) if you don't know what these mean.)*
+  - **Important:** Keep it at `512x512` for `SD 1.5` models; around `1024x1024` for `SDXL` models. *(Refer to [versions](#sd-versions) if you don't know what these mean.)*
 - **`Batch Count`:** How many batches to generate (in series).
 - **`Batch Size`:** How many images per batch (in parallel).
-- **`CFG Scale`:** How strong the prompts influence the output. Low value generates random images; High value generates really distorted images.
-- **`Seed`:** The random seed that affects how images are generated. If you use the same seed, same prompts, and same settings, you *should* get the same output.
+- **`CFG Scale`:** How strong the prompts influence the output. `[4 ~ 8]`
+  - Low value generates random images; High value generates really distorted images.
+  - For **`LCM`** and **`SDXL Turbo`** models, set it to **1** instead.
+- **`Seed`:** The random seed that affects how images are generated. If you use the same seed*, same prompts, and same settings, you *should* get the same output.
+
+> **\*:** In `Settings` -> `Stable Diffusion` -> **`Random number generator source`**, you can change how the seed is calculated. Use **CPU** for the maximum recreatibility across different systems.
 
 ## Tips
 
-### Guide for v1.5 Models
-- If you’re using anime models (**eg.** `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip Skip`** to **`2`**.
-- In **positive** prompt, start with `high quality, best quality`
+### Guide for SD 1.5 Models
+- In **positive** prompt, start with `(high quality, best quality)`
 - In **negative** prompt, start with `(bad quality, worst quality:1.2)`
+- If you’re using anime models (**eg.** `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip skip`** to **`2`**.
+
+> These are less important for SDXL models
 
 ### Styles
-- You can save the prompts using the Styles function to reuse them in the future.
-  - For `webui v1.5` and prior: Click the `💾` button to save; Click the `📋` button to load after selecting a style in the dropdown
-  - For `webui v1.6`: Click the `🖌️` button to open the Style Dialogue
-    - Alternatively, install this [Extension](https://github.com/Haoming02/sd-webui-boomer) to restore the old functionalities
-      > Learn how to install [Extensions](#extensions)
+- You can save the current prompts using the **Styles** feature, and reuse them in the future.
+  - Click the `🖌️` button to open the Style Dialogue, and edit/save the prompts
+  - With this, you no longer need to write all the starting prompts every single time
 
 ### Brackets
 - You can use `( )` to increase the influence of a prompt.
 - You can use `[ ]` to decrease the influence of a prompt.
-- You can also stack brackets
-  - **e.g.** `[[foo]]`
-- Alternatively, use `(tag:ratio)`
+- You can also specify the weight by `(tag:ratio)`
   - **e.g.** `(foo:0.5)`, `(bar:1.5)`
-
-##### Example
-`(long hair:1.5), [[black hair]]` will try to generate long hair, but the color of the hair is not a priority.
 
 ### Prompt Order
 The order of the prompts does have effects on the generation results. For example:
@@ -165,10 +165,10 @@ The order of the prompts does have effects on the generation results. For exampl
 [< - Link - >](TipsTricks/README.md#default-values)
 
 ## Extensions
-**Extensions** are basically 3rd-party features not native to the webui, which provide additional functions. 
+**Extensions** are basically 3rd-party addons that provide additional features not native to the webui.
 
-- You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will generate a list of extensions from the official Index. You can then click **Install** to download them.
-- Alternatively, use `Install from URL` and paste in the link to a repo to install extensions not in the Index.
+- You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will load a curated list of extensions from the official Index. You can then click **Install** to download them.
+- Alternatively, use `Install from URL` and paste in the link to a repo to install extensions not listed in the Index.
 
 **Note:** After you install new extensions, you need to restart the webui to load them properly.
 
@@ -178,23 +178,23 @@ The order of the prompts does have effects on the generation results. For exampl
 ### Super Resolution Upscale
 [<--- link --->](TiledVAE/README.md)
 
-### Speed Up Generations
-[<--- link --->](ToMe/README.md)
-
 ### Multiple Characters
 [<--- link --->](MultiChara/README.md)
 
-### Vectorscope CC
-[<--- link --->](https://github.com/Haoming02/sd-webui-vectorscope-cc)
+### Token Merging
+[<--- link --->](ToMe/README.md)
 
-### Prompt Format
-[<--- link --->](https://github.com/Haoming02/sd-webui-prompt-format)
+### TensorRT
+[<--- link --->](TensorRT/README.md)
 
-### Easy Tag Insert
-[<--- link --->](https://github.com/Haoming02/sd-webui-easy-tag-insert)
-
-### Restore Webui v1.5 Look
-[<--- link --->](https://github.com/Haoming02/sd-webui-boomer)
+### Shameless Self Promotions
+- [Prompt Format](https://github.com/Haoming02/sd-webui-prompt-format)
+- [Tabs Extension](https://github.com/Haoming02/sd-webui-tabs-extension)
+- [Boomer](https://github.com/Haoming02/sd-webui-boomer)
+- [Easy Tag Insert](https://github.com/Haoming02/sd-webui-easy-tag-insert)
+- [Diffusion CG](https://github.com/Haoming02/sd-webui-diffusion-cg)
+- [ReSharpen](https://github.com/Haoming02/sd-webui-resharpen)
+- [Vectorscope CC](https://github.com/Haoming02/sd-webui-vectorscope-cc)
 
 ## Training
 
@@ -213,6 +213,6 @@ The order of the prompts does have effects on the generation results. For exampl
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
 
 # Support Me!
-If you like my works and wish to support me, you can buy me a [coffee](https://ko-fi.com/haoming).
+If you appreciate my works and wish to support me, you can buy me a [coffee](https://ko-fi.com/haoming).
 
 [![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
