@@ -51,12 +51,5 @@ However, the process is **lossy**, meaning you will see lower quality generation
             <td>8s</td>
             <td>7s</td>
         </tr>
-        <tr align="center">
-            <td><b>Result</b></td>
-            <td><img src="Off.jpg" width=100></td>
-            <td><img src="0.3.jpg" width=100></td>
-            <td><img src="0.5.jpg" width=100></td>
-            <td><img src="0.7.jpg" width=100></td>
-        </tr>
     </tbody>
 </table>
