@@ -1,5 +1,5 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/12/25</i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2024/01/24</i></p>
 <p align="right"><i>corresponding <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">webui</a> version: <code>v1.7.0</code></i></p>
 
 ## What is Stable Diffusion?
@@ -15,8 +15,9 @@ giving the user the full control of the generation and customization.
    1. [Checkpoint](#checkpoint)
       - [Versions](#sd-versions)
    2. [VAE](#vae)
-   3. [Embedding](#checkpoint)
-   4. [LoRA](#checkpoint)
+   3. [Embedding](#embedding)
+   4. [LoRA](#lora)
+   5. [LyCORIS](#lora)
 3. [Terminologies](#terminologies)
 4. [Tips](#tips)
 5. [Extensions](#extensions)
@@ -29,7 +30,7 @@ One simple and straightforward way to access Stable Diffusion is through a clien
 > [Installation Guide](misc/Installation.md)
 
 There are also other popular user interfaces, such as [**Fooocus**](https://github.com/lllyasviel/Fooocus) and [**ComfyUI**](https://github.com/comfyanonymous/ComfyUI), each with their own pros and cons. 
-The UI-related information in this Guide will mainly focus on Automatic1111 Webui, 
+The UI-related information in this Guide will mainly be focused on **Automatic1111 Webui**, 
 but the general knowledge about Stable Diffusion is the same for all of them!
 
 > **Fooocus** is rather simplified, suitable for those who just want to get beautiful artworks by writing a prompt
@@ -45,25 +46,25 @@ Furthermore, each page also contains user comments, ratings, and samples.
 
 >`.safetensors` is a new format for storing weights safely *(as opposed to `pickle`)* while also being really fast. Always choose `.safetensors` if available.
 
-### Checkpoint
+#### Checkpoint
 **Checkpoint** refers to the main "model" Stable Diffusion runs on.
 It takes the most storage size, and has the greatest impact on the generation results. 
 
 **To Install:**
 > Put **Checkpoint** in `~webui\models\Stable-diffusion`
 
-#### SD Versions
+##### SD Versions
 There has been several generations of models released by **Stability AI**:
 - **`Stable Diffusion 1.5`**: This version is currently the most widely used, with the best Extension supports.
-- **`Stable Diffusion XL`**: Able to achieve better quality *(~~debatable~~)*, but also has higher resources requirements.
+- **`Stable Diffusion XL`**: Understands prompts significantly better, but also has higher resources requirements.
 - **`SVD`**: Used for video generation. Will not be covered in this Guide.
-- **`SDXL Turbo`**: Able to generate a decent image with just **1** step, making realtime render a reality.
+- **`SDXL Turbo`**: Able to generate a decent image with just **1** step, making realtime rendering possible.
 
 Models of different generations are **not** compatible with each other. *(**incl.** Checkpoints, LoRAs, Extension supports, etc.)*
 
 > *Ignore `Stable Diffusion v2.1`, we don't talk about it*
 
-### VAE
+#### VAE
 **VAE** *(**V**ariational **A**uto**E**ncoder)* is responsible for converting RGB images to/from latent space.
 Different VAE can produce different colors for example. Every Checkpoint has a VAE baked-in. 
 But you can also force a specific VAE by going to `Settings` -> `VAE` -> **`SD VAE`**.
@@ -71,21 +72,22 @@ But you can also force a specific VAE by going to `Settings` -> `VAE` -> **`SD V
 **To Install:**
 > Put **VAE** in `~webui\models\VAE`
 
-### Embedding
+#### Embedding
 **Embedding** *(or **Textual Inversion**)* is a way to train the Text Encoder to create certain concepts *(**eg.** Characters, Style, etc.)* 
 
 **To Install:**
 > Put **Embedding** in `~webui\embeddings`
 
-### LoRA
+#### LoRA
 **`LoRA`** *(**Lo**w-**R**ank **A**daptation)* is a way to train the UNET to create certain concepts *(**eg.** Characters, Style, etc.)* 
+> There is also the newer **`LyCORIS`** *(**L**ora be**y**ond **C**onventional methods, **O**ther **R**ank adaptation **I**mplementations for **S**table diffusion)*, which basically functions the same as **`LoRA`** nowadays
 
 - **Note:** Most **LoRA**s require **trigger words** to activate. Be sure to check the info on the CivitAI page first.
 
 **To Install:**
 > Put **LoRA** in `~webui\models\Lora`
 
-## To Activate: 
+### To Use: 
 Under the prompt fields, there is a row of tabs next to the **Generation** tab. 
 Click on them to see the models currently installed. *(If you don't see your models, click on the **Refresh** button.)*
 Simply click on the individual model card to add them to the prompt.
@@ -95,12 +97,12 @@ Simply click on the individual model card to add them to the prompt.
 ### Tabs
 - **`txt2img`:** Generate image based on input prompts
 - **`img2img`:** Generate image based on an input image and prompts
-- **`Extras`:** Upscale or Preprocess image
-  - Aside from the default options, you can also download other upscale models from the [database](https://openmodeldb.info/), and put them into `~webui\models\ESRGAN` to use them.
-  - One popular model is **`4x-UltraSharp`**
+- **`Extras`:** Process images *(**incl.** Upscale, Caption, Crop, etc)*
+  - You can download other upscale models from the [database](https://openmodeldb.info/), and put them into `~webui\models\ESRGAN` to use them.
+    - One popular model is **`4x-UltraSharp`**
 - **`PNG Info`:** You can upload an image to see what prompts and settings were used to generate it *(provided that the metadata was not removed)*
 - **`Checkpoint Merger`:** ~~The easiest way to spam *something* onto CivitAI~~
-- **`Train`:**  Train Embeddings
+- **`Train`:**  Train Embeddings *(not recommended; use `Kohya_SS` instead)*
 - **`Settings`:** Settings 💀
 - **`Extensions`:** Install & Manage [Extensions](#extensions)
 
@@ -129,17 +131,17 @@ Simply click on the individual model card to add them to the prompt.
 
 ## Tips
 
-### Guide for SD 1.5 Models
+### for SD 1.5
 - In **positive** prompt, start with `(high quality, best quality)`
 - In **negative** prompt, start with `(bad quality, worst quality:1.2)`
 - If you’re using anime models (**eg.** `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip skip`** to **`2`**.
 
-> These are less important for SDXL models
+> These are less important for SDXL
 
 ### Styles
 - You can save the current prompts using the **Styles** feature, and reuse them in the future.
   - Click the `🖌️` button to open the Style Dialogue, and edit/save the prompts
-  - With this, you no longer need to write all the starting prompts every single time
+  - Skip writing all the starting prompts every single time with this
 
 ### Brackets
 - You can use `( )` to increase the influence of a prompt.
@@ -170,7 +172,7 @@ The order of the prompts does have effects on the generation results. For exampl
 - You can go to the **Extensions** tab, click `Available`, then click `Load from`. This will load a curated list of extensions from the official Index. You can then click **Install** to download them.
 - Alternatively, use `Install from URL` and paste in the link to a repo to install extensions not listed in the Index.
 
-**Note:** After you install new extensions, you need to restart the webui to load them properly.
+**Note:** After you install new extensions, always restart the webui to load them properly.
 
 ### Control Net
 [<--- link --->](ControlNet/README.md)
@@ -180,9 +182,6 @@ The order of the prompts does have effects on the generation results. For exampl
 
 ### Multiple Characters
 [<--- link --->](MultiChara/README.md)
-
-### Token Merging
-[<--- link --->](ToMe/README.md)
 
 ### TensorRT
 [<--- link --->](TensorRT/README.md)
@@ -212,7 +211,9 @@ The order of the prompts does have effects on the generation results. For exampl
 - Youtube [OlivioSarikas](https://www.youtube.com/@OlivioSarikas)
 - YouTube [Aitrepreneur](https://www.youtube.com/@Aitrepreneur)
 
-# Support Me!
+<hr>
+
+### Support Me!
 If you appreciate my works and wish to support me, you can buy me a [coffee](https://ko-fi.com/haoming).
 
 [![CC BY-SA 4.0](https://licensebuttons.net/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)

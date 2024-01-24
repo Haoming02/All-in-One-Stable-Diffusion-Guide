@@ -1,6 +1,6 @@
 <h1 align="center">Installation Guide</h1>
 <p align="center">for <b>AUTOMATIC1111 Webui</b> (on Windows)</p>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2023/12/25</i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2024/01/24</i></p>
 
 ## Installation
 It's highly recommended to install on a **SSD** instead of a HDD
@@ -20,9 +20,10 @@ It's highly recommended to install on a **SSD** instead of a HDD
 <details>
 <summary>(for the Tech-Savvy)</summary>
 
-If you don't want to use the self-contained executable, follow these steps instead:
+If you don't want to use the self-contained release, follow these steps instead:
 
-1. Install `Python 3.10.x` *(`3.11.x` is **not** supported)*
+0. Install `CUDA Toolkit 11.8` *(`12.x` is not officially supported)*
+1. Install `Python 3.10.x` *(`3.11.x` or later is **not** supported currently)*
     - Remember to enable **`Add python.exe to PATH`**
 2. Install `git`
 3. Run
