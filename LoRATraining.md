@@ -2,7 +2,7 @@
 
 <p align="center">
 <b>by. <a href="https://civitai.com/user/HaomingGaming/models">Haoming</a></b><br>
-<i>Last Update: 2024/01/24</i>
+<i>Last Update: 2024/01/25</i>
 </p>
 
 <p align="right">
@@ -100,13 +100,12 @@ Project
 It’s better to pick a more general checkpoint instead of a more finetuned one, so that it is more likely to work on more checkpoints.
 - **Save Model as:** `.safetensors`
 - If the source model is **SDXL**, also enable the `SDXL Model` toggle *(Refer to [versions](README.md#sd-versions) if you don't know what this mean.)*
-
-> ~~*If the source model is **SD 2**... what the heck are you doing?*~~
+  > ~~If the source model is **SD 2**... why...?~~
 
 ### Folders
 - **Image folder:** Enter the folder you created in the previous step. Remember to link to the project folder, not the folders inside. 
 - **Output folder:** The folder where the trained model should be saved to. You can just link to the `~webui\models\Lora` folder.
-- **Model output name**: Output model name 💀
+- **Model output name**: Model output name 💀
 
 ### Parameters
 - **LoRA Type:** You can choose between training a normal **LoRA** or a [**LyCORIS**](https://github.com/KohakuBlueleaf/LyCORIS) model
@@ -123,16 +122,21 @@ Increase this value if you need the model to learn more concepts.
     - This also affects the final model file size
     - **LyCORIS** models need lower value
 - **Network Alpha:** Setting it to half of **Network Rank** is usually fine
-- **Max Resolution:** For **SDXL**, set to `1024,1024`; For **SD 1.5**, if your VRAM can handle, set `768,768`; otherwise `512,512`.
+- **Gradient accumulate steps:** Only increase this if you also want to use high **Train Batch Size**
+    - Reduce memory usage but also decrease training speed
+- **Max Resolution:** For **SDXL**, set to `1024,1024`; For **SD 1.5**, if your VRAM can handle, set to `768,768`; otherwise `512,512`.
 - **Enable Buckets:** Enable
 - **Keep n tokens:** Refer to [Captioning](#captioning). Set it to the number of **trigger words** you used.
 - **Clip Skip:** `1` for realistic or **SDXL**; `2` for anime.
+- **Gradient checkpointing:** Enable this if you're barely Out of Memory
+    - Slightly reduce memory usage and slightly decrease training speed
 - **Shuffle caption:** Enable
 - **Use xformers:** Enable
 - **Noise offset:** Basically, this helps adapting to brighter and darker scenes
-  - Set to `~0.035` for offset; and `~0.0035` for scale
-  > [Technical Explanations](https://youtu.be/cVxQmbf3q7Q)
+    - Supposedly, SDXL was trained with `0.0357` offset and `0.00357` scale
+    > [Technical Explanations](https://youtu.be/cVxQmbf3q7Q)
 
 ## Press the **Start Training** button
-- ~~Pray you don't waste an hour for nothing~~
-- After the training is finished, you can use [**`X/Y/Z Plot`**](XYZ/README.md) to evaluate the results.
+~~Pray you didn't waste an hour for nothing~~
+
+After the training is finished, you can use [**`X/Y/Z Plot`**](XYZ/README.md) to evaluate the results.
