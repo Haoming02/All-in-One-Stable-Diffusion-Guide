@@ -3,6 +3,9 @@
 
 > [Video Tutorial](https://youtu.be/uR89wZMXiJ8) by **Aitrepreneur**
 
+## Notice
+As of today *(2024/02/06)*, this is broken on `v1.7.0` of the **Webui**, as documented by this [issue](https://github.com/a2569875/stable-diffusion-webui-composable-lora/issues/32)...
+
 ## Requirements
 > Learn how to install [Extensions](../README.md#extensions)
 
