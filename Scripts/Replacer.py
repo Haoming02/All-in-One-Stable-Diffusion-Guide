@@ -1,30 +1,44 @@
 from Formatter import Format
-import sys
 import os
 
-FOLDER = sys.argv[1]
-BEFORE = sys.argv[2]
-AFTERR = sys.argv[3]
+def replace(FOLDER:str, SAUCE:str, TARGET:str):
+    for FILE in os.listdir(FOLDER):
+        if '.txt' not in FILE:
+            continue
 
-if len(sys.argv) > 4:
-    print('Too many inputs detected. Use " " to encapsulate your tags!')
-    raise SystemExit
+        if len(SAUCE.split(',')) > 1 or len(TARGET.split(',')) > 1:
+            print('\nReplacer only works on 1 tag at a time')
+            raise SystemExit
 
-for FILE in os.listdir(FOLDER):
-    if '.txt' not in FILE:
-        continue
+        if len(SAUCE) == 0:
+            SAUCE = ' '
+        if len(TARGET) == 0:
+            TARGET = ' '
 
-    with open(FOLDER + '/' + FILE, 'r') as f:
-        original_line = f.readlines()
+        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
+            lines = f.read().strip()
 
-    if AFTERR != ' ':
-        AFTERR = AFTERR.strip()
+        og_tags = Format(lines)
+        dedupe = []
 
-    line = original_line[0].replace(BEFORE.strip(), AFTERR)
+        for tag in og_tags:
+            if tag not in dedupe:
+                dedupe.append(tag.replace(SAUCE, TARGET))
 
-    tags = Format(line)
+        line = ', '.join(dedupe)
 
-    line = ', '.join(tags)
+        with open(os.path.join(FOLDER, FILE), 'w') as f:
+            f.write(line)
 
-    with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(line)
+
+if __name__ == '__main__':
+    import sys
+
+    if len(sys.argv) < 4:
+        print('\nUsage:\npython Replacer.py "<path to folder>" "<tags>" "<tags>"')
+        raise SystemExit
+    elif len(sys.argv) > 4:
+        print('\nUse " " to encapsulate your paths and tags')
+        raise SystemExit
+
+    replace(sys.argv[1], sys.argv[2].strip(), sys.argv[3].strip())

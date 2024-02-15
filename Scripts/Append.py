@@ -1,35 +1,35 @@
 from Formatter import Format
-import sys
 import os
 
-FOLDER = sys.argv[1]
-APPEND = sys.argv[2]
-FILTER = None if len(sys.argv) < 4 else sys.argv[3]
-
-if len(sys.argv) > 4:
-    print('Too many inputs detected. Use " " to encapsulate your tags!')
-    raise SystemExit
-
-for FILE in os.listdir(FOLDER):
-    if '.txt' not in FILE:
-        continue
-
-    if FILTER:
-        if FILTER not in FILE:
+def append(FOLDER:str, APPEND:str):
+    for FILE in os.listdir(FOLDER):
+        if '.txt' not in FILE:
             continue
 
-    with open(FOLDER + '/' + FILE, 'r') as f:
-        lines = f.readlines()
+        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
+            lines = f.read().strip()
 
-    og_tags = Format(lines[0])
-    ap_tags = Format(APPEND)
+        og_tags = Format(lines)
+        ap_tags = Format(APPEND)
 
-    for tag in ap_tags:
-        if tag in og_tags:
-            og_tags.remove(tag)
+        for tag in ap_tags:
+            if tag in og_tags:
+                og_tags.remove(tag)
 
-    line = ', '.join(og_tags)
-    AP = ', '.join(ap_tags)
+        line = ', '.join(og_tags + ap_tags)
 
-    with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(line + ', ' + AP)
+        with open(os.path.join(FOLDER, FILE), 'w') as f:
+            f.write(line)
+
+
+if __name__ == '__main__':
+    import sys
+
+    if len(sys.argv) < 3:
+        print('\nUsage:\npython Append.py "<path to folder>" "<tags>"')
+        raise SystemExit
+    elif len(sys.argv) > 3:
+        print('\nUse " " to encapsulate your paths and tags')
+        raise SystemExit
+
+    append(sys.argv[1], sys.argv[2])

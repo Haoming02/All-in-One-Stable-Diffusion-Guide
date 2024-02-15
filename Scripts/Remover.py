@@ -1,29 +1,35 @@
 from Formatter import Format
-import sys
 import os
 
-FOLDER = sys.argv[1]
-REMOVE = sys.argv[2]
+def remove(FOLDER:str, REMOVE:str):
+    for FILE in os.listdir(FOLDER):
+        if '.txt' not in FILE:
+            continue
 
-if len(sys.argv) > 3:
-    print('Too many inputs detected. Use " " to encapsulate your tags!')
-    raise SystemExit
+        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
+            lines = f.read().strip()
 
-for FILE in os.listdir(FOLDER):
-    if '.txt' not in FILE:
-        continue
+        og_tags = Format(lines)
+        rm_tags = Format(REMOVE)
 
-    with open(FOLDER + '/' + FILE, 'r') as f:
-        lines = f.readlines()
+        for tag in rm_tags:
+            if tag in og_tags:
+                og_tags.remove(tag)
 
-    og_tags = Format(lines[0])
-    rm_tags = Format(REMOVE)
+        line = ', '.join(og_tags)
 
-    for tag in rm_tags:
-        if tag in og_tags:
-            og_tags.remove(tag)
+        with open(os.path.join(FOLDER, FILE), 'w') as f:
+            f.write(line)
 
-    line = ', '.join(og_tags)
 
-    with open(FOLDER + '/' + FILE, 'w') as f:
-        f.writelines(line)
+if __name__ == '__main__':
+    import sys
+
+    if len(sys.argv) < 3:
+        print('\nUsage:\npython Remover.py "<path to folder>" "<tags>"')
+        raise SystemExit
+    elif len(sys.argv) > 3:
+        print('\nUse " " to encapsulate your paths and tags')
+        raise SystemExit
+
+    remove(sys.argv[1], sys.argv[2])

@@ -1,25 +1,32 @@
-import sys
-import os
-
-def Format(input_string):
+def Format(input_string:str) -> list:
 	tags = [word.strip() for word in input_string.split(',')]
 	while '' in tags:
 		tags.remove('')
 
 	return tags
 
-def main():
-    FOLDER = sys.argv[1]
+
+if __name__ == '__main__':
+    import sys
+    import os
+
+    if len(sys.argv) < 2:
+        print('\nUsage:\npython Formatter.py "<path to folder>"')
+        raise SystemExit
+    elif len(sys.argv) > 2:
+        print('\nUse " " to encapsulate your path')
+        raise SystemExit
+
+    FOLDER = sys.argv[1].strip('"').strip()
 
     for FILE in os.listdir(FOLDER):
         if '.txt' not in FILE:
             continue
 
-        with open(FOLDER + '/' + FILE, 'r') as f:
-            original_line = f.readlines()
+        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
+            original_line = f.read().strip()
 
-        tags = Format(original_line[0])
-
+        tags = Format(original_line)
         dedupe = []
 
         for tag in tags:
@@ -28,8 +35,5 @@ def main():
 
         line = ', '.join(dedupe)
 
-        with open(FOLDER + '/' + FILE, 'w') as f:
-            f.writelines(line)
-
-if __name__ == '__main__':
-    main()
+        with open(os.path.join(FOLDER, FILE), 'w') as f:
+            f.write(line)
