@@ -30,6 +30,11 @@ Some **python** scripts that ease the process of preparing caption dataset
     - **Note:** This is automatically triggered when using other scripts above
 - **Usage:** `>python Formatter.py "<folder path>"`
 
+### TriggerDebug.py
+- Print out the `n-th` tag for all text files in a folder.
+    - Useful for checking if the **trigger words** is consistent
+- **Usage:** `>python TriggerDebug.py "<folder path>" <index>`
+
 # Misc
 Some other **python** scripts not related to captioning
 
@@ -42,3 +47,7 @@ Some other **python** scripts not related to captioning
 - Copy the metadata from 1 image to another. 
     - Useful for baking a ComfyUI workflow into a screenshot.
 - **Usage:** `>python CopyMetadata.py "<source image path>" "<target image path>"`
+
+### OptimizeImage.py
+- Optimize images to reduce their sizes
+- **Usage:** `>python OptimizeImage.py "<folder path>"`
