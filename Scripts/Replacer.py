@@ -19,10 +19,11 @@ def replace(FOLDER:str, SAUCE:str, TARGET:str):
             lines = f.read().strip()
 
         og_tags = Format(lines)
-        dedupe = set()
+        dedupe = []
 
         for tag in og_tags:
-            dedupe.add(tag.replace(SAUCE, TARGET))
+            if tag.replace(SAUCE, TARGET) not in dedupe:
+                dedupe.append(tag.replace(SAUCE, TARGET))
 
         line = ', '.join(dedupe)
 
