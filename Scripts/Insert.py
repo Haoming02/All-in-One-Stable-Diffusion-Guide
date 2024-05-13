@@ -1,35 +1,30 @@
-from Formatter import Format
-import os
+from Formatter import format, params, listdir
 
-def insert(FOLDER:str, INSERT:str):
-    for FILE in os.listdir(FOLDER):
-        if '.txt' not in FILE:
-            continue
 
-        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
-            lines = f.read().strip()
+def insert(FOLDER: str, INSERT: str):
+    files = listdir(FOLDER, ".txt")
 
-        og_tags = Format(lines)
-        in_tags = Format(INSERT)
+    for FILE in files:
+
+        with open(FILE, "r", encoding="utf-8") as f:
+            line = f.read()
+
+        og_tags = format(line)
+        in_tags = format(INSERT)
 
         for tag in in_tags:
             if tag in og_tags:
                 og_tags.remove(tag)
 
-        line = ', '.join(in_tags + og_tags)
+        line = ", ".join(in_tags + og_tags)
 
-        with open(os.path.join(FOLDER, FILE), 'w') as f:
+        with open(FILE, "w", encoding="utf-8") as f:
             f.write(line)
 
 
-if __name__ == '__main__':
-    import sys
+if __name__ == "__main__":
+    import os
 
-    if len(sys.argv) < 3:
-        print('\nUsage:\npython Insert.py "<path to folder>" "<tags>"')
-        raise SystemExit
-    elif len(sys.argv) > 3:
-        print('\nUse " " to encapsulate your paths and tags')
-        raise SystemExit
+    folder, tag = params(2, 2, os.path.basename(__file__), ["path to folder", "tags"])
 
-    insert(sys.argv[1], sys.argv[2])
+    insert(folder, tag)

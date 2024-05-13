@@ -1,44 +1,43 @@
-from Formatter import Format
-import os
+from Formatter import format, params, listdir
 
-def replace(FOLDER:str, SAUCE:str, TARGET:str):
-    for FILE in os.listdir(FOLDER):
-        if '.txt' not in FILE:
-            continue
 
-        if len(SAUCE.split(',')) > 1 or len(TARGET.split(',')) > 1:
-            print('\nReplacer only works on 1 tag at a time')
+def replace(FOLDER: str, SAUCE: str, TARGET: str):
+    files = listdir(FOLDER, ".txt")
+
+    for FILE in files:
+
+        if len(SAUCE.split(",")) > 1 or len(TARGET.split(",")) > 1:
+            print("\n[Error] Replacer only works on 1 tag at a time...")
             raise SystemExit
 
         if len(SAUCE) == 0:
-            SAUCE = ' '
+            SAUCE = " "
+
         if len(TARGET) == 0:
-            TARGET = ' '
+            TARGET = " "
 
-        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
-            lines = f.read().strip()
+        with open(FILE, "r", encoding="utf-8") as f:
+            lines = f.read()
 
-        og_tags = Format(lines)
+        og_tags = format(lines)
         dedupe = []
 
         for tag in og_tags:
-            if tag.replace(SAUCE, TARGET) not in dedupe:
-                dedupe.append(tag.replace(SAUCE, TARGET))
+            new = tag.replace(SAUCE, TARGET)
+            if new not in dedupe:
+                dedupe.append(new)
 
-        line = ', '.join(dedupe)
+        line = ", ".join(dedupe)
 
-        with open(os.path.join(FOLDER, FILE), 'w') as f:
+        with open(FILE, "w", encoding="utf-8") as f:
             f.write(line)
 
 
-if __name__ == '__main__':
-    import sys
+if __name__ == "__main__":
+    import os
 
-    if len(sys.argv) < 4:
-        print('\nUsage:\npython Replacer.py "<path to folder>" "<tags>" "<tags>"')
-        raise SystemExit
-    elif len(sys.argv) > 4:
-        print('\nUse " " to encapsulate your paths and tags')
-        raise SystemExit
+    folder, fr, to = params(
+        3, 3, os.path.basename(__file__), ["path to folder", "tags", "tags"]
+    )
 
-    replace(sys.argv[1], sys.argv[2].strip(), sys.argv[3].strip())
+    replace(folder, fr.strip(), to.strip())

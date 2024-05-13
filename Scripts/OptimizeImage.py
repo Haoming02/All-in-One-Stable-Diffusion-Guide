@@ -1,29 +1,18 @@
-from PIL import Image, UnidentifiedImageError
-import os
+from Formatter import params, listdir
+from PIL import Image
 
-def optimize(FOLDER: str, qp: int = 85, force_rgb: bool = False):
-    for FILE in os.listdir(FOLDER):
-        if os.path.isdir(os.path.join(FOLDER, FILE)):
-            continue
 
-        try:
-            img = Image.open(os.path.join(FOLDER, FILE))
-            if force_rgb:
-                img = img.convert("RGB")
-            img.save(os.path.join(FOLDER, FILE), optimize=True, quality=qp)
+def optimize(FOLDER: str):
+    files = listdir(FOLDER, ".png")
 
-        except UnidentifiedImageError:
-            continue
+    for FILE in files:
+        img = Image.open(FILE).convert("RGB")
+        img.save(FILE.replace(".png", ".jpg"), optimize=True, quality=100)
 
 
 if __name__ == "__main__":
-    import sys
+    import os
 
-    if len(sys.argv) < 2:
-        print('\nUsage:\npython OptimizeImage.py "<path to folder>"')
-        raise SystemExit
-    elif len(sys.argv) > 2:
-        print('\nUse " " to encapsulate your path')
-        raise SystemExit
+    (folder,) = params(1, 1, os.path.basename(__file__), ["path to folder"])
 
-    optimize(sys.argv[1])
+    optimize(folder)

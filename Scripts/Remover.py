@@ -1,35 +1,30 @@
-from Formatter import Format
-import os
+from Formatter import format, params, listdir
 
-def remove(FOLDER:str, REMOVE:str):
-    for FILE in os.listdir(FOLDER):
-        if '.txt' not in FILE:
-            continue
 
-        with open(os.path.join(FOLDER, FILE), 'r', encoding='utf-8') as f:
-            lines = f.read().strip()
+def remove(FOLDER: str, REMOVE: str):
+    files = listdir(FOLDER, ".txt")
 
-        og_tags = Format(lines)
-        rm_tags = Format(REMOVE)
+    for FILE in files:
+
+        with open(FILE, "r", encoding="utf-8") as f:
+            line = f.read()
+
+        og_tags = format(line)
+        rm_tags = format(REMOVE)
 
         for tag in rm_tags:
             if tag in og_tags:
                 og_tags.remove(tag)
 
-        line = ', '.join(og_tags)
+        line = ", ".join(og_tags)
 
-        with open(os.path.join(FOLDER, FILE), 'w') as f:
+        with open(FILE, "w", encoding="utf-8") as f:
             f.write(line)
 
 
-if __name__ == '__main__':
-    import sys
+if __name__ == "__main__":
+    import os
 
-    if len(sys.argv) < 3:
-        print('\nUsage:\npython Remover.py "<path to folder>" "<tags>"')
-        raise SystemExit
-    elif len(sys.argv) > 3:
-        print('\nUse " " to encapsulate your paths and tags')
-        raise SystemExit
+    folder, tag = params(2, 2, os.path.basename(__file__), ["path to folder", "tags"])
 
-    remove(sys.argv[1], sys.argv[2])
+    remove(folder, tag)
