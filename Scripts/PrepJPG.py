@@ -45,7 +45,13 @@ def optimize(FOLDER: str):
         if not safety_check(FILE):
             continue
 
-        img = Image.open(FILE).convert("RGB")
+        img = Image.open(FILE)
+
+        if img.mode != "RGB":
+            bg = Image.new("RGBA", img.size, (127, 127, 127, 255))
+            bg.paste(img, (0, 0), img)
+            img = bg.convert("RGB")
+
         og_w, og_h = w, h = img.size
 
         if w != h:
@@ -53,18 +59,18 @@ def optimize(FOLDER: str):
             closest = min(RATIOs, key=lambda x: abs(x - ratio))
 
             if w > h:
-                w = int((h * closest) // 2 * 2)
-                h = int(h // 2 * 2)
-                dx = (og_w - w) // 2
+                w = int((og_h * closest) // 2 * 2)
+                h = int(og_h // 2 * 2)
+                dx = abs(og_w - w) // 2
                 dy = 0
 
             else:
-                h = int((w * closest) // 2 * 2)
-                w = int(w // 2 * 2)
+                h = int((og_w * closest) // 2 * 2)
+                w = int(og_w // 2 * 2)
                 dx = 0
-                dy = (og_h - h) // 2
+                dy = abs(og_h - h) // 2
 
-            img = img.crop((dx, dy, dx + w, dy + h))
+            img = img.crop((dx, dy, og_w - dx, og_h - dy))
 
         img.save(
             os.path.join(FOLDER, f"{i:02d}.jpg"),
