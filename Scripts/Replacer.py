@@ -4,28 +4,38 @@ from Formatter import format, params, listdir
 def replace(FOLDER: str, SAUCE: str, TARGET: str):
     files = listdir(FOLDER, ".txt")
 
+    FLAG_multiple = False
+
+    if len(SAUCE.split(",")) > 1 or len(TARGET.split(",")) > 1:
+        SAUCE = ", ".join(format(SAUCE))
+        TARGET = ", ".join(format(TARGET))
+        FLAG_multiple = True
+
+    if len(SAUCE.strip()) == 0:
+        SAUCE = " "
+
+    if len(TARGET.strip()) == 0:
+        TARGET = " "
+
     for FILE in files:
-
-        if len(SAUCE.split(",")) > 1 or len(TARGET.split(",")) > 1:
-            print("\n[Error] Replacer only works on 1 tag at a time...")
-            raise SystemExit
-
-        if len(SAUCE) == 0:
-            SAUCE = " "
-
-        if len(TARGET) == 0:
-            TARGET = " "
 
         with open(FILE, "r", encoding="utf-8") as f:
             lines = f.read()
 
-        og_tags = format(lines)
+        if FLAG_multiple:
+            og = ", ".join(format(lines))
+            line = og.replace(SAUCE, TARGET)
+            og_tags = format(line)
+        else:
+            og_tags = format(lines)
+
         dedupe = []
 
         for tag in og_tags:
-            new = tag.replace(SAUCE, TARGET)
-            if new not in dedupe:
-                dedupe.append(new)
+            if not FLAG_multiple:
+                tag = tag.replace(SAUCE, TARGET)
+            if tag not in dedupe:
+                dedupe.append(tag)
 
         line = ", ".join(dedupe)
 

@@ -1,7 +1,7 @@
 from Formatter import format, params, listdir
 
 
-def remove(FOLDER: str, REMOVE: str):
+def remove(FOLDER: str, REMOVE: str | int):
     files = listdir(FOLDER, ".txt")
 
     for FILE in files:
@@ -9,14 +9,21 @@ def remove(FOLDER: str, REMOVE: str):
         with open(FILE, "r", encoding="utf-8") as f:
             line = f.read()
 
-        og_tags = format(line)
-        rm_tags = format(REMOVE)
+        try:
+            rm_index = int(REMOVE)
+            og_tags = format(line)
+            og_tags.pop(rm_index)
+            line = ", ".join(og_tags)
 
-        for tag in rm_tags:
-            if tag in og_tags:
-                og_tags.remove(tag)
+        except ValueError:
+            og_tags = format(line)
+            rm_tags = format(REMOVE)
 
-        line = ", ".join(og_tags)
+            for tag in rm_tags:
+                if tag in og_tags:
+                    og_tags.remove(tag)
+
+            line = ", ".join(og_tags)
 
         with open(FILE, "w", encoding="utf-8") as f:
             f.write(line)
