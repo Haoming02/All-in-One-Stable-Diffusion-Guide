@@ -1,13 +1,11 @@
 <p align="center"><img src="misc/Banner.jpg" alt="Stable Diffusion All-in-One Guide"></p>
-<p align="center"><b>by. Haoming</b><br><i>Last Update: 2024/01/24</i></p>
-<p align="right"><i>corresponding <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">webui</a> version: <code>v1.7.0</code></i></p>
+<p align="center"><b>by. Haoming</b><br><i>Last Update: 2024/05/28</i></p>
+<p align="right"><i>corresponding <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">webui</a> version: <code>v1.9.3</code></i></p>
 
 ## What is Stable Diffusion?
-`Stable Diffusion` is a model for AI image generation, similar to `DALL·E`, `Midjourney` and `NovelAI`. 
-The main advantage is that, `Stable Diffusion` is **open source**, runs **locally**, and is completely **free** to use.
-User can input prompts, and the AI will generate artworks based on those prompts. 
-Additionally, there are *a lot of* community-made tools and extensions that can achieve different styles, concepts or functions, 
-giving the user the full control of the generation and customization. 
+`Stable Diffusion` is a text-to-image generative AI model, similar to `DALL·E`, `Midjourney` and `NovelAI`. User can input text prompts, and the AI will then generate images based on those prompts. The main difference is that, `Stable Diffusion` is **open source**, runs **locally**, while being completely **free** to use.
+
+Additionally, there are many community-developed tools and extensions that can perform new functions; as well as many community-finetuned models that can achieve different styles and concepts, giving the user the full control of the generation.
 
 ## Index
 1. [Getting Started](#getting-started)
@@ -17,80 +15,83 @@ giving the user the full control of the generation and customization.
    2. [VAE](#vae)
    3. [Embedding](#embedding)
    4. [LoRA](#lora)
-   5. [LyCORIS](#lora)
 3. [Terminologies](#terminologies)
-4. [Tips](#tips)
-5. [Extensions](#extensions)
-6. [Learning Resources](#resources)
+4. [Settings](#settings)
+5. [Tips](#tips--tricks)
+6. [Extensions](#extensions)
+6. [Training](#lora-training)
+7. [Learning Resources](#resources)
 
 <hr>
 
 ## Getting Started
-One simple and straightforward way to access Stable Diffusion is through a client called [**Automatic1111 Webui**](https://github.com/AUTOMATIC1111/stable-diffusion-webui). 
-> [Installation Guide](misc/Installation.md)
+Listed below are some of the most popular user interfaces, each with their own pros and cons:
 
-There are also other popular user interfaces, such as [**Fooocus**](https://github.com/lllyasviel/Fooocus) and [**ComfyUI**](https://github.com/comfyanonymous/ComfyUI), each with their own pros and cons. 
-The UI-related information in this Guide will mainly be focused on **Automatic1111 Webui**, 
-but the general knowledge about Stable Diffusion is the same for all of them!
+- **[Automatic1111 Webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui):** The frontend that is ~~arguably~~ the most widely used, with a large community and extension supports
 
-> **Fooocus** is rather simplified, suitable for those who just want to get beautiful artworks by writing a prompt
+- **[Fooocus](https://github.com/lllyasviel/Fooocus):** A rather simple frontend similar to other online services, suitable for those who simply want beautiful artworks just by writing a prompt
 
-> **ComfyUI** is significantly more complicated, but also allows you to delve into more technical settings
+- **[ComfyUI](https://github.com/comfyanonymous/ComfyUI):** A significantly more complicated frontend with a steep learning curve, but gives the maximum flexibility to the user for building complex custom workflow
+
+- **[Forge Webui](https://github.com/lllyasviel/stable-diffusion-webui-forge):** A frontend based on **Automatic1111**, but with a more optimized memory management, allowing even low-end devices to run Stable Diffusion
+
+- **[Stability Matrix](https://github.com/LykosAI/StabilityMatrix):** A software that streamlines the process of installing above frontends and managing models
+
+> The UI-related information in this Guide will focus on the **Automatic1111 Webui**, but the general knowledge about Stable Diffusion is the same for all of them!
+
+> **[Installation Guide](misc/Installation.md)** for Automatic1111 / Forge
 
 > **GoogleColab** now blocks Stable Diffusion from running unless you use a paid subscription
 
 ## Models
-Nowadays, the most widely used model hosting site is called [**CivitAI**](https://civitai.com/). 
-It hosts all sorts of models, as well as user-generated guides and resources.
-Furthermore, each page also contains user comments, ratings, and samples. 
+In terms of Stable Diffusion, "model" can refer to various things as mentioned below.
 
->`.safetensors` is a new format for storing weights safely *(as opposed to `pickle`)* while also being really fast. Always choose `.safetensors` if available.
+One of the most widely used hosting sites is called **[CivitAI](https://civitai.com/)**. It hosts all types of models, as well as user-generated guides and resources. Furthermore, each page also contains user comments, ratings, and samples.
+
+>`.safetensors` is a new format for storing weights safely *(as opposed to `pickle`)*. Always choose `.safetensors` if available.
 
 #### Checkpoint
-**Checkpoint** refers to the main "model" Stable Diffusion runs on.
-It takes the most storage size, and has the greatest impact on the generation results. 
+**Checkpoint** is the main "model" Stable Diffusion runs on. It takes the most storage size, but also has the greatest impact on the generation results.
 
 **To Install:**
 > Put **Checkpoint** in `~webui\models\Stable-diffusion`
 
 ##### SD Versions
 There has been several generations of models released by **Stability AI**:
-- **`Stable Diffusion 1.5`**: This version is currently the most widely used, with the best Extension supports.
-- **`Stable Diffusion XL`**: Understands prompts significantly better, but also has higher resources requirements.
-- **`SVD`**: Used for video generation. Will not be covered in this Guide.
-- **`SDXL Turbo`**: Able to generate a decent image with just **1** step, making realtime rendering possible.
+- **`Stable Diffusion 1.5`**: The version that was released earlier. Due to its lower system requirements, it is currently more widely used.
+- **`Stable Diffusion XL`**: The newer version. Understands prompts significantly better, but also has higher system requirements.
+- **`Stable Diffusion 3`**: T.B.D *(as of 05/27)*
 
 Models of different generations are **not** compatible with each other. *(**incl.** Checkpoints, LoRAs, Extension supports, etc.)*
 
-> *Ignore `Stable Diffusion v2.1`, we don't talk about it*
+> *Ignore `Stable Diffusion v2.1`, we don't talk about it...*
 
 #### VAE
-**VAE** *(**V**ariational **A**uto**E**ncoder)* is responsible for converting RGB images to/from latent space.
-Different VAE can produce different colors for example. Every Checkpoint has a VAE baked-in. 
-But you can also force a specific VAE by going to `Settings` -> `VAE` -> **`SD VAE`**.
+**VAE** *(**V**ariational **A**uto**E**ncoder)* is responsible for converting RGB images to/from latent space. Different VAE can produce different colors for example. Every Checkpoint has a VAE baked-in. But you can also force a specific VAE by going to `Settings` -> `VAE` -> **`SD VAE`**.
 
 **To Install:**
 > Put **VAE** in `~webui\models\VAE`
 
 #### Embedding
-**Embedding** *(or **Textual Inversion**)* is a way to train the Text Encoder to create certain concepts *(**eg.** Characters, Style, etc.)* 
+**Embedding** *(or **Textual Inversion**)* is a way to train the Text Encoder to create certain concepts *(**eg.** Characters, Style, etc.)*
 
 **To Install:**
 > Put **Embedding** in `~webui\embeddings`
 
 #### LoRA
-**`LoRA`** *(**Lo**w-**R**ank **A**daptation)* is a way to train the UNET to create certain concepts *(**eg.** Characters, Style, etc.)* 
-> There is also the newer **`LyCORIS`** *(**L**ora be**y**ond **C**onventional methods, **O**ther **R**ank adaptation **I**mplementations for **S**table diffusion)*, which basically functions the same as **`LoRA`** nowadays
+**`LoRA`** *(**Lo**w-**R**ank **A**daptation)* is a way to train the UNET to create certain concepts *(**eg.** Characters, Style, etc.)*
 
-- **Note:** Most **LoRA**s require **trigger words** to activate. Be sure to check the info on the CivitAI page first.
+> **Note:** Most **LoRA**s require **trigger words** to activate. Be sure to check the description/info first
 
 **To Install:**
 > Put **LoRA** in `~webui\models\Lora`
 
-### To Use: 
-Under the prompt fields, there is a row of tabs next to the **Generation** tab. 
-Click on them to see the models currently installed. *(If you don't see your models, click on the **Refresh** button.)*
-Simply click on the individual model card to add them to the prompt.
+### To Use:
+Next to the **Generation** tab, there are tabs for all model types. Clicking on them will show all models currently installed. Simply click on the individual model card to insert them into the prompt.
+
+> If you don't see your models, remember to click the **Refresh** button first
+
+> By default, models of different generations are hidden. *(**eg.** When using a SDXL checkpoint, LoRAs for SD 1.5 will not be shown.)*
 
 ## Terminologies
 
@@ -98,8 +99,8 @@ Simply click on the individual model card to add them to the prompt.
 - **`txt2img`:** Generate image based on input prompts
 - **`img2img`:** Generate image based on an input image and prompts
 - **`Extras`:** Process images *(**incl.** Upscale, Caption, Crop, etc)*
-  - You can download other upscale models from the [database](https://openmodeldb.info/), and put them into `~webui\models\ESRGAN` to use them.
-    - One popular model is **`4x-UltraSharp`**
+  - You can download other upscale models from the [database](https://openmodeldb.info/), and put them into `~webui\models\ESRGAN` to use them
+    - Personal Recommendation: **[4x-Nomos8kDAT](https://openmodeldb.info/models/4x-Nomos8kDAT)**
 - **`PNG Info`:** You can upload an image to see what prompts and settings were used to generate it *(provided that the metadata was not removed)*
 - **`Checkpoint Merger`:** ~~The easiest way to spam *something* onto CivitAI~~
 - **`Train`:**  Train Embeddings *(not recommended; use `Kohya_SS` instead)*
@@ -107,41 +108,64 @@ Simply click on the individual model card to add them to the prompt.
 - **`Extensions`:** Install & Manage [Extensions](#extensions)
 
 ### Fields
-> Value in `[ ]` are the typical values used
-
-- **`Prompt`:** The text for what you want in the output.
-- **`Negative Prompt`:** The text for what you don’t want in the output.
-- **`Sampling Method`:** Read this [article](https://stable-diffusion-art.com/samplers/) for explanations and examples.
-- **`Sampling Steps`:** The number of denoising iterations. `[16 ~ 32]`
-  - Low value causes the output to be blurry; High value takes longer.
-  - **`LCM`** models can generate decent images with as few as 4 steps
-  - **`SDXL Turbo`** models can generate decent images with just 1 step
-- **`Hires. Fix`:** Run through the pipeline a second time to upscale and make the output significantly better.
-- **`Refiner`:** *You can simply ignore this tbh*
-- **`Width/Height`:** The resolution of the generated image. 
+- **`Prompt`:** The text for what you want in the output
+- **`Negative Prompt`:** The text for what you don’t want in the output
+- **`Sampling Method`:** Read this [article](https://stable-diffusion-art.com/samplers/) for explanations and examples
+  - **Note:** Since Webui `v1.9.0`, the Sampler and Scheduler are now two separated dropdowns
+- **`Sampling Steps`:** The number of denoising iterations
+  - `20` ~ `32` is generally enough
+  - Low value causes the output to be blurry; High value takes longer
+  - **[`LCM`](https://huggingface.co/latent-consistency/lcm-lora-sdxl)** and **[`Lightning`](https://huggingface.co/ByteDance/SDXL-Lightning)** models can generate decent images with as few as 4 steps
+  - **[`SDXL Turbo`](https://huggingface.co/stabilityai/sdxl-turbo)** models can even generate decent images with just 1 step
+- **`Hires. Fix`:** Run through the pipeline a second time to upscale and make the output significantly better
+  - Only recommended using with `SD 1.5` models *(Refer to [versions](#sd-versions) if you don't know what these mean.)*
+- **`Refiner`:** *You can simply ignore this tbh...*
+- **`Width/Height`:** The resolution of the generated image
   - **Important:** Keep it at `512x512` for `SD 1.5` models; around `1024x1024` for `SDXL` models. *(Refer to [versions](#sd-versions) if you don't know what these mean.)*
-- **`Batch Count`:** How many batches to generate (in series).
-- **`Batch Size`:** How many images per batch (in parallel).
-- **`CFG Scale`:** How strong the prompts influence the output. `[4 ~ 8]`
-  - Low value generates random images; High value generates really distorted images.
-  - For **`LCM`** and **`SDXL Turbo`** models, set it to **1** instead.
-- **`Seed`:** The random seed that affects how images are generated. If you use the same seed*, same prompts, and same settings, you *should* get the same output.
+  - Also keep both values at multiples of `64` *(**eg.** `1152x896`)*
+- **`Batch Count`:** How many batches to generate (in series)
+- **`Batch Size`:** How many images per batch (in parallel)
+- **`CFG Scale`:** How strong the prompts influence the output
+  - `4` ~ `8` is generally fine
+  - Low value generates random images; High value generates really distorted images
+  - For **`LCM`**, **`Lightning`**, and **`SDXL Turbo`** models, set it to **`1`** instead
+- **`Seed`:** The random seed that affects how images are generated
+  - If you use the same seed*, same prompts, and same settings, you *should* get the same output
 
-> **\*:** In `Settings` -> `Stable Diffusion` -> **`Random number generator source`**, you can change how the seed is calculated. Use **CPU** for the maximum recreatibility across different systems.
+> **\*:** In `Settings` -> `Stable Diffusion` -> **`Random number generator source`**, you can change how the seed is calculated. Use **`CPU`** for the maximum recreatibility across different systems.
 
-## Tips
+## Settings
+Listed below are some settings that are worth checking out:
 
-### for SD 1.5
-- In **positive** prompt, start with `(high quality, best quality)`
-- In **negative** prompt, start with `(bad quality, worst quality:1.2)`
-- If you’re using anime models (**eg.** `anything-v3.0`), go to `Settings` -> `Stable Diffusion`, set **`Clip skip`** to **`2`**.
+### Optimizations
+- **Cross attention optimization:** `xformers` if you enabled it; `sdp - scaled dot product` otherwise
+- **Pad prompt/negative prompt:** `Enable`
+- **Persistent cond cache:** `Enable`
+- **Batch cond/uncond:** `Enable`
 
-> These are less important for SDXL
+### Stable Diffusion
+- **Emphasis mode:** `No norm`
+- **Clip skip:** `2`
+
+### Live previews
+- **Return image with chosen live preview method on interrupt:** `Enable`
+
+### System
+- **Automatically open webui in browser on startup:** Change this if you don't want it to start the browser automatically
+
+## Tips & Tricks
+
+### Starting Prompts
+Due to how checkpoints are trained, it's usually better to add some "quality tags" at the beginning of the prompt to enhance the results. Refer to the description of the checkpoint page, as some of them require specific keywords to generate anything remotely good *(**eg.** Pony)*.
+
+- **Example for SD 1.5:**
+  - In **positive** prompt, start with `(high quality, best quality)`
+  - In **negative** prompt, start with `(bad quality, worst quality:1.2)`
 
 ### Styles
-- You can save the current prompts using the **Styles** feature, and reuse them in the future.
-  - Click the `🖌️` button to open the Style Dialogue, and edit/save the prompts
-  - Skip writing all the starting prompts every single time with this
+- You can save the current prompts using the **Styles** feature, and reuse them in the future
+  - Click the `🖌️` button to open the `Style Dialogue`, and edit/save the prompts
+  - Useful for saving the starting prompts mentioned above
 
 ### Brackets
 - You can use `( )` to increase the influence of a prompt.
@@ -150,12 +174,7 @@ Simply click on the individual model card to add them to the prompt.
   - **e.g.** `(foo:0.5)`, `(bar:1.5)`
 
 ### Prompt Order
-The order of the prompts does have effects on the generation results. For example:
-
-- `<subject>, <background>` will first generate the subject then try to fill the background.
-- `<background>, <subject>` will first generate the background then try to fit in the subject.
-
-<p align="center"><img src="misc/Order.jpg" width=384></p>
+The order of the prompts **does** have an effect on the generation results. Specifically, earlier *(left)* prompts have more influence than later *(right)* prompts.
 
 ### X/Y/Z Plot
 [< - Link - >](XYZ/README.md)
@@ -195,13 +214,7 @@ The order of the prompts does have effects on the generation results. For exampl
 - [ReSharpen](https://github.com/Haoming02/sd-webui-resharpen)
 - [Vectorscope CC](https://github.com/Haoming02/sd-webui-vectorscope-cc)
 
-## Training
-
-### Embedding Training
-- [Video by Aitrepreneur](https://youtu.be/2ityl_dNRNw)
-- [Video by OlivioSarikas](https://youtu.be/MLz0iM0M7Fk)
-
-### LoRA Training
+## LoRA Training
 [<--- link --->](LoRATraining.md)
 
 ## Resources
