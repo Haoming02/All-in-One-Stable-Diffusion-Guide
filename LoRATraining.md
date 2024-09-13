@@ -2,12 +2,12 @@
 
 <p align="center">
 <b>by. <a href="https://civitai.com/user/HaomingGaming/models">Haoming</a></b><br>
-<i>Last Update: 2024/01/25</i>
+<i>Last Update: 2024/09/14</i>
 </p>
 
 <p align="right">
-<i>corresponding webui version: <code>v21.8.6</code></i><br>
-<sup><i>commit: <code><a href="https://github.com/bmaltais/kohya_ss/commit/3cf80f8d68fbc9b9358e3b391432e5950b00f583">3cf80f8</a></code></i></sup>
+<i>corresponding webui version: <code>v24.1.6</code></i><br>
+<sup><i>commit: <code><a href="https://github.com/bmaltais/kohya_ss/tree/v24.1.6">df0c81d</a></code></i></sup>
 </p>
 
 ## Index
@@ -24,38 +24,30 @@
 
 ## Kohya SS
 Just like **Automatic1111**, there is already a popular webui for training available: [**Kohya SS**](https://github.com/bmaltais/kohya_ss). 
+
 Simply go to the repository and follow the installation steps.
 
-> There is also [OneTrainer](https://github.com/Nerogar/OneTrainer), though I have no experience with it.
+> There are also [OneTrainer](https://github.com/Nerogar/OneTrainer), [AI Toolkit](https://github.com/ostris/ai-toolkit), and [Flux Gym](https://github.com/cocktailpeanut/fluxgym). Though I do not have much experience with them yet.
 
 ## Prepare Dataset
 Now comes the most important part: preparing the dataset. As the good ol’ saying goes: 
 
 > Garbage in, garbage out. 
 
-If you didn’t prepare the dataset properly, the trained model will not produce good results. 
-The dataset refers to 2 things: the **images** and the **captions** for said images. 
-The model can produce decent enough outcomes with less than a dozen images, 
-but the more images with more variety you have in the dataset, the more flexible the model will become. 
+If you didn’t prepare the dataset properly, the trained model will not produce good results. The dataset refers to 2 things: the **images** and the **captions** for said images. The model can produce decent enough outcomes with less than a dozen images, but the more images with more variety you have in the dataset, the more flexible the model will become. 
 
 ### Resolution
-You will need at least `512 x 512` for **SD 1.5** models; and at least `1024 x 1024` for **SDXL** models.
-Aspect ratio does not matter too much, and there is no need to crop the images to a perfect square either. 
-Simply tick the `Enable buckets` toggle and the tool will handle it for you.
+You will need at least `512 x 512` for **SD 1.5** models; and at least `1024 x 1024` for **SDXL** models. Aspect ratio does not matter too much, and there is no need to crop the images to a perfect square either. Simply tick the `Enable buckets` toggle and the tool will handle it for you.
 
 ### Preparing Images
-As mentioned above, it is significantly better to have more varieties in the images, such as different background, lighting and poses, etc.  
-Personally, I recommend using only “official” arts, such as cards, in-game screenshots or promo images. 
-Once you finish preparing a dozen or so images with great varieties, proceed to the next step. 
+As mentioned above, it is significantly better to have more varieties in the images, such as different background, lighting and poses, etc. Personally, I recommend using only “official” arts, such as cards, in-game screenshots or promo images. Once you finish preparing a dozen or so images with great varieties, proceed to the next step. 
 
 ### Captioning
 The caption file should be placed within the same folder, next to the corresponding image.
 
-On the **Kohya SS** webui, there is an **Utilities** tab with a **Captioning** section. For realistic images, use `BLIP`; for anime images, use `WD14`.
-Enter the folder containing the images. The parameters can be left at default just fine. Then press `Caption images` to generate the `.txt` caption files.
+On the **Kohya SS** webui, there is an **Utilities** tab with a **Captioning** section. For realistic images, use `BLIP`; for anime images, use `WD14`. Enter the folder containing the images. The parameters can be left at default just fine. Then press `Caption images` to generate the `.txt` caption files.
 
-**Note:** For `WD14`, there is a toggle called `Replace underscores in filenames with spaces`. Anime checkpoints were trained on [Booru](https://gelbooru.com/) tags. 
-Consult the model page to see if it was trained with underscores or not. 
+**Note:** For `WD14`, there is a toggle called `Replace underscores in filenames with spaces`. Anime checkpoints were trained on [Booru](https://gelbooru.com/) tags. Consult the model page to see if it was trained with underscores or not. 
 
 **You’re not done yet!** 
 
@@ -65,16 +57,14 @@ Think of it this way: You want the features of your subject to be associated wit
 
 So take training a character as an example: only caption the background, the expression of the subject, and the poses of the subject, etc; but not the hair color, eye color, or other defining features. 
 
-Last but not least, add some **trigger words** at the start of the captions. You can use [Insert.py](Scripts/) to automate this. 
-The number of trigger words has to be consistent across your dataset. 
+Last but not least, add some **trigger words** at the start of the captions. You can use [Insert.py](Scripts/) to automate this. The number of trigger words has to be consistent across your dataset. 
 
 > For example, when I am training a character with multiple outfits, I put the character name first, the outfit name second, then the rest of the tags. Thus I have **2** trigger words for every single caption.
 
 ### Folder Structures
 Create a folder to store your dataset. Inside it, create folders named in the format of `XXX_YYY`:
 
-- The `XXX` is the number of repeats per image. Generally, it takes few hundreds to a thousand steps to train a concept, depending on complexity. 
-Divide that by the number of `epochs` *(explained below)*, then divide again by the number of images, to get `XXX`.
+- The `XXX` is the number of repeats per image. Generally, it takes few hundreds to a thousand steps to train a concept, depending on complexity. Divide that by the number of `epochs` *(explained below)*, then divide again by the number of images, to get `XXX`.
   - **eg.** To train `1000` steps in `10` epochs using `10` images, the `XXX` will be 1000 / 10 / 10 = `10`
 - The `YYY` is the "class" of the images
   - Generally, put the most broad "category" of your subject. For example, use `1girl`/`1boy` when training an anime character.
@@ -96,8 +86,7 @@ Project
 > Parameters that were not mentioned can just be left at default.
 
 ### Source Model
-- **Model Quick Pick:** You can select from the official ones, or choose `custom` and select your local checkpoint of choice. 
-It’s better to pick a more general checkpoint instead of a more finetuned one, so that it is more likely to work on more checkpoints.
+- **Model Quick Pick:** You can select from the official ones, or choose `custom` and select your local checkpoint of choice. It’s better to pick a more general checkpoint instead of a more finetuned one, so that it is more likely to work on more checkpoints.
 - **Save Model as:** `.safetensors`
 - If the source model is **SDXL**, also enable the `SDXL Model` toggle *(Refer to [versions](README.md#sd-versions) if you don't know what this mean.)*
   > ~~If the source model is **SD 2**... why...?~~
