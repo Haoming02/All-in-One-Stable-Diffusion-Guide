@@ -1,28 +1,23 @@
 from Formatter import format, params, listdir
 
 
-def remove(FOLDER: str, REMOVE: str | int):
-    files = listdir(FOLDER, ".txt")
+def remove(folder: str, remove: str | int):
 
-    for FILE in files:
+    for FILE in listdir(folder, ".txt"):
 
         with open(FILE, "r", encoding="utf-8") as f:
             line = f.read()
 
         try:
-            rm_index = int(REMOVE)
+            rm_index = int(remove)
             og_tags = format(line)
-            og_tags.pop(rm_index)
+            if rm_index < len(og_tags):
+                og_tags.pop(rm_index)
             line = ", ".join(og_tags)
 
         except ValueError:
-            og_tags = format(line)
-            rm_tags = format(REMOVE)
-
-            for tag in rm_tags:
-                if tag in og_tags:
-                    og_tags.remove(tag)
-
+            rm_tags = format(remove)
+            og_tags = [tag for tag in format(line) if tag not in rm_tags]
             line = ", ".join(og_tags)
 
         with open(FILE, "w", encoding="utf-8") as f:
@@ -30,8 +25,6 @@ def remove(FOLDER: str, REMOVE: str | int):
 
 
 if __name__ == "__main__":
-    import os
 
-    folder, tag = params(2, 2, os.path.basename(__file__), ["path to folder", "tags"])
-
-    remove(folder, tag)
+    args = params(2, 2, ("path to folder", "tags"))
+    remove(*args)

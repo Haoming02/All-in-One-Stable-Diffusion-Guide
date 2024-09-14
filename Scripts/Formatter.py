@@ -1,47 +1,49 @@
-def format(input_string: str) -> list[str]:
-    """Split a string into a list of tags, while removing extra comma and space"""
-    return list(filter(None, [word.strip() for word in input_string.split(",")]))
+from typing import Generator
 
 
-def params(min_arg: int, max_arg: int, filename: str, args: list[str]) -> list[str]:
-    """Validate the number of passed-in arguments"""
+def format(string: str) -> list[str]:
+    """Split a string into a list of tags, while removing extra commas and spaces"""
+    return list(filter(None, [tag.strip() for tag in string.split(",")]))
+
+
+def params(min_arg: int, max_arg: int, args: tuple[str]) -> list[str]:
+    """Validate and return correct the number of arguments"""
     import sys
 
-    parem: list = sys.argv[1:]
+    parem: list[str] = sys.argv[1:]
+    param_count: int = len(parem)
 
-    if len(args) < min_arg or len(args) > max_arg:
-        raise SystemError("\nInvalid Args Count")
+    assert min_arg <= len(args) <= max_arg
 
-    if len(parem) < min_arg:
+    if param_count < min_arg:
         usage = '>" "<'.join(args)
-        print(f'\nUsage:\npython {filename} "<{usage}>"')
+        import inspect
+        import os
+
+        filename = os.path.basename(inspect.stack()[1].filename)
+        print(f'\n[Usage]\npython {filename} "<{usage}>"\n')
         raise SystemExit
 
-    if len(parem) > max_arg:
-        print('\n[Error] Use " " to encapsulate your paths/tags!')
+    if param_count > max_arg:
+        print('\n[Error] Use " " to encapsulate your paths/tags!\n')
         raise SystemExit
 
-    while len(parem) < max_arg:
-        parem.append(None)
-
-    return parem
+    return parem + [None] * (max_arg - param_count)
 
 
 def listdir(
-    path: str, ext: str | list[str] = None, recursive: bool = None
-) -> list[str]:
-    """Return a list of all matching files"""
+    path: str, ext: None | str | list[str] = None, recursive: None | bool = None
+) -> Generator[str, None, None]:
+    """Return a generator of all files with matching extension(s)"""
     import os
 
-    path = path.strip()
-    if not os.path.exists(path):
-        print(f'\nPath "{path}" does not exist...')
+    path = path.strip().strip('"')
+    if not os.path.isdir(path):
+        print(f'\n[Error] Path "{path}" is not a folder...\n')
         raise SystemExit
 
-    FILES = []
-
-    for f in os.listdir(path):
-        obj = os.path.join(path, f)
+    for file in os.listdir(path):
+        obj = os.path.join(path, file)
 
         if os.path.isdir(obj):
             if recursive is None:
@@ -49,31 +51,27 @@ def listdir(
                 recursive = i.strip() != "N"
 
             if recursive:
-                FILES += listdir(obj, ext, True)
+                yield from listdir(obj, ext, True)
 
             continue
 
-        if not ext:
-            FILES.append(obj)
+        if ext is None:
+            yield obj
+            break
 
-        elif type(ext) is str:
-            if obj.endswith(ext):
-                FILES.append(obj)
+        ext = [ext] if isinstance(ext, str) else ext
 
-        else:
-            for ex in ext:
-                if obj.endswith(ex):
-                    FILES.append(obj)
-
-    return FILES
+        for ex in ext:
+            if obj.endswith(ex):
+                yield obj
+                break
 
 
 if __name__ == "__main__":
 
-    (FOLDER,) = params(1, 1, "Formatter.py", ["path to folder"])
-    files = listdir(FOLDER, ".txt")
+    (FOLDER,) = params(1, 1, ("path to folder",))
 
-    for file in files:
+    for file in listdir(FOLDER, ".txt"):
 
         with open(file, "r", encoding="utf-8") as f:
             original_line = f.read()

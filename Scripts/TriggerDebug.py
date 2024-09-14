@@ -1,23 +1,23 @@
 from Formatter import format, params, listdir
 
 
-def debug(FOLDER: str, index: int):
-    files = listdir(FOLDER, ".txt")
+def debug(FOLDER: str, index: str | int):
 
+    index = int(index)
+    files = list(listdir(FOLDER, ".txt"))
+    max_width = max(len(filename) for filename in files)
+
+    print("")
     for FILE in files:
 
         with open(FILE, "r", encoding="utf-8") as f:
-            lines = f.read()
+            line = f.read()
 
-        tags = format(lines)
-        print(f"{FILE:<8}\t{tags[index]}")
+        tags = format(line)
+        print(f"{FILE:<{max_width + 4}} {tags[index]}")
 
 
 if __name__ == "__main__":
-    import os
 
-    folder, index = params(
-        2, 2, os.path.basename(__file__), ["path to folder", "index"]
-    )
-
-    debug(folder, int(index))
+    args = params(2, 2, ("path to folder", "index"))
+    debug(*args)

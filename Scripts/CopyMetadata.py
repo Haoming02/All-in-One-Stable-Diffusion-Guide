@@ -1,14 +1,16 @@
 from Formatter import params
 from PIL.PngImagePlugin import PngInfo
 from PIL import Image
+import os
 
 
-def copy_data(source_path: str, destination_path: str):
-    assert source_path.endswith(".png") and destination_path.endswith(".png")
+def copy_metadata(source: str, destination: str):
+    assert source.endswith(".png") and destination.endswith(".png")
+    assert os.path.isfile(source) and os.path.isfile(destination)
 
-    source_image = Image.open(source_path)
-
+    source_image = Image.open(source)
     metadata = PngInfo()
+
     if "parameters" in source_image.info.keys():
         print("Detected Automatic1111")
         metadata.add_text("parameters", source_image.info["parameters"])
@@ -21,15 +23,11 @@ def copy_data(source_path: str, destination_path: str):
     else:
         raise ValueError("No Metadata Detected...")
 
-    destination_image = Image.open(destination_path)
-    destination_image.save(destination_path, pnginfo=metadata)
+    destination_image = Image.open(destination)
+    destination_image.save(destination, optimize=True, pnginfo=metadata)
 
 
 if __name__ == "__main__":
-    import os
 
-    source, target = params(
-        2, 2, os.path.basename(__file__), ["path to source", "path to target"]
-    )
-
-    copy_data(source, target)
+    args = params(2, 2, ("path to source", "path to target"))
+    copy_metadata(*args)

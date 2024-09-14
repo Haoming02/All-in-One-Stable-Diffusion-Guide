@@ -1,39 +1,36 @@
 from Formatter import format, params, listdir
 
 
-def replace(FOLDER: str, SAUCE: str, TARGET: str):
-    files = listdir(FOLDER, ".txt")
+def replace(folder: str, source: str, target: str):
 
-    FLAG_multiple = False
+    is_multiple = False
 
-    if len(SAUCE.split(",")) > 1 or len(TARGET.split(",")) > 1:
-        SAUCE = ", ".join(format(SAUCE))
-        TARGET = ", ".join(format(TARGET))
-        FLAG_multiple = True
+    if len(source.split(",")) > 1 or len(target.split(",")) > 1:
+        source = ", ".join(format(source))
+        target = ", ".join(format(target))
+        is_multiple = True
 
-    if len(SAUCE.strip()) == 0:
-        SAUCE = " "
+    if len(source.strip()) == 0:
+        source = " "
 
-    if len(TARGET.strip()) == 0:
-        TARGET = " "
+    if len(target.strip()) == 0:
+        target = " "
 
-    for FILE in files:
+    for FILE in listdir(folder, ".txt"):
 
         with open(FILE, "r", encoding="utf-8") as f:
-            lines = f.read()
+            line = f.read()
 
-        if FLAG_multiple:
-            og = ", ".join(format(lines))
-            line = og.replace(SAUCE, TARGET)
-            og_tags = format(line)
-        else:
-            og_tags = format(lines)
+        if is_multiple:
+            og = ", ".join(format(line))
+            line = og.replace(source, target)
 
+        og_tags = format(line)
         dedupe = []
 
         for tag in og_tags:
-            if not FLAG_multiple:
-                tag = tag.replace(SAUCE, TARGET)
+            if not is_multiple:
+                tag = tag.replace(source, target)
             if tag not in dedupe:
                 dedupe.append(tag)
 
@@ -44,10 +41,6 @@ def replace(FOLDER: str, SAUCE: str, TARGET: str):
 
 
 if __name__ == "__main__":
-    import os
 
-    folder, fr, to = params(
-        3, 3, os.path.basename(__file__), ["path to folder", "tags", "tags"]
-    )
-
-    replace(folder, fr.strip(), to.strip())
+    args = params(3, 3, ("path to folder", "tag", "tag"))
+    replace(*args)

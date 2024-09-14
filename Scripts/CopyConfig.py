@@ -1,29 +1,25 @@
 from Formatter import params
-import json
+from json import load, dump
+import os
 
 
-def copy_data(source_path: str, destination_path: str):
-    assert source_path.endswith(".json") and destination_path.endswith(".json")
+def copy_config(source: str, destination: str):
+    assert source.endswith(".json") and destination.endswith(".json")
+    assert os.path.isfile(source) and os.path.isfile(destination)
 
-    with open(source_path, "r", encoding="utf-8") as f:
-        old_config = json.load(f)
+    with open(source, "r", encoding="utf-8") as f:
+        old_config = load(f)
 
-    with open(destination_path, "r", encoding="utf-8") as f:
-        new_config = json.load(f)
+    with open(destination, "r", encoding="utf-8") as f:
+        new_config = load(f)
 
-    for K in new_config.keys():
-        if K in old_config.keys():
-            new_config[K] = old_config[K]
+    transfer_config = {k: old_config[k] for k in new_config if k in old_config}
 
-    with open(destination_path, "w", encoding="utf-8") as f:
-        json.dump(new_config, f)
+    with open(destination, "w", encoding="utf-8") as f:
+        dump(transfer_config, f)
 
 
 if __name__ == "__main__":
-    import os
 
-    source, target = params(
-        2, 2, os.path.basename(__file__), ["path to source", "path to target"]
-    )
-
-    copy_data(source, target)
+    args = params(2, 2, ("path to source", "path to target"))
+    copy_config(*args)

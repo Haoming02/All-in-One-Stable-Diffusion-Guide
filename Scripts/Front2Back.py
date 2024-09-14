@@ -1,17 +1,17 @@
 from Formatter import format, params, listdir
 
 
-def append(folder: str, append: str):
+def switch_order(folder: str):
 
     for FILE in listdir(folder, ".txt"):
 
         with open(FILE, "r", encoding="utf-8") as f:
             line = f.read()
 
-        ap_tags = format(append)
-        og_tags = [tag for tag in format(line) if tag not in ap_tags]
+        og_tags = format(line)
+        tags = og_tags[1:] + [og_tags[0]]
 
-        line = ", ".join(og_tags + ap_tags)
+        line = ", ".join(tags)
 
         with open(FILE, "w", encoding="utf-8") as f:
             f.write(line)
@@ -19,5 +19,5 @@ def append(folder: str, append: str):
 
 if __name__ == "__main__":
 
-    args = params(2, 2, ("path to folder", "tags"))
-    append(*args)
+    args = params(1, 1, ("path to folder",))
+    switch_order(*args)

@@ -1,17 +1,17 @@
 from Formatter import params, listdir
 import os
 
-def generate(FOLDER: str):
-    files = listdir(FOLDER)
 
-    for FILE in files:
+def generate(folder: str):
+
+    for FILE in listdir(folder):
         if FILE.endswith(".txt"):
             continue
 
         filename = os.path.splitext(FILE)[0]
         caption = f"{filename}.txt"
 
-        if os.path.exists(caption):
+        if os.path.isfile(caption):
             continue
 
         with open(caption, "w+", encoding="utf-8") as f:
@@ -20,6 +20,5 @@ def generate(FOLDER: str):
 
 if __name__ == "__main__":
 
-    (folder,) = params(1, 1, os.path.basename(__file__), ["path to folder"])
-
-    generate(folder)
+    args = params(1, 1, ("path to folder",))
+    generate(*args)

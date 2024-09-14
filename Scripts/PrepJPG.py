@@ -17,7 +17,18 @@ def init_ratios() -> list[float]:
     return ratios
 
 
-def safety_check(file: str):
+def find_closest(arr: float, value: float) -> float:
+    closest = None
+    for elem in arr:
+        if elem > value:
+            continue
+        if closest is None or (value - elem) < (value - closest):
+            closest = elem
+
+    return closest
+
+
+def safety_check(file: str) -> bool:
     filename, extension = os.path.splitext(os.path.basename(file))
 
     if extension == ".jpg":
@@ -35,8 +46,8 @@ def safety_check(file: str):
     return True
 
 
-def optimize(FOLDER: str):
-    RATIOs = init_ratios()
+def optimize(FOLDER: str, target_width: int, target_height: int):
+    RATIOS = init_ratios()
 
     files = listdir(FOLDER, [".jpg", ".jpeg", ".png"])
     i = 0
@@ -52,23 +63,37 @@ def optimize(FOLDER: str):
             bg.paste(img, (0, 0), img)
             img = bg.convert("RGB")
 
-        og_w, og_h = w, h = img.size
+        w, h = img.size
+        while w > 2048 or h > 2048:
+            w //= 2
+            h //= 2
+
+        if (w, h) != img.size:
+            img = img.resize((int(w), int(h)), Image.Resampling.LANCZOS)
+
+        og_w, og_h = w, h
+
+        if target_width and target_height:
+            w = int(target_width)
+            h = int(target_height)
+            if w > og_w or h > og_h:
+                w, h = og_w, og_h
 
         if w != h:
-            ratio = w / h if (w > h) else h / w
-            closest = min(RATIOs, key=lambda x: abs(x - ratio))
+            ratio = w / h if w > h else h / w
+            closest = find_closest(RATIOS, ratio)  # >= 1.0
 
             if w > h:
-                w = int((og_h * closest) // 2 * 2)
-                h = int(og_h // 2 * 2)
-                dx = abs(og_w - w) // 2
-                dy = 0
+                w = int((h * closest) // 2 * 2)
+                h = int(h // 2 * 2)
+                dx = (og_w - w) // 2
+                dy = (og_h - h) // 2
 
             else:
-                h = int((og_w * closest) // 2 * 2)
-                w = int(og_w // 2 * 2)
-                dx = 0
-                dy = abs(og_h - h) // 2
+                h = int((w * closest) // 2 * 2)
+                w = int(w // 2 * 2)
+                dx = (og_w - w) // 2
+                dy = (og_h - h) // 2
 
             img = img.crop((dx, dy, og_w - dx, og_h - dy))
 
@@ -83,6 +108,5 @@ def optimize(FOLDER: str):
 
 if __name__ == "__main__":
 
-    (folder,) = params(1, 1, os.path.basename(__file__), ["path to folder"])
-
-    optimize(folder)
+    args = params(1, 3, ("path to folder", "width", "height"))
+    optimize(*args)

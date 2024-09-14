@@ -1,30 +1,25 @@
 from Formatter import format, params, listdir
 
 
-def insert(FOLDER: str, INSERT: str):
-    files = listdir(FOLDER, ".txt")
+def insert(folder: str, insert: str, index: None | int | str = None):
 
-    for FILE in files:
+    index = int(index) if index is not None else 0
+
+    for FILE in listdir(folder, ".txt"):
 
         with open(FILE, "r", encoding="utf-8") as f:
             line = f.read()
 
-        og_tags = format(line)
-        in_tags = format(INSERT)
+        in_tags = format(insert)
+        og_tags = [tag for tag in format(line) if tag not in in_tags]
 
-        for tag in in_tags:
-            if tag in og_tags:
-                og_tags.remove(tag)
-
-        line = ", ".join(in_tags + og_tags)
+        line = ", ".join(og_tags[:index] + in_tags + og_tags[index:])
 
         with open(FILE, "w", encoding="utf-8") as f:
             f.write(line)
 
 
 if __name__ == "__main__":
-    import os
 
-    folder, tag = params(2, 2, os.path.basename(__file__), ["path to folder", "tags"])
-
-    insert(folder, tag)
+    args = params(2, 3, ("path to folder", "tags", "index"))
+    insert(*args)

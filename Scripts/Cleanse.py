@@ -1,18 +1,15 @@
 from Formatter import params, listdir
 
 
-def cleanse(FOLDER: str):
-    files = listdir(FOLDER, ".txt")
+def cleanse(folder: str):
 
-    for FILE in files:
+    for FILE in listdir(folder, ".txt"):
 
         with open(FILE, "w", encoding="utf-8") as f:
             f.write("")
 
 
 if __name__ == "__main__":
-    import os
-
-    (folder,) = params(1, 1, os.path.basename(__file__), ["path to folder"])
-
-    cleanse(folder)
+    
+    args = params(1, 1, ("path to folder",))
+    cleanse(*args)
