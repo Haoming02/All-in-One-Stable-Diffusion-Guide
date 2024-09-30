@@ -57,14 +57,14 @@ def listdir(
 
         if ext is None:
             yield obj
-            break
+            continue
 
         ext = [ext] if isinstance(ext, str) else ext
 
         for ex in ext:
             if obj.endswith(ex):
                 yield obj
-                break
+                continue
 
 
 if __name__ == "__main__":

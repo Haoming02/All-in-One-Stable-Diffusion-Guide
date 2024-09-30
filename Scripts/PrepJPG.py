@@ -49,7 +49,7 @@ def safety_check(file: str) -> bool:
 def optimize(FOLDER: str, target_width: int, target_height: int):
     RATIOS = init_ratios()
 
-    files = listdir(FOLDER, [".jpg", ".jpeg", ".png"])
+    files = listdir(FOLDER, [".jpg", ".jpeg", ".png", ".webp"])
     i = 0
 
     for FILE in files:
@@ -64,9 +64,12 @@ def optimize(FOLDER: str, target_width: int, target_height: int):
             img = bg.convert("RGB")
 
         w, h = img.size
-        while w > 2048 or h > 2048:
+        while w * h > 2048 * 2048:
             w //= 2
             h //= 2
+        if w * h < 1024 * 1024:
+            w *= 2
+            h *= 2
 
         if (w, h) != img.size:
             img = img.resize((int(w), int(h)), Image.Resampling.LANCZOS)

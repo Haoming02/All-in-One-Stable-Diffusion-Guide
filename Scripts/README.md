@@ -35,6 +35,10 @@
 - Generate a grayscale image for all image files in a folder
     - Useful for masked training
 
+### GrabTriggers.py
+- Generate a string from the `[from:to]`-th of tags from all text files
+    - You can then directly paste the result into the `Prompt S/R` of **X/Y/Z plot** for comparison
+
 ### Insert.py
 - Insert tags at the start of the caption for all text files in a folder
     - Useful for adding **trigger words**
@@ -60,6 +64,9 @@
 
 ### Replacer.py
 - Replace a tag with another tag in the caption for all text files in a folder
+
+### ReplacerIdx.py
+- Replace a tag with another tag in the caption using index for all text files in a folder
 
 ### ReplacerRaw.py
 - Replace a plain string with another plain string in the caption for all text files in a folder
