@@ -56,7 +56,7 @@
 - Bucket images in certain fixed aspect ratios
 
 ### PruneColor.py
-- Remove color `hair` and `eyes` tags from caption for all text files in a folder 
+- Remove color `hair` and `eyes` tags from caption for all text files in a folder
 
 ### Remover.py
 - Remove specified tags from the caption for all text files in a folder

@@ -1,17 +1,17 @@
-<h1 align="center"> LoRA Training Tutorial</h1>
-
+<h1 align="center">LoRA Training Tutorial</h1>
 <p align="center">
-<b>by. <a href="https://civitai.com/user/HaomingGaming/models">Haoming</a></b><br>
-<i>Last Update: 2024/09/14</i>
+<b>by. <a href="https://civitai.com/user/HaomingGaming">Haoming</a></b><br>
+<i>Last Update: <b>T.B.D</b></i>
 </p>
 
 <p align="right">
-<i>corresponding webui version: <code>v24.1.6</code></i><br>
-<sup><i>commit: <code><a href="https://github.com/bmaltais/kohya_ss/tree/v24.1.6">df0c81d</a></code></i></sup>
+<sup><i>corresponding <a href="https://github.com/bmaltais/kohya_ss">Webui</a> version: <code>v24.1.7</code></i></sup>
 </p>
 
-## Index
-1. [Getting Started](#kohya-ss)
+<details open>
+<summary><h2>Index</h2></summary>
+
+1. [Getting Started](#getting-started)
 2. [Dataset](#prepare-dataset)
    1. [Resolution](#resolution)
    2. [Preparing Images](#preparing-images)
@@ -20,44 +20,47 @@
 3. [Configs](#configs)
     - [Training Parameters](TrainingParameters.md)
 
-<hr>
+</details>
 
-## Kohya SS
-Just like **Automatic1111**, there is already a popular webui for training available: [**Kohya SS**](https://github.com/bmaltais/kohya_ss). 
+## Getting Started
+Just like with generating, there is also a popular Webui for training available: **[Kohya_SS](https://github.com/bmaltais/kohya_ss)**.
+
+> (The UI is maintained by <ins>bmaltais</ins>, and internally calls the [sd-scripts](https://github.com/kohya-ss/sd-scripts) written by <ins>kohya-ss</ins>)
 
 Simply go to the repository and follow the installation steps.
 
-> There are also [OneTrainer](https://github.com/Nerogar/OneTrainer), [AI Toolkit](https://github.com/ostris/ai-toolkit), and [Flux Gym](https://github.com/cocktailpeanut/fluxgym). Though I do not have much experience with them yet.
+> [!TIP]
+> There are also other training UIs, such as [OneTrainer](https://github.com/Nerogar/OneTrainer), [AI Toolkit](https://github.com/ostris/ai-toolkit), and [Flux Gym](https://github.com/cocktailpeanut/fluxgym). Though I personally do not have much experience with them.
 
 ## Prepare Dataset
-Now comes the most important part: preparing the dataset. As the good ol’ saying goes: 
+Now comes the most important part: preparing the dataset. As the good ol’ saying goes:
 
-> Garbage in, garbage out. 
+> Garbage in, garbage out.
 
-If you didn’t prepare the dataset properly, the trained model will not produce good results. The dataset refers to 2 things: the **images** and the **captions** for said images. The model can produce decent enough outcomes with less than a dozen images, but the more images with more variety you have in the dataset, the more flexible the model will become. 
+If you didn’t prepare the dataset properly, the trained model will not produce good results. The dataset refers to 2 things: the **images** and the **captions** for said images. The model can produce decent enough outcomes with less than a dozen images, but the more images with more variety you have in the dataset, the more flexible the model will become.
 
 ### Resolution
-You will need at least `512 x 512` for **SD 1.5** models; and at least `1024 x 1024` for **SDXL** models. Aspect ratio does not matter too much, and there is no need to crop the images to a perfect square either. Simply tick the `Enable buckets` toggle and the tool will handle it for you.
+You will need at least `512 x 512` for **SD1** models; and at least `1024 x 1024` for **SDXL** models. Aspect ratio does not matter too much, and there is no need to crop the images to a perfect square either. Simply tick the `Enable buckets` toggle and the tool will handle it for you.
 
 ### Preparing Images
-As mentioned above, it is significantly better to have more varieties in the images, such as different background, lighting and poses, etc. Personally, I recommend using only “official” arts, such as cards, in-game screenshots or promo images. Once you finish preparing a dozen or so images with great varieties, proceed to the next step. 
+As mentioned above, it is significantly better to have more varieties in the images, such as different background, lighting and poses, etc. Personally, I recommend using only “official” arts, such as cards, in-game screenshots or promo images. Once you finish preparing a dozen or so images with great varieties, proceed to the next step.
 
 ### Captioning
 The caption file should be placed within the same folder, next to the corresponding image.
 
 On the **Kohya SS** webui, there is an **Utilities** tab with a **Captioning** section. For realistic images, use `BLIP`; for anime images, use `WD14`. Enter the folder containing the images. The parameters can be left at default just fine. Then press `Caption images` to generate the `.txt` caption files.
 
-**Note:** For `WD14`, there is a toggle called `Replace underscores in filenames with spaces`. Anime checkpoints were trained on [Booru](https://gelbooru.com/) tags. Consult the model page to see if it was trained with underscores or not. 
+**Note:** For `WD14`, there is a toggle called `Replace underscores in filenames with spaces`. Anime checkpoints were trained on [Booru](https://gelbooru.com/) tags. Consult the model page to see if it was trained with underscores or not.
 
-**You’re not done yet!** 
+**You’re not done yet!**
 
-Now you need to go through every single caption file and manually check the captions. You should **remove** every tag that describes your subject, keeping only the tags that are the “variables.” 
+Now you need to go through every single caption file and manually check the captions. You should **remove** every tag that describes your subject, keeping only the tags that are the “variables.”
 
-Think of it this way: You want the features of your subject to be associated with the **trigger word**. 
+Think of it this way: You want the features of your subject to be associated with the **trigger word**.
 
-So take training a character as an example: only caption the background, the expression of the subject, and the poses of the subject, etc; but not the hair color, eye color, or other defining features. 
+So take training a character as an example: only caption the background, the expression of the subject, and the poses of the subject, etc; but not the hair color, eye color, or other defining features.
 
-Last but not least, add some **trigger words** at the start of the captions. You can use [Insert.py](Scripts/) to automate this. The number of trigger words has to be consistent across your dataset. 
+Last but not least, add some **trigger words** at the start of the captions. You can use [Insert.py](Scripts/) to automate this. The number of trigger words has to be consistent across your dataset.
 
 > For example, when I am training a character with multiple outfits, I put the character name first, the outfit name second, then the rest of the tags. Thus I have **2** trigger words for every single caption.
 
@@ -92,13 +95,13 @@ Project
   > ~~If the source model is **SD 2**... why...?~~
 
 ### Folders
-- **Image folder:** Enter the folder you created in the previous step. Remember to link to the project folder, not the folders inside. 
+- **Image folder:** Enter the folder you created in the previous step. Remember to link to the project folder, not the folders inside.
 - **Output folder:** The folder where the trained model should be saved to. You can just link to the `~webui\models\Lora` folder.
 - **Model output name**: Model output name 💀
 
 ### Parameters
 - **LoRA Type:** You can choose between training a normal **LoRA** or a [**LyCORIS**](https://github.com/KohakuBlueleaf/LyCORIS) model
-- **Train Batch Size:** How many images does it train at once per step. Requires high VRAM to handle. 
+- **Train Batch Size:** How many images does it train at once per step. Requires high VRAM to handle.
     - Increasing this would "smooth out" the changes between each **Epoch**
     - You need to also increase the **Epoch** count to compensate for it
 - **Epoch:** How many times should the training go through the entire dataset
@@ -106,8 +109,8 @@ Project
 - **Mixed/Save Precision:** Only RTX 30 and 40 series support **`bf16`**; otherwise choose **`fp16`**
 - **Learning Rate / Scheduler / Warmup / Optimizer:**
     > See [Training Parameters](TrainingParameters.md)
-- **Network Rank:** How “complex” the concept is. `32 ~ 64` for **SD 1.5** and `16` for **SDXL** is usually enough. 
-Increase this value if you need the model to learn more concepts. 
+- **Network Rank:** How “complex” the concept is. `32 ~ 64` for **SD 1.5** and `16` for **SDXL** is usually enough.
+Increase this value if you need the model to learn more concepts.
     - This also affects the final model file size
     - **LyCORIS** models need lower value
 - **Network Alpha:** Setting it to half of **Network Rank** is usually fine

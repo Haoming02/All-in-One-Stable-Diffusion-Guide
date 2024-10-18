@@ -1,21 +1,19 @@
-# Tiled Diffusion & VAE
-***by. Haoming***
+<h1 align="center">MultiDiffusion & TiledVAE</h1>
+<p align="center"><b>by. Haoming</b></p>
 
-## Usage
-When you use `Hires. fix` or `img2img` to upscale an image, you may encounter **CUDA Out of Memory Error** if the resolution is set too high.
-You can solve this by using this extension to a degree.
+## Introduction
+When you use `Hires. fix` or `img2img` to upscale an image, you may encounter **CUDA Out of Memory Error** if the resolution exceeds what your VRAM can handle. This can be solved via this Extension by only processing a small tile of the image at a time then merging them at the end.
+
+> [!TIP]
+> This Extension works well with the **Tile Resample** module from [ControlNet](../ControlNet/README.md)
 
 ## Requirements
+
+> [!NOTE]
+> For **Forge** Webui, the Extension is already built-in
+
+- For **Automatic1111** Webui, install the following Extension:
+    - [multidiffusion-upscaler-for-automatic1111](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111)
+
+> [!TIP]
 > Learn how to install [Extensions](../README.md#extensions)
-
-- Install the following Extension:
-    - `MultiDiffusion with Tiled VAE (multidiffusion-upscaler-for-automatic1111)` *([Github](https://github.com/pkuliyi2015/multidiffusion-upscaler-for-automatic1111))*
-
-## How to Use
-After you install the above extension, you should see a new sub-section down in the **txt2img** and **img2img** tabs.
-Open the **Tiled VAE** section and **Enable** it. Adjust the `Tile Size` if needed.
-Then, proceed to upscale as normal. 
-
-> I was able to upscale a `1024x1024` image to `2048x2048` on a RTX 3070 Ti with only **8GB** of VRAM
-
-This Extension also works with the **Tile Resample** module from [ControlNet](../ControlNet/README.md).

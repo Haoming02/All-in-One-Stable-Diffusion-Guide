@@ -19,8 +19,13 @@ def read(path: str):
     for key in ("ss_tag_frequency", "ss_bucket_info", "ss_dataset_dirs"):
         config.pop(key, None)
 
+    preset: dict = {}
+    keys = list(config.keys())
+    for key in keys:
+        preset[key.split("ss_", 1)[-1]] = config[key]
+
     with open(f"{path}.json", "w+", encoding="utf-8") as f:
-        dump(dict(sorted(config.items())), f)
+        dump(dict(sorted(preset.items())), f)
 
 
 if __name__ == "__main__":
