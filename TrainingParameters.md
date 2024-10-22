@@ -1,59 +1,56 @@
 <h1 align="center">Training Parameters</h1>
 <p align="center">
 <b>by. <a href="https://civitai.com/user/HaomingGaming">Haoming</a></b><br>
-<i>Last Update: <b>T.B.D</b></i>
+<i>Last Update: 2024/10/22</i>
 </p>
 
 ## Preface
-There is no one "best" parameter that simply works for every training. Experiment to find what works well for your case!
+There is no single "best" set of parameters that always works for every training. Keep experimenting to find what works well for your dataset~
 
-> Options that are not mentioned simply mean I have no experience with using them
+<details open>
+<summary><h2>Index</h2></summary>
 
-#### Index
 - [Learning Rate](#learning-rate)
 - [Scheduler](#scheduler)
 - [Warmup](#warmup)
 - [Optimizer](#optimizer)
 - [Wiki](#official-wiki-document)
 
-<hr>
+</details>
 
 ## Learning Rate
-> The learning rate controls the step size of the updates to the model weights during training <br>
-> Value too large may cause the optimization process to overshoot the optimal point <br>
-> Value too small may cause the optimization process to converge too slowly or get stuck in local optima
+> The learning rate controls how much the model weights update each step during training
 
-For **Stable Diffusion**, a value around the order of `0.00015` is usually fine.
+When training a LoRA, a value around the order of `0.0005` is usually fine. Usually, it is better to set `Text Encoder`'s learning rate to half of `Unet`'s learning rate.
 
-On **Kohya_SS**, you can set a different learning rate for `Text Encoder` and `Unet`. Generally, just set the `Text Encoder` learning rate to around half of `Unet` learning rate.
-
-> **eg.** `0.000075` for `Text Encoder` ; `0.00015` for `Unet`
-
-**Note:** If you're using an *adaptive* Optimizer *(**eg.** `Adafactor` or `Prodigy`)*, set both learning rate to `1.0` as they will be handled by the Optimizer automatically.
+> [!IMPORTANT]
+> If you're using an adaptive Optimizer *(**eg.** `Adafactor` or `Prodigy`)*, set both learning rate to `1.0` instead, as they will be handled by the Optimizer
 
 ## Scheduler
-> The scheduler controls the learning rate during training
+> The scheduler controls the learning rate throughout the training
 
-- **Constant:** The learning rate remains fixed throughout training
-- **Linear:** The learning rate decreases linearly over time
-- **Cosine:** The learning rate follows a cosine curve, gradually decreasing over time
-- **Cosine with Restarts:** Same as above; but also resets to the initial rate intervally based on `LR number of cycles`
+- **Constant:** The LR remains fixed throughout training
+- **Linear:** The LR decreases linearly over time
+- **Cosine:** The LR decreases over time following a cosine curve
 
 ## Warmup
-> The warmup gradually increases the learning rate from a small value to its maximum value, so that the model can more easily explore the spaces
+> The warmup makes the learning rate gradually increase at the beginning
+
+> [!IMPORTANT]
+> For certain Optimizer, you may need to add additional flags to the `Optimizer extra arguments` *(**eg.** `safeguard_warmup=True` for `Prodigy`)*
 
 ## Optimizer
-> The optimizer is the algorithm used to update the model weights during training
+> The optimizer determines how the model weights are updated during training
 
-- **AdamW** and **Lion**: Popular optimizers. Nothing special; No drawbacks.
-- **AdamW8bit** and **Lion8bit**: Variants with reduced memory requirement but also lost precision.
-  - In my experience, the lower precision actually helps train better models, as it "misses out" the low quality artifacts.
-- **Adafactor** and **Prodigy**: Optimizers that automatically determines learning rates. In my experience, they are also slower.
+- **AdamW**: The classic optimizer; can't go wrong with it
+- **Lion**: A newer optimizer, which is supposedly an improved version of **AdamW**
+- **AdamW8bit** / **Lion8bit**: Reduce memory requirement at the cost of precision
+- **Prodigy**: An adaptive optimizer that automatically adjusts the learning rates
 
 <hr>
 
 <details>
-<summary>My parameters for training Pony LoRAs on RTX 4070 Ti Super</summary>
+<summary>My parameters for training <b>Pony LoRA</b>s on a <b>RTX 4070 Ti Super</b></summary>
 
 ```json
 {
@@ -68,8 +65,8 @@ On **Kohya_SS**, you can set a different learning rate for `Text Encoder` and `U
   "dynamo_use_dynamic": false,
   "dynamo_use_fullgraph": false,
   "========== Model ==========": null,
-  "pretrained_model_name_or_path": "S:/sd-webui-models/Stable-diffusion/ponyDiffusionV6XL_v6StartWithThisOne.safetensors",
-  "output_dir": "S:/sd-webui-models/Lora/dev",
+  "pretrained_model_name_or_path": "...",
+  "output_dir": "...",
   "save_model_as": "safetensors",
   "save_precision": "bf16",
   "sdxl": true,
@@ -88,12 +85,12 @@ On **Kohya_SS**, you can set a different learning rate for `Text Encoder` and `U
   "optimizer": "Prodigy",
   "optimizer_args": "decouple=True weight_decay=0.01 d_coef=1.2 use_bias_correction=True betas=(0.9,0.99)",
   "learning_rate": 1.0,
-  "lr_warmup": 5,
+  "lr_warmup": 0,
   "max_resolution": "1024,1024",
   "enable_bucket": true,
   "text_encoder_lr": 1.0,
   "unet_lr": 1.0,
-  "network_dim": 32,
+  "network_dim": 16,
   "network_alpha": 8,
   "scale_weight_norms": 2,
   "========== Advanced ==========": null,
@@ -108,7 +105,7 @@ On **Kohya_SS**, you can set a different learning rate for `Text Encoder` and `U
   "noise_offset_type": "Original",
   "noise_offset": 0.02,
   "noise_offset_random_strength": false,
-  "adaptive_noise_scale": 0.001
+  "adaptive_noise_scale": 0.002
 }
 ```
 
@@ -116,5 +113,6 @@ On **Kohya_SS**, you can set a different learning rate for `Text Encoder` and `U
 
 <hr>
 
-#### Official Wiki Document
-- https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters
+#### See Also
+- **Official Wiki:** https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters
+- **My Blog Post:** https://civitai.com/models/850658/ponyxl-lora-training
