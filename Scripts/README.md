@@ -49,6 +49,9 @@
 ### LoRA_Metadata.py
 - Given a LoRA file, extract its training metadata
 
+### MinifyJSON.py
+- Minify a `.json` file to reduce its size
+
 ### OptimizeImage.py
 - Optimize `.png` images into `.jpg` to reduce storage size
 
