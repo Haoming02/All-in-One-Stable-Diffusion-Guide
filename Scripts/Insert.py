@@ -5,9 +5,9 @@ def insert(folder: str, insert: str, index: None | int | str = None):
 
     index = int(index) if index is not None else 0
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         in_tags = format(insert)
@@ -15,7 +15,7 @@ def insert(folder: str, insert: str, index: None | int | str = None):
 
         line = ", ".join(og_tags[:index] + in_tags + og_tags[index:])
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
 

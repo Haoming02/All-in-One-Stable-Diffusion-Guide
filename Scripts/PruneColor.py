@@ -50,9 +50,9 @@ def prune(folder: str):
     DELETED = set()
     UNKNOWN = set()
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         og_tags = format(line)
@@ -86,7 +86,7 @@ def prune(folder: str):
 
         line = ", ".join(pruned_tags)
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
     print("\n[Removed]")

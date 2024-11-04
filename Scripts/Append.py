@@ -3,9 +3,9 @@ from Formatter import format, params, listdir
 
 def append(folder: str, append: str):
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         ap_tags = format(append)
@@ -13,7 +13,7 @@ def append(folder: str, append: str):
 
         line = ", ".join(og_tags + ap_tags)
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
 

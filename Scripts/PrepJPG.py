@@ -49,14 +49,12 @@ def safety_check(file: str) -> bool:
 def optimize(FOLDER: str, target_width: int, target_height: int):
     RATIOS = init_ratios()
 
-    files = listdir(FOLDER, [".jpg", ".jpeg", ".png", ".webp"])
     i = 0
-
-    for FILE in files:
-        if not safety_check(FILE):
+    for file in listdir(FOLDER, [".jpg", ".jpeg", ".png", ".webp"]):
+        if not safety_check(file):
             continue
 
-        img = Image.open(FILE)
+        img = Image.open(file)
 
         if img.mode != "RGB":
             bg = Image.new("RGBA", img.size, (127, 127, 127, 255))

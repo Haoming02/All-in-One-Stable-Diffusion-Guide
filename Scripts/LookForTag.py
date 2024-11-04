@@ -2,17 +2,17 @@ from Formatter import params, listdir
 
 
 def filter_file(folder: str, filter: str):
-    MATCH = set()
+    matches = set()
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read().strip()
 
         if filter in line:
-            MATCH.add(FILE)
+            matches.add(file)
 
-    print("\n".join(list(MATCH)))
+    print("\n".join(list(matches)))
 
 
 if __name__ == "__main__":

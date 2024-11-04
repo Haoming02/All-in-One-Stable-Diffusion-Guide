@@ -3,19 +3,19 @@ import os
 
 
 def delete(path: str, filter: str):
-    for FILE in listdir(path, ".txt"):
+    for file in listdir(path, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         og_tags = format(line)
 
         if filter in og_tags:
-            os.remove(FILE)
+            os.remove(file)
 
             for fmt in (".png", ".jpg", ".jpeg"):
                 try:
-                    os.remove(FILE.replace(".txt", fmt))
+                    os.remove(file.replace(".txt", fmt))
                 except FileNotFoundError:
                     pass
 

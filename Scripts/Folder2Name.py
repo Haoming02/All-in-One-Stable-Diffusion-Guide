@@ -4,11 +4,11 @@ import os
 
 def insert(folder: str):
 
-    for FILE in listdir(folder, ".txt"):
-        path = os.path.basename(os.path.dirname(FILE))
+    for file in listdir(folder, ".txt"):
+        path = os.path.basename(os.path.dirname(file))
         name = path.split("_", 1)[1].strip()
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         og_tags = format(line)
@@ -17,7 +17,7 @@ def insert(folder: str):
 
         line = ", ".join([name] + og_tags)
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
 

@@ -3,9 +3,9 @@ from Formatter import format, params, listdir
 
 def remove(folder: str, remove: str | int):
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         try:
@@ -20,7 +20,7 @@ def remove(folder: str, remove: str | int):
             og_tags = [tag for tag in format(line) if tag not in rm_tags]
             line = ", ".join(og_tags)
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
 

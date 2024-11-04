@@ -4,11 +4,11 @@ import os
 
 def generate(folder: str):
 
-    for FILE in listdir(folder):
-        if FILE.endswith(".txt"):
+    for file in listdir(folder):
+        if file.endswith(".txt"):
             continue
 
-        filename = os.path.splitext(FILE)[0]
+        filename = os.path.splitext(file)[0]
         caption = f"{filename}.txt"
 
         if os.path.isfile(caption):

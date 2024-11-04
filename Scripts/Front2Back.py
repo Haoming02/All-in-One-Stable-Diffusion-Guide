@@ -3,9 +3,9 @@ from Formatter import format, params, listdir
 
 def switch_order(folder: str):
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         og_tags = format(line)
@@ -13,7 +13,7 @@ def switch_order(folder: str):
 
         line = ", ".join(tags)
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
 

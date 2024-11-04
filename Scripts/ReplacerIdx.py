@@ -4,9 +4,9 @@ from Formatter import format, params, listdir
 def replace(folder: str, source: str, target: str):
     source, target = int(source), int(target)
 
-    for FILE in listdir(folder, ".txt"):
+    for file in listdir(folder, ".txt"):
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         tags = format(line)
@@ -15,7 +15,7 @@ def replace(folder: str, source: str, target: str):
 
         line = ", ".join(tags)
 
-        with open(FILE, "w", encoding="utf-8") as f:
+        with open(file, "w", encoding="utf-8") as f:
             f.write(line)
 
 

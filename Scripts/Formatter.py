@@ -42,36 +42,33 @@ def listdir(
         print(f'\n[Error] Path "{path}" is not a folder...\n')
         raise SystemExit
 
-    for file in os.listdir(path):
-        obj = os.path.join(path, file)
+    objs = [os.path.join(path, file) for file in os.listdir(path)]
+    for obj in objs:
 
         if os.path.isdir(obj):
             if recursive is None:
                 i = input("\nRecursive [y/N]: ")
                 recursive = i.strip() != "N"
-
             if recursive:
                 yield from listdir(obj, ext, True)
-
             continue
 
         if ext is None:
             yield obj
             continue
-
-        ext = [ext] if isinstance(ext, str) else ext
-
-        for ex in ext:
-            if obj.endswith(ex):
-                yield obj
-                continue
+        else:
+            ext = [ext] if isinstance(ext, str) else ext
+            for ex in ext:
+                if obj.endswith(ex):
+                    yield obj
+                    break
 
 
 if __name__ == "__main__":
 
-    (FOLDER,) = params(1, 1, ("path to folder",))
+    (folder,) = params(1, 1, ("path to folder",))
 
-    for file in listdir(FOLDER, ".txt"):
+    for file in listdir(folder, ".txt"):
 
         with open(file, "r", encoding="utf-8") as f:
             original_line = f.read()

@@ -8,13 +8,13 @@ def debug(FOLDER: str, index: str | int):
     max_width = max(len(filename) for filename in files)
 
     print("")
-    for FILE in files:
+    for file in files:
 
-        with open(FILE, "r", encoding="utf-8") as f:
+        with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
         tags = format(line)
-        print(f"{FILE:<{max_width + 4}} {tags[index]}")
+        print(f"{file:<{max_width + 4}} {tags[index]}")
 
 
 if __name__ == "__main__":
