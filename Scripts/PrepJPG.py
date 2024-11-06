@@ -94,7 +94,7 @@ def optimize(path: str, keep: bool):
 
         else:
             folder: str = os.path.dirname(file)
-            filename: str = (os.path.join(folder, f"{i:02d}.jpg"),)
+            filename: str = os.path.join(folder, f"{i:02d}.jpg")
             i += 1
 
         qp: int = min(1.0, (2048 * 2048) / (new_w * new_h)) * 100
