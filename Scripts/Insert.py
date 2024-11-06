@@ -1,9 +1,8 @@
 from Formatter import format, params, listdir
 
 
-def insert(folder: str, insert: str, index: None | int | str = None):
-
-    index = int(index) if index is not None else 0
+def insert(folder: str, insert: str, index: None | str = None):
+    index = 0 if index is None else int(index)
 
     for file in listdir(folder, ".txt"):
 

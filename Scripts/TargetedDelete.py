@@ -13,11 +13,10 @@ def delete(path: str, filter: str):
         if filter in og_tags:
             os.remove(file)
 
-            for fmt in (".png", ".jpg", ".jpeg"):
-                try:
+            for fmt in (".png", ".jpg", ".jpeg", ".webp"):
+                if os.path.isfile(file.replace(".txt", fmt)):
                     os.remove(file.replace(".txt", fmt))
-                except FileNotFoundError:
-                    pass
+                    break
 
 
 if __name__ == "__main__":

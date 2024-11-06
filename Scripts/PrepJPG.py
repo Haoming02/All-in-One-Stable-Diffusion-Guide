@@ -2,112 +2,106 @@ from Formatter import params, listdir
 from PIL import Image
 import os
 
-
-def init_ratios() -> list[float]:
-    ratios = []
-
-    w = 1024
-    h = 1024
-
-    for _ in range(9):
-        ratios.append(w / h)
-        w += 64
-        h -= 64
-
-    return ratios
+RATIOS: tuple[float] = (
+    1.0,
+    1.1333,
+    1.2857,
+    1.4615,
+    1.6667,
+    1.9091,
+    2.2,
+    2.5556,
+    3.0,
+)
 
 
-def find_closest(arr: float, value: float) -> float:
-    closest = None
-    for elem in arr:
-        if elem > value:
-            continue
-        if closest is None or (value - elem) < (value - closest):
-            closest = elem
+def find_closest(og_w: int, og_h: int) -> tuple[int, int]:
+    ratio: float = max(og_w, og_h) / min(og_w, og_h)
+    for r in RATIOS:
+        if r >= ratio:
+            target = r
+            break
 
-    return closest
+    if og_w > og_h:
+        w = og_w
+        h = round(og_w / target)
+
+    else:
+        h = og_h
+        w = round(og_h / target)
+
+    return w, h
 
 
 def safety_check(file: str) -> bool:
     filename, extension = os.path.splitext(os.path.basename(file))
 
-    if extension == ".jpg":
-        try:
-            _ = int(filename)
-            backup = file.replace(".jpg", ".bak")
-            if os.path.exists(backup):
-                os.remove(backup)
-            os.rename(file, backup)
-            return False
-
-        except ValueError:
-            pass
+    if extension == ".jpg" and filename.isdecimal():
+        backup = file.replace(".jpg", ".bak")
+        if os.path.exists(backup):
+            os.remove(backup)
+        os.rename(file, backup)
+        return False
 
     return True
 
 
-def optimize(FOLDER: str, target_width: int, target_height: int):
-    RATIOS = init_ratios()
+def load_image(path: str) -> Image.Image:
+    img = Image.open(path)
+    if img.mode != "RGB":
+        bg = Image.new("RGBA", img.size, (127, 127, 127, 255))
+        bg.paste(img, (0, 0), img)
+        img = bg.convert("RGB")
 
+    return img
+
+
+def crop(img: Image.Image, new_w: int, new_h: int) -> Image.Image:
+    w, h = img.size
+
+    new_w = new_w - (new_w % 2)
+    new_h = new_h - (new_h % 2)
+
+    left = (w - new_w) // 2
+    up = (h - new_h) // 2
+    right = left + new_w
+    bottom = up + new_h
+
+    return img.crop((left, up, right, bottom))
+
+
+def optimize(path: str, keep: bool):
+    keep_filename: bool = keep is not None
     i = 0
-    for file in listdir(FOLDER, [".jpg", ".jpeg", ".png", ".webp"]):
-        if not safety_check(file):
+
+    for file in listdir(path, (".jpg", ".jpeg", ".png", ".webp")):
+        if (not keep_filename) and (not safety_check(file)):
             continue
 
-        img = Image.open(file)
-
-        if img.mode != "RGB":
-            bg = Image.new("RGBA", img.size, (127, 127, 127, 255))
-            bg.paste(img, (0, 0), img)
-            img = bg.convert("RGB")
-
+        img = load_image(file)
         w, h = img.size
-        while w * h > 2048 * 2048:
-            w //= 2
-            h //= 2
-        if w * h < 1024 * 1024:
-            w *= 2
-            h *= 2
-
-        if (w, h) != img.size:
-            img = img.resize((int(w), int(h)), Image.Resampling.LANCZOS)
-
-        og_w, og_h = w, h
-
-        if target_width and target_height:
-            w = int(target_width)
-            h = int(target_height)
-            if w > og_w or h > og_h:
-                w, h = og_w, og_h
 
         if w != h:
-            ratio = w / h if w > h else h / w
-            closest = find_closest(RATIOS, ratio)  # >= 1.0
+            new_w, new_h = find_closest(w, h)
+            img = crop(img, new_w, new_h)
 
-            if w > h:
-                w = int((h * closest) // 2 * 2)
-                h = int(h // 2 * 2)
-                dx = (og_w - w) // 2
-                dy = (og_h - h) // 2
-
+        if keep_filename:
+            name, ext = os.path.splitext(file)
+            if ext in (".jpg", ".jpeg"):
+                filename = file
             else:
-                h = int((w * closest) // 2 * 2)
-                w = int(w // 2 * 2)
-                dx = (og_w - w) // 2
-                dy = (og_h - h) // 2
+                filename = f"{name}.jpg"
 
-            img = img.crop((dx, dy, og_w - dx, og_h - dy))
+        else:
+            folder: str = os.path.dirname(file)
+            filename: str = (os.path.join(folder, f"{i:02d}.jpg"),)
+            i += 1
 
-        img.save(
-            os.path.join(FOLDER, f"{i:02d}.jpg"),
-            optimize=True,
-            quality=100,
-        )
-
-        i += 1
+        qp: int = min(1.0, (2048 * 2048) / (new_w * new_h)) * 100
+        img.save(filename, quality=int(qp), optimize=True)
 
 
 if __name__ == "__main__":
 
-    args = params(1, 3, ("path to folder", "width", "height"))
+    args = params(1, 2, ("path to folder", "keep filename"))
     optimize(*args)

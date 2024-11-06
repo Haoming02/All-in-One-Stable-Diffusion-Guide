@@ -37,10 +37,15 @@ COLORS: tuple[str] = (
     "light white",
     "light yellow",
     "light violet",
-    # "multicolored",
-    # "gradient",
-    # "two-tone",
 )
+"""
+Optional:
+
+- "multicolored"
+- "gradient"
+- "two-tone"
+"""
+
 
 PRUNE: tuple[str] = ("hair between eyes",)
 ALLOWED: tuple[str] = ("one eye closed", "closed eyes")
@@ -75,14 +80,13 @@ def prune(folder: str):
                 pruned_tags.append(tag)
                 continue
 
-            color, obj = objs
+            color, _ = objs
             if color in COLORS:
                 DELETED.add(tag)
-                continue
             else:
-                if not tag in ALLOWED:
-                    UNKNOWN.add(tag)
                 pruned_tags.append(tag)
+                if tag not in ALLOWED:
+                    UNKNOWN.add(tag)
 
         line = ", ".join(pruned_tags)
 

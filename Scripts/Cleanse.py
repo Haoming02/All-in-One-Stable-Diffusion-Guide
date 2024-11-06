@@ -2,7 +2,6 @@ from Formatter import params, listdir
 
 
 def cleanse(folder: str):
-
     for file in listdir(folder, ".txt"):
 
         with open(file, "w", encoding="utf-8") as f:

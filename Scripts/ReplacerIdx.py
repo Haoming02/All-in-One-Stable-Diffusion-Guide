@@ -10,7 +10,6 @@ def replace(folder: str, source: str, target: str):
             line = f.read()
 
         tags = format(line)
-
         tags[source], tags[target] = tags[target], tags[source]
 
         line = ", ".join(tags)

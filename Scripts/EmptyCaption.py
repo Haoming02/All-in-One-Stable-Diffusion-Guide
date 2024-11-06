@@ -3,7 +3,6 @@ import os
 
 
 def generate(folder: str):
-
     for file in listdir(folder):
         if file.endswith(".txt"):
             continue

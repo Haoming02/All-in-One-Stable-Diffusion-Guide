@@ -3,8 +3,8 @@ import os
 
 
 def insert(folder: str):
-
     for file in listdir(folder, ".txt"):
+
         path = os.path.basename(os.path.dirname(file))
         name = path.split("_", 1)[1].strip()
 

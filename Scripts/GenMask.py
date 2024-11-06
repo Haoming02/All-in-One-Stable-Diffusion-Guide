@@ -4,8 +4,7 @@ import os
 
 
 def generate(folder: str):
-
-    for file in listdir(folder, [".jpg", ".jpeg", ".png"]):
+    for file in listdir(folder, (".jpg", ".jpeg", ".png", ".webp")):
 
         if "masklabel" in file:
             continue
@@ -13,7 +12,7 @@ def generate(folder: str):
         filename = os.path.splitext(file)[0]
         mask = f"{filename}-masklabel.png"
 
-        Image.open(file).convert("L").save(mask)
+        Image.open(file).convert("L").save(mask, optimize=True)
 
 
 if __name__ == "__main__":

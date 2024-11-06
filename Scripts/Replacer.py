@@ -2,7 +2,6 @@ from Formatter import format, params, listdir
 
 
 def replace(folder: str, source: str, target: str):
-
     is_multiple = False
 
     if len(source.split(",")) > 1 or len(target.split(",")) > 1:
@@ -26,8 +25,8 @@ def replace(folder: str, source: str, target: str):
             line = og.replace(source, target)
 
         og_tags = format(line)
-        dedupe = []
 
+        dedupe = []
         for tag in og_tags:
             if not is_multiple:
                 tag = tag.replace(source, target)

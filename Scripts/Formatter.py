@@ -1,4 +1,4 @@
-from typing import Generator
+from typing import Generator, Iterable
 
 
 def format(string: str) -> list[str]:
@@ -32,7 +32,7 @@ def params(min_arg: int, max_arg: int, args: tuple[str]) -> list[str]:
 
 
 def listdir(
-    path: str, ext: None | str | list[str] = None, recursive: None | bool = None
+    path: str, ext: None | str | Iterable[str] = None, recursive: None | bool = None
 ) -> Generator[str, None, None]:
     """Return a generator of all files with matching extension(s)"""
     import os
@@ -56,12 +56,12 @@ def listdir(
         if ext is None:
             yield obj
             continue
-        else:
-            ext = [ext] if isinstance(ext, str) else ext
-            for ex in ext:
-                if obj.endswith(ex):
-                    yield obj
-                    break
+
+        ext = [ext] if isinstance(ext, str) else ext
+        for ex in ext:
+            if obj.lower().endswith(ex):
+                yield obj
+                break
 
 
 if __name__ == "__main__":

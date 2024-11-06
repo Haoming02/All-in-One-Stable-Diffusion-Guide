@@ -2,7 +2,6 @@ from Formatter import params, listdir
 
 
 def replace(folder: str, source: str, target: str):
-
     for file in listdir(folder, ".txt"):
 
         with open(file, "r", encoding="utf-8") as f:

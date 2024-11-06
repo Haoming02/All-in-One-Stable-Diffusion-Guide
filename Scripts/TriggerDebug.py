@@ -1,10 +1,10 @@
 from Formatter import format, params, listdir
 
 
-def debug(FOLDER: str, index: str | int):
-
+def debug(folder: str, index: str):
     index = int(index)
-    files = list(listdir(FOLDER, ".txt"))
+
+    files = list(listdir(folder, ".txt"))
     max_width = max(len(filename) for filename in files)
 
     print("")

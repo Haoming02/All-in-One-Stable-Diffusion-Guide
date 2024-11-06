@@ -4,6 +4,7 @@ from PIL import Image
 
 def optimize(folder: str):
     for file in listdir(folder, ".png"):
+
         img = Image.open(file)
         img.save(file.replace(".png", ".jpg"), optimize=True, quality=100)
 

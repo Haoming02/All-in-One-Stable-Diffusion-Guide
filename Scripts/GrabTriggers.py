@@ -1,17 +1,16 @@
 from Formatter import format, params, listdir
 
 
-def debug(FOLDER: str, from_idx: int, to_idx: int):
+def debug(folder: str, from_idx: str, to_idx: str):
     from_idx, to_idx = int(from_idx), int(to_idx)
-
-    files = list(listdir(FOLDER, ".txt"))
     triggers = set()
 
-    for file in files:
+    for file in listdir(folder, ".txt"):
+
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
-        tags = format(line)
 
+        tags = format(line)
         triggers.add(", ".join(tags[from_idx:to_idx]))
 
     triggers = '", "'.join(list(triggers))
