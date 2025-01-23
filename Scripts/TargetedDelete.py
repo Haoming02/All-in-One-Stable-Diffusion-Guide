@@ -4,7 +4,6 @@ import os
 
 def delete(path: str, filter: str):
     for file in listdir(path, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
@@ -20,6 +19,5 @@ def delete(path: str, filter: str):
 
 
 if __name__ == "__main__":
-
     args = params(2, 2, ("path to folder", "tag"))
     delete(*args)

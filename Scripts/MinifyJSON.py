@@ -12,6 +12,5 @@ def minify(path: str):
 
 
 if __name__ == "__main__":
-
     args = params(1, 1, ("path to json",))
     minify(*args)

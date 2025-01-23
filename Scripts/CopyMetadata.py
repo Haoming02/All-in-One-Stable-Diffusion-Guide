@@ -5,8 +5,8 @@ import os
 
 
 def copy_metadata(source: str, destination: str):
-    assert source.endswith(".png") and destination.endswith(".png")
     assert os.path.isfile(source) and os.path.isfile(destination)
+    assert source.endswith(".png") and destination.endswith(".png")
 
     source_image = Image.open(source)
     metadata = PngInfo()
@@ -28,6 +28,5 @@ def copy_metadata(source: str, destination: str):
 
 
 if __name__ == "__main__":
-
     args = params(2, 2, ("path to source", "path to target"))
     copy_metadata(*args)

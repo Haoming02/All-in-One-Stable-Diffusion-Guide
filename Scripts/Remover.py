@@ -3,7 +3,6 @@ from Formatter import format, params, listdir
 
 def remove(folder: str, remove: str):
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
             og_tags = format(line)
@@ -23,6 +22,5 @@ def remove(folder: str, remove: str):
 
 
 if __name__ == "__main__":
-
     args = params(2, 2, ("path to folder", "tags"))
     remove(*args)

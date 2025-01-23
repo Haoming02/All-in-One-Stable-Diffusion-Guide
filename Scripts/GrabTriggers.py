@@ -6,7 +6,6 @@ def debug(folder: str, from_idx: str, to_idx: str):
     triggers = set()
 
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
@@ -18,6 +17,5 @@ def debug(folder: str, from_idx: str, to_idx: str):
 
 
 if __name__ == "__main__":
-
     args = params(3, 3, ("path to folder", "from", "to"))
     debug(*args)

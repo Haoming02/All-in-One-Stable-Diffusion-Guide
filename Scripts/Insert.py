@@ -5,7 +5,6 @@ def insert(folder: str, insert: str, index: None | str = None):
     index = 0 if index is None else int(index)
 
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
@@ -19,6 +18,5 @@ def insert(folder: str, insert: str, index: None | str = None):
 
 
 if __name__ == "__main__":
-
     args = params(2, 3, ("path to folder", "tags", "index"))
     insert(*args)

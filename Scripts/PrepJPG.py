@@ -102,6 +102,5 @@ def optimize(path: str, keep: bool):
 
 
 if __name__ == "__main__":
-
     args = params(1, 2, ("path to folder", "keep filename"))
     optimize(*args)

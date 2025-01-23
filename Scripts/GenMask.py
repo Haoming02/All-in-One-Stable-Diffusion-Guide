@@ -5,7 +5,6 @@ import os
 
 def generate(folder: str):
     for file in listdir(folder, (".jpg", ".jpeg", ".png", ".webp")):
-
         if "masklabel" in file:
             continue
 
@@ -16,6 +15,5 @@ def generate(folder: str):
 
 
 if __name__ == "__main__":
-
     args = params(1, 1, ("path to folder",))
     generate(*args)

@@ -3,7 +3,6 @@ from Formatter import format, params, listdir
 
 def append(folder: str, append: str):
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
@@ -17,6 +16,5 @@ def append(folder: str, append: str):
 
 
 if __name__ == "__main__":
-
     args = params(2, 2, ("path to folder", "tag(s)"))
     append(*args)

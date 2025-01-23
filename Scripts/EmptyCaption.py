@@ -10,14 +10,11 @@ def generate(folder: str):
         filename = os.path.splitext(file)[0]
         caption = f"{filename}.txt"
 
-        if os.path.isfile(caption):
-            continue
-
-        with open(caption, "w+", encoding="utf-8") as f:
-            f.write("")
+        if not os.path.isfile(caption):
+            with open(caption, "w+", encoding="utf-8") as f:
+                f.write("")
 
 
 if __name__ == "__main__":
-
     args = params(1, 1, ("path to folder",))
     generate(*args)

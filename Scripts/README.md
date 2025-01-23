@@ -1,5 +1,5 @@
 <h1 align="center">Helper Scripts</h1>
-<p align="center">Some <b>python</b> scripts that ease the process of preparing caption dataset</p>
+<p align="center">Some <b>python</b> scripts that ease the process of preparing dataset</p>
 
 > [!TIP]
 > Remember to use `" "` if your paths or tags contain spaces
@@ -21,6 +21,9 @@
 ### EmptyCaption.py
 - Generate an empty `.txt` file with the same name for all non-text files in a folder
 
+### FlipImage.py
+- Create horizontally-flipped copies of all images in a folder
+
 ### Folder2Name.py
 - Insert the part after the `_` in the folder name to all text files under that folder
 
@@ -33,7 +36,7 @@
 
 ### GenMask.py
 - Generate a grayscale image for all image files in a folder
-    - Useful for masked training
+    - Useful for masked training in `OneTrainer`
 
 ### GrabTriggers.py
 - Generate a string from the `[from:to]`-th of tags from all text files
@@ -53,7 +56,7 @@
 - Minify a `.json` file to reduce its size
 
 ### OptimizeImage.py
-- Optimize `.png` images into `.jpg` to reduce storage size
+- Convert `.png` images into `.jpg` to reduce storage size
 
 ### PrepJPG.py
 - Bucket images in certain fixed aspect ratios

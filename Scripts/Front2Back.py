@@ -3,7 +3,6 @@ from Formatter import format, params, listdir
 
 def reorder(folder: str):
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
@@ -16,6 +15,5 @@ def reorder(folder: str):
 
 
 if __name__ == "__main__":
-
     args = params(1, 1, ("path to folder",))
     reorder(*args)

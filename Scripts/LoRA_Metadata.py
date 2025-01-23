@@ -14,14 +14,14 @@ def read(path: str):
 
     if not config:
         print("\nNo Metadata Detected!")
-        return
+        raise SystemExit
 
     for key in ("ss_tag_frequency", "ss_bucket_info", "ss_dataset_dirs"):
         config.pop(key, None)
 
     preset: dict = {}
-    keys = list(config.keys())
-    for key in keys:
+
+    for key in config.keys():
         preset[key.split("ss_", 1)[-1]] = config[key]
 
     with open(f"{path}.json", "w+", encoding="utf-8") as f:
@@ -29,6 +29,5 @@ def read(path: str):
 
 
 if __name__ == "__main__":
-
     args = params(1, 1, ("path to safetensor",))
     read(*args)

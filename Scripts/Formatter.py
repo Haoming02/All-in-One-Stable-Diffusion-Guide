@@ -8,12 +8,12 @@ def format(string: str) -> list[str]:
 
 def params(min_arg: int, max_arg: int, args: tuple[str]) -> list[str]:
     """Validate and return correct the number of arguments"""
+    assert min_arg <= len(args) <= max_arg
+
     import sys
 
-    parem: list[str] = sys.argv[1:]
-    param_count: int = len(parem)
-
-    assert min_arg <= len(args) <= max_arg
+    params: list[str] = sys.argv[1:]
+    param_count: int = len(params)
 
     if param_count < min_arg:
         usage = '>" "<'.join(args)
@@ -28,7 +28,7 @@ def params(min_arg: int, max_arg: int, args: tuple[str]) -> list[str]:
         print('\n[Error] Use " " to encapsulate your paths/tags!\n')
         raise SystemExit
 
-    return parem + [None] * (max_arg - param_count)
+    return params + [None] * (max_arg - param_count)
 
 
 def listdir(
@@ -42,9 +42,7 @@ def listdir(
         print(f'\n[Error] Path "{path}" is not a folder...\n')
         raise SystemExit
 
-    objs = [os.path.join(path, file) for file in os.listdir(path)]
-    for obj in objs:
-
+    for obj in [os.path.join(path, file) for file in os.listdir(path)]:
         if os.path.isdir(obj):
             if recursive is None:
                 i = input("\nRecursive [y/N]: ")
@@ -65,11 +63,9 @@ def listdir(
 
 
 if __name__ == "__main__":
-
     (folder,) = params(1, 1, ("path to folder",))
 
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             original_line = f.read()
 

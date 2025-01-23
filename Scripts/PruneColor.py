@@ -47,7 +47,7 @@ Optional:
 """
 
 
-PRUNE: tuple[str] = ("hair between eyes",)
+PRUNE: tuple[str] = ("hair between eyes", "short hair", "long hair")
 ALLOWED: tuple[str] = ("one eye closed", "closed eyes")
 
 
@@ -56,7 +56,6 @@ def prune(folder: str):
     UNKNOWN = set()
 
     for file in listdir(folder, ".txt"):
-
         with open(file, "r", encoding="utf-8") as f:
             line = f.read()
 
@@ -100,6 +99,5 @@ def prune(folder: str):
 
 
 if __name__ == "__main__":
-
     args = params(1, 1, ("path to folder",))
     prune(*args)
