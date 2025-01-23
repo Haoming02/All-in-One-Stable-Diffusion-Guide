@@ -1,11 +1,14 @@
 ﻿<h1 align="center">Tips & Tricks</h1>
-<p align="center"><b>by. Haoming</b></p>
+<p align="center">
+<b>by. Haoming</b><br>
+<i>2025 Jan.</i>
+</p>
 
 ## General Knowledge
 > This section will cover some basics on how Stable Diffusion works
 
 ### Quality Prompts
-Due to how the training datasets were captioned, adding some "quality prompts" can usually improve the results drastically. Be sure to read the description of the Checkpoint page, as some of them require specific keywords in order to generate anything remotely good.
+Due to how the training datasets were captioned, adding "quality prompts" often drastically improves the results. Be sure to read the description of the Checkpoint page, as some of them were trained with specific keywords.
 
 - <ins><b>Example</b></ins>
   - for **SD1** & **SDXL**:
@@ -14,8 +17,9 @@ Due to how the training datasets were captioned, adding some "quality prompts" c
   - for **Pony**:
     - add `score_9, score_8_up, score_7_up` to **positive** prompt
     - add `score_4, score_5, score_6` to **negative** prompt
-  - for **Flux**:
-    - *not really needed*
+  - for **Illustrious**:
+    - add `masterpiece, best quality, newest, absurdres` to **positive** prompt
+    - add `worst quality, low quality, lowres, signature` to **negative** prompt
 
 > [!TIP]
 > See [Architecture](../README.md#architecture) if you don't know what the **versions** mean
@@ -41,11 +45,11 @@ You can save custom prompts using the **Styles** feature, and reuse them again i
 When the style name is ticked in the dropdown, the style is applied to the generation automatically; you can also click the `📋` button to load the prompts to the UI.
 
 > [!TIP]
-> Styles are saved in the `styles.csv` file in the installation folder. You can share this file, or add curated styles found online.
+> Styles are saved in the `styles.csv` file in the installation folder. You can share this file, or manually edit it to add curated styles found online.
 
 ### Brackets
-- Surround a prompt in `( )` / `[ ]` to increase / decrease the weight of the prompt respectively
-- You can stack multiple brackets to influence the weight more
+- Surround a prompt in `( )` / `[ ]` to increase / decrease the weight of the prompt
+- You can stack multiple brackets to influence the weights more
   - Brackets stack multiplicatively
 - Alternatively, You can also specify the weight by `(tag:ratio)`
 - <ins><b>Example</b></ins>
@@ -61,21 +65,21 @@ When the style name is ticked in the dropdown, the style is applied to the gener
 ### Prompt Editing
 
 - **Syntax:** `[a:b:r]`
-  - `a` is a string
-  - `b` is a string
+  - `a` is a `string`
+  - `b` is a `string`
   - `r` is a `float` ranging from `0.0` to `1.0`; or an `int` above `1`
 
-The prompt will switch from `a` to `b` based on `r`. When `r` is a `float`, it is the ratio of the total steps; when `r` is an `int`, it is the step at which point the prompt switches *(**eg.** When generating for `20` steps, setting `r` to `0.5` is the same as setting `r` to `10`)*. ~~Actual use case depends on your creativity~~.
+The prompt will switch from `a` to `b` based on `r`. When `r` is a `float`, it is the ratio of the total steps; when `r` is an `int`, it is the step at which point the prompt switches *(**eg.** When generating for `20` steps, setting `r` to `0.5` is the same as setting `r` to `10`)*.
 
 - <ins><b>Example</b></ins>
-  - You can do something like `[arms up:heart hands:0.25]` to "combine poses," generating previously unknown concepts. The result would be different from `arms up, heart hands`, though which one looks better is up to experimentation.
+  - You can do something like `[arms up:heart hands:0.25]` to "combine poses," generating previously unknown concepts. The result would be different from `arms up, heart hands`, though which one actually looks better is pretty much random...
 
 ### Alternating Words
 
 - **Syntax:** `[x|y]`
-  - `x` and `y` are strings
+  - `x` and `y` are `string`
 
-The prompt will keep alternating between `x` and `y` every step. You can also chain more than two prompts for alternation. ~~Actual use case depends on your creativity~~.
+The prompt will keep alternating between `x` and `y` every step. You can also chain more than two prompts for alternation.
 
 - <ins><b>Example</b></ins>
   - You can do something like `[white t-shirt|black bikini]` for some sort of see-through effect
@@ -85,25 +89,19 @@ The prompt will keep alternating between `x` and `y` every step. You can also ch
 - **Syntax:** `BREAK`
   - *(all caps)*
 
-For **SD1** and **SDXL**, if your prompt is too long, it will be split into 75-token chunks, as shown in the token counter. It’s usually better to group the chunks logically. You can write some quality prompts and background, `BREAK`, then the main prompts about your subject, in order to avoid unwanted mixing behavior.
-
-> [!TIP]
-> See [Architecture](../README.md#architecture) if you don't know what the **versions** mean
+For **SD1** and **SDXL**, if your prompt is too long, it will automatically be split into multiple 75-token chunks, as shown in the token counter. However, it’s usually better to manually group the chunks logically. The `BREAK` keyword will force the prompts before and after it into different chunks, thus avoiding unwanted mixing behavior.
 
 > [!NOTE]
-> Token count is not the same as word count
+> Token count is **not** the same as word count
 
 ### Themes
 In the `User interface` section of the **Settings** tab, you can select a different theme from the `Gradio theme` dropdown to change how the Webui looks. You can also find ~~better~~ themes available online, such as the pastel [Catppuccin Theme](https://github.com/Haoming02/catppuccin-theme) or the modern [Lobe Theme](https://github.com/lobehub/sd-webui-lobe-theme).
-
-> [!TIP]
-> You install these themes like [Extensions](../README.md#extensions)
 
 ### Default Values
 After you changed the value of some parameters, such as the `Sampling method`, you can then go to the `Defaults` section of the **Settings** tab, click **View changes** to see the list of modified parameters, then click **Apply** to save them as the new default values. Next time you launch the Webui, those values would be set automatically.
 
 > [!TIP]
-> Defaults are saved in the `ui-config.json` file in the installation folder. You can even disable certain parameters by setting their `visible` to `false`.
+> Defaults are saved in the `ui-config.json` file in the installation folder. You can even hide certain parameters by setting their `visible` to `false`.
 
 ### X/Y/Z Plot
 - [Tutorial for X/Y/Z Plot](./XYZ.md)
@@ -111,7 +109,11 @@ After you changed the value of some parameters, such as the `Sampling method`, y
 ### Restart
 There are technically 4 "levels" of restarting the Webui:
 
-- `"Softest"` - **Refresh (`F5`) the Browser**: This basically just resets the changed parameters
+- `"Softest"` - **Refresh (`F5`) the Browser**: This basically just resets the parameters to their default values
 - `"Soft"` - **Reload UI** *(at the bottom of the page)*: This additionally refreshes the `.js` and `.css` files if you modified them
 - `"Hard"` - **Apply and restart UI** *(in **Extensions** tab)*: This additionally reloads the `.py` files if you modified them
 - `"Full"` - **Close and launch the Webui again:** The cleanest restart, should fix all runtime problems if you encountered any
+
+<hr>
+
+- [List of All Features](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features)

@@ -1,5 +1,8 @@
 <h1 align="center">Installation Guide</h1>
-<p align="center"><b>by. Haoming</b></p>
+<p align="center">
+<b>by. Haoming</b><br>
+<i>2025 Jan.</i>
+</p>
 
 <p align="right"><i>
 for <b>Automatic1111</b> / <b>Forge</b> Webui<br>
@@ -27,7 +30,7 @@ for <b>Automatic1111</b> / <b>Forge</b> Webui<br>
 1. Extract all contents to a folder of choice
     - Do **not** put them under `OneDrive` or other cloud drives
 2. Run `update.bat` first
-3. Modify the commandline args as mentioned below
+3. Modify the commandline args as mentioned below **(optional; recommended)**
 4. Download a **checkpoint** of choice first
     - Otherwise, the Webui will automatically download a ~2 GB checkpoint
     > Refer to [Checkpoint](./README.md#checkpoint) if you don't know what this means
@@ -49,7 +52,7 @@ In the `webui` folder, right-click the `webui-user.bat` file and select `Edit`. 
 
 - **`--medvram-sdxl`:** if you have less than 12 GB VRAM but wish to use **SDXL** checkpoints
 - **`--medvram`:** if you have less than 8 GB VRAM
-- **`--lowvram`:** if you're still getting **CUDA Out of Memory Error**
+- **`--lowvram`:** if you have less than 4 GB VRAM
 
 <hr>
 
